@@ -3,6 +3,8 @@ import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container'
 //The GreetingContainer will be rendered all the time because it is a header
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
+import { AuthRoute } from '../util/route_util'
+
 const App = () => (
   <div>
     <header>
@@ -12,8 +14,8 @@ const App = () => (
       <GreetingContainer />
     </header>
     <Switch>
-      <Route path="/login" component={SessionFormContainer}></Route>
-      <Route path="/signup" component={SessionFormContainer}></Route>
+      <AuthRoute path="/login" component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormContainer} />
     </Switch>
   </div>
 );
