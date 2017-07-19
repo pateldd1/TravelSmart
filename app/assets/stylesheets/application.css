@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+/*.login-signup{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loginbutton{
+  margin: 10px;
+}
+
+.signupbutton{
+  margin: 10px;
+}
+
+.header-link {
+  font-size: 60%;
+}*/

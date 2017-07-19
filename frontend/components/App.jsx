@@ -8,9 +8,11 @@ import { AuthRoute } from '../util/route_util'
 const App = () => (
   <div>
     <header>
-      <Link to="/" className="header-link">
-        <h1>TravelSmart</h1>
-      </Link>
+      <h1>
+        <Link to="/" className="header-link">
+          TravelSmart
+        </Link>
+      </h1>
       <GreetingContainer />
     </header>
     <Switch>
