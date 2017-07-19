@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import ReactDOM from 'react-dom';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     }
     //HandleSubmit must be bound to this since it is a callback
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClickOutside= this.handleClickOutside.bind(this);
   }
 
   //This is very very important and is done basically because when it goes full
@@ -26,6 +27,21 @@ class SessionForm extends React.Component {
     }
   }
 
+  componentDidMount() {
+      document.addEventListener('click', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+      document.removeEventListener('click', this.handleClickOutside);
+  }
+
+  handleClickOutside(event) {
+      const domNode = ReactDOM.findDOMNode(this);
+      console.log(domNode);
+      if ((!domNode || !domNode.contains(event.target))) {
+          this.props.history.push("/");
+      }
+  }
   //Update methods are made to change the state
   //e.currentTarget is the <form> because the form had the event listener
   //installed on it. currentTarget is what we have installed an event listener onto
@@ -87,7 +103,7 @@ class SessionForm extends React.Component {
   }
 
   //OnChange will change the the state on keystroke and will go through update method.
-  render() {
+  modalContent() {
     return (
       <div className="login-form-container">
 
@@ -122,6 +138,30 @@ class SessionForm extends React.Component {
 
         </form>
 
+      </div>
+    );
+  }
+
+  handleClickOutside(e){
+    e.preventDefault();
+    this.props.history.push("/");
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="modal-root" >
+          <div className="modal-parent">
+            <div className="modal-screen">
+              <div className="modal-wrapper">
+                <div className="closeModal"/>
+                <div className="modal-content">
+                  {this.modalContent()}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

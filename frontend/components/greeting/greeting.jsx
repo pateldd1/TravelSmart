@@ -14,12 +14,14 @@ const sessionLinks = () => (
 //currentUser and logout come from container maps
 const personalGreeting = (currentUser, logout) => (
   <hgroup className="header-group">
-    <h2 className="header-name">Hi, {currentUser.username}!</h2>
+    <h2 className="header-name">{currentUser.username}!</h2>
     <button className="SignOutButton" onClick={logout}>Log Out</button>
   </hgroup>
 );
 
 //This will conditionally render SignIn/Login vs SignOut
+//We know whether you are logged in or not and then we decide what to show you on your header bar.
+
 const Greeting = ({ currentUser, logout}) => (
   (Object.keys(currentUser).length === 0) ? sessionLinks() : personalGreeting(currentUser, logout)
 );
