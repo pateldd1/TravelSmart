@@ -7,11 +7,11 @@ class SessionForm extends React.Component {
     //We set the state here because it will change as we type stuff into the form
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      visible: true
     }
     //HandleSubmit must be bound to this since it is a callback
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClickOutside= this.handleClickOutside.bind(this);
   }
 
   //This is very very important and is done basically because when it goes full
@@ -28,18 +28,24 @@ class SessionForm extends React.Component {
   }
 
   componentDidMount() {
-      document.addEventListener('click', this.handleClickOutside);
+      document.addEventListener('click', this.handleout.bind(this), true);
   }
 
   componentWillUnmount() {
-      document.removeEventListener('click', this.handleClickOutside);
+      document.removeEventListener('click', this.handleout.bind(this), true);
   }
 
-  handleClickOutside(event) {
+  handleout(event) {
+      // event.preventDefault();
       const domNode = ReactDOM.findDOMNode(this);
       console.log(domNode);
       if ((!domNode || !domNode.contains(event.target))) {
-          this.props.history.push("/");
+        // this.setState({
+        //   username: "",
+        //   password: "",
+        //   visible: false
+        // });
+        this.props.history.push("/")
       }
   }
   //Update methods are made to change the state
@@ -148,23 +154,27 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <div className="modal-root" >
-          <div className="modal-parent">
-            <div className="modal-screen">
-              <div className="modal-wrapper">
-                <div className="closeModal"/>
-                <div className="modal-content">
-                  {this.modalContent()}
+    if(this.state.visible){
+      return (
+        <div>
+          <div className="modal-root" >
+            <div className="modal-parent">
+              <div className="modal-screen">
+                <div className="modal-wrapper">
+                  <div className="closeModal"/>
+                  <div className="modal-content">
+                    {this.modalContent()}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
+  else{
+    return null;
+  }}
 }
 
 export default withRouter(SessionForm);
