@@ -13,7 +13,7 @@ to stay for a limited amount of time. It will also let people find the exact pla
  New account creation, login, and guest/demo login
  Spots
  Spots Search (by location & availability) & Google Maps on searchable
-  -- don't let users book on unavailable dates
+  -- don't let users book on unavailable date
  Reviews
 
 View Wireframes -- The follows need to be links
