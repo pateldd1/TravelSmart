@@ -21,7 +21,7 @@ const personalGreeting = (currentUser, logout) => (
 
 //This will conditionally render SignIn/Login vs SignOut
 const Greeting = ({ currentUser, logout}) => (
-  currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
+  (Object.keys(currentUser).length === 0) ? sessionLinks() : personalGreeting(currentUser, logout)
 );
 
 export default Greeting;

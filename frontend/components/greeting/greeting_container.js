@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 
-const mapStateToProps = ({session}) => ({
-  currentUser: session.currentUser
+//could I also just decronstruct and write currentUser instead and not currentUser: currentUser
+const mapStateToProps = ({currentUser}) => ({
+  currentUser: currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

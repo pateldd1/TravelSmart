@@ -5,10 +5,10 @@ import SessionForm from './session_form.jsx';
 
 //Deconstructing session from the store
 //We grab the errors from session.errors
-const mapStateToProps = ({ session }) => {
+const mapStateToProps = ({ currentUser, errors }) => {
   return {
-    loggedIn: Boolean(session.currentUser),
-    errors: session.errors
+    loggedIn: (Object.keys(currentUser).length === 0) ? false : true,
+    errors
   }
 }
 

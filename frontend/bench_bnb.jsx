@@ -10,13 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let store;
   if ( window.currentUser )
   {
-    const preloadedState = {session: {currentUser: window.currentUser}};
+    const preloadedState = {currentUser: window.currentUser};
     store = configureStore(preloadedState);
     delete window.currentUser;
   }
   else {
     store = configureStore();
   }
+  //These are for testing. Remember to remove these after producing
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.signup = signup;
