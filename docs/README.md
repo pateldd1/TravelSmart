@@ -7,7 +7,7 @@ Trello link: COMING SOON
 Minimum Viable Product
 
 AirBNB Clone(haven't thought of name yet) is a clone of AirBNB made using Ruby on Rails with a React/Redux front-end. It allows people to book amazing places around the world
-to stay for a limited amount of time. It will also let people find the exact place they want to stay by letting them search by of course, the location of the home, their price range, how many bedrooms, bathrooms, and other amenities they prefer.
+to stay for a limited amount of time. It will also let people find the exact place they want to stay by letting them search by of course, the location of the home, their price range, how many bedrooms, bathrooms, and other amenities they prefers
 
  Hosting on Heroku
  New account creation, login, and guest/demo login
