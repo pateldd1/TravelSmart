@@ -38,7 +38,6 @@ class SessionForm extends React.Component {
   handleout(event) {
       // event.preventDefault();
       const domNode = ReactDOM.findDOMNode(this);
-      console.log(domNode);
       if ((!domNode || !domNode.contains(event.target))) {
         // this.setState({
         //   username: "",

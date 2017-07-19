@@ -1,7 +1,7 @@
 {
-  "name": "BenchBnb",
+  "name": "TravelSmart",
   "version": "1.0.0",
-  "description": "air bnb for benches!",
+  "description": "Travel Smart with TravelSmart",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/appacademy/BenchBnb.git"
+    "url": "git+https://github.com/pateldd1/TravelSmart.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/appacademy/BenchBnb/issues"
+    "url": "https://github.com/pateldd1/TravelSmart/issues"
   },
-  "homepage": "https://github.com/appacademy/BenchBnb#readme",
+  "homepage": "https://github.com/pateldd1/TravelSmart#readme",
   "dependencies": {
     "babel-core": "^6.2.0",
     "babel-loader": "^6.2.0",
@@ -40,5 +40,12 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.1.0",
     "webpack": "^2.3.3"
+  },
+  "engines": {
+    "node": "6.10.1",
+    "npm": "3.10.10"
+  },
+  "scripts": {
+    "postinstall": "webpack"
   }
 }
