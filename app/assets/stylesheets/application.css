@@ -31,7 +31,13 @@
   font-size: 60%;
 }*/
 
-#map-container{
+.google-map {
   height: 500px;
   width: 500px;
+}
+
+.temp-map {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }

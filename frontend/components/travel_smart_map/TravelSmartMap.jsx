@@ -11,12 +11,13 @@ class TravelSmartMap extends React.Component {
     };
 
     // wrap the mapDOMNode in a Google Map
+    console.log(google.maps);
     this.map = new google.maps.Map(this.mapNode, mapOptions);
   }
 
   render() {
     return (
-      <div key="map-container" ref={ map => this.mapNode = map }></div>
+      <div className="google-map" ref={ map => this.mapNode = map }></div>
     )
   }
 }

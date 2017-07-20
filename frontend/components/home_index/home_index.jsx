@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
+import TravelSmartMap from '../travel_smart_map/TravelSmartMap';
 
 class HomeIndex extends React.Component {
   constructor(props) {
@@ -48,11 +49,14 @@ class HomeIndex extends React.Component {
       )
     })
     return (
-      <div className="home-card-slider">
-        <div className="cards">
-        {selectedHomes}
+      <div className="temp-map">
+        <div className="home-card-slider">
+          <div className="cards">
+          {selectedHomes}
+          </div>
         </div>
-      </div>
+        <TravelSmartMap />
+    </div>
     )
   }
 }
