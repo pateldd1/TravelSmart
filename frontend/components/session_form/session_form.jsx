@@ -8,7 +8,6 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      visible: true
     }
     //HandleSubmit must be bound to this since it is a callback
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,22 +27,15 @@ class SessionForm extends React.Component {
   }
 
   componentDidMount() {
-      document.addEventListener('click', this.handleout.bind(this), true);
+      document.addEventListener('click', this.handleOutClick.bind(this), true);
   }
 
   componentWillUnmount() {
-      document.removeEventListener('click', this.handleout.bind(this), true);
+      document.removeEventListener('click', this.handleOutClick.bind(this), true);
   }
 
-  handleout(event) {
-      // event.preventDefault();
-      const domNode = ReactDOM.findDOMNode(this);
-      if ((!domNode || !domNode.contains(event.target))) {
-        // this.setState({
-        //   username: "",
-        //   password: "",
-        //   visible: false
-        // });
+  handleOutClick(event) {
+      if (event.target.className === 'closeModal') {
         this.props.history.push("/")
       }
   }
@@ -118,6 +110,7 @@ class SessionForm extends React.Component {
             <br/>
             <div className="registration">
               <input type="text"
+                autoFocus="autofocus"
                 value={this.state.username}
                 placeholder=" username"
                 onChange={this.update('username')}
@@ -147,33 +140,24 @@ class SessionForm extends React.Component {
     );
   }
 
-  handleClickOutside(e){
-    e.preventDefault();
-    this.props.history.push("/");
-  }
-
   render() {
-    if(this.state.visible){
-      return (
-        <div>
-          <div className="modal-root" >
-            <div className="modal-parent">
-              <div className="modal-screen">
-                <div className="modal-wrapper">
-                  <div className="closeModal"/>
-                  <div className="modal-content">
-                    {this.modalContent()}
-                  </div>
+    return (
+      <div>
+        <div className="modal-root" >
+          <div className="modal-parent">
+            <div className="modal-screen">
+              <div className="modal-wrapper">
+                <div className="closeModal"/>
+                <div className="modal-content">
+                  {this.modalContent()}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      );
-    }
-  else{
-    return null;
-  }}
+      </div>
+    );
+  }
 }
 
 export default withRouter(SessionForm);
