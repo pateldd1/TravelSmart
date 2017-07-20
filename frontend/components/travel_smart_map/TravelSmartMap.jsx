@@ -16,7 +16,7 @@ class TravelSmartMap extends React.Component {
 
   render() {
     return (
-      <div ref={ map => this.mapNode = map } />
+      <div key="map-container" ref={ map => this.mapNode = map }></div>
     )
   }
 }

@@ -30,3 +30,8 @@
 .header-link {
   font-size: 60%;
 }*/
+
+#map-container{
+  height: 500px;
+  width: 500px;
+}
