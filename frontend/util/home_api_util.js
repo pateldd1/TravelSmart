@@ -1,4 +1,4 @@
-export const requesHomes = data => (
+export const requestHomes = data => (
   $.ajax({
     method: 'GET',
     url: 'api/homes',
