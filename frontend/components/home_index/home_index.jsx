@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
-import TravelSmartMap from '../travel_smart_map/TravelSmartMap';
 
 class HomeIndex extends React.Component {
   constructor(props) {
@@ -8,9 +7,9 @@ class HomeIndex extends React.Component {
   }
 
   //This is added just for testing
-  componentDidMount(){
-    this.props.requestHomes(null);
-  }
+  // componentDidMount(){
+  //   this.props.requestHomes(null);
+  // }
 
   travelSmart(home) {
     return (
@@ -55,7 +54,6 @@ class HomeIndex extends React.Component {
           {selectedHomes}
           </div>
         </div>
-        <TravelSmartMap />
     </div>
     )
   }

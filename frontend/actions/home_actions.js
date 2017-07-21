@@ -26,6 +26,7 @@ export const receivedHomes = homes => ({
 // );
 
 //THERE SHOULD BE FILTERS PASSED IN BECAUSE WE WILL USE FILTER TO SELECT CERTAIN THINGS
+
 export const requestHomes = (filters) => dispatch => (
   APIUtil.requestHomes(filters).then(homes => (
     dispatch(receivedHomes(homes))

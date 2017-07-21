@@ -6,15 +6,12 @@ class Api::HomesController < ApplicationController
       # if (params[:minHousing] && params[:maxHousing])
       #   @homes = @homes.where(max_guests: housing_range)
       # end
-      # if (params[:minPrice] && params[:maxPrice])
-      #   @homes = @homes.where(price: price_range)
-      # end
-
-      #I DID THIS FOR TESTING
       @homes = Home.all
-    #
+      if (params[:minPrice] && params[:maxPrice])
+        @homes = @homes.where(price: price_range)
+      end
     # else
-    #   render json: 'There are no homes'
+      # render json: 'There are no homes'
     # end
   end
 

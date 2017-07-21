@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectAll } from '../../reducers/selectors';
 import { updateFilter } from '../../actions/filter_actions.js';
-import HomeIndex from '../home_index/home_index';
+import Search from './search';
 import { requestHomes } from '../../actions/home_actions';
 
 // { homes, filters } needs to be this later
@@ -19,7 +19,9 @@ const mapStateToProps = ({ homes, filters }) => {
 //I AM USING REQUEST ALL HOMES HERE FOR TESTING
 const mapDispatchToProps = dispatch => {
   return {
-    requestHomes: (filters) => dispatch(requestHomes(filters))
+  // requestHomes: (filters) => dispatch(requestHomes(filters)) ---- Instead of doing this here like you did
+  //in home-index-container, dispatch this action in filter_actions after the filters have changed.
+
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
   };
 };
@@ -28,6 +30,6 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeIndex);
+)(Search);
 
 //should also have mapDispatchToProps
