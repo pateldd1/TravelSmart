@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: homes
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  description :string
+#  lat         :float
+#  long        :float
+#  price       :integer
+#  host_id     :integer          not null
+#  address     :string
+#  start_date  :date
+#  end_date    :date
+#  bathrooms   :integer
+#  bedrooms    :integer
+#  image_url   :string
+#  beds        :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Home < ApplicationRecord
   validates :lat, :long, :price, :host, :title, :description, :address,
   :start_date, :end_date, :bathrooms, :bedrooms, :beds, :image_url, presence: true

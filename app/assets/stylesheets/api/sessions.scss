@@ -97,13 +97,28 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
   align-items: flex-start;
 }
 
+.guest-login {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 30px 0;
+}
+
+.guest-text:hover {
+  text-decoration: underline;
+}
+
+.guest-text {
+  color: blue;
+  cursor: pointer;
+}
+
 .btn-text {
   font-weight: bold;
   color: white;
 }
 
 .redirect-to-signup,{
-  margin-left: 10px;
+  margin: 0 0 0 10px;
   color: blue;
 }
 

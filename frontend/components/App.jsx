@@ -11,7 +11,7 @@ const App = () => (
     <header>
       <h1>
         <Link to="/" className="header-link">
-          TravelSmart
+          <img className="travel-icon" src="http://www.freeiconspng.com/uploads/travel-icon-png-25.jpg"></img>
         </Link>
       </h1>
       <GreetingContainer />

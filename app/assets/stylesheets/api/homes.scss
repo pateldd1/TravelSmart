@@ -10,8 +10,11 @@
   text-decoration: none;
 }
 
+.filter-and-homes{
+  padding-top: 10px;
+}
+
 .index-container {
-  padding-top: 90px;
   margin-left: 16px;
   display: flex;
 }
@@ -21,19 +24,19 @@
   z-index: 1;
   padding-top: 15px;
   position: relative;
-  overflow: hidden;
+
   overflow-y: hidden;
-  white-space: normal;
+
   margin-bottom: 0px;
   padding: 0px;
   overflow: visible;
   white-space: normal;
-  margin-top: 0px;
+  margin-top: 8px;
 }
 
 .home-card-container {
-  width: 33.333333% !important;
-  display: inline-block !important;
+  width: 33.333333%;
+  display: inline-block;
   vertical-align: top;
   white-space: normal;
   padding: 8px 0 12px 0;
@@ -123,13 +126,14 @@
 }
 
 .filter-bar-index {
+  flex-direction: column;
+  display: flex;
   background: #ffffff;
   height: 43px;
   border-bottom: 0px;
   width: 64%;
   padding: 0px;
   z-index: 4;
-  position: fixed;
   padding-top: 16px;
   // border-bottom: 1px solid #e4e4e4;
 }
@@ -181,7 +185,7 @@
 }
 
 .cards {
-  margin-top: 80px;
+  margin-top: 19px;
   // width: inherit;
   // position: relative;
   // overflow-y: scroll;

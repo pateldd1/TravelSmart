@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     }
     //HandleSubmit must be bound to this since it is a callback
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   //This is very very important and is done basically because when it goes full
@@ -56,6 +57,11 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.props.processForm({user: this.state})
   }
+
+  guestLogin(e){
+    this.props.login({user: {username: "Guest", password: "123456"}})
+  }
+
   //Depending on the formtype, we are going to show signup or log in instead
   navLink() {
     if (this.props.formType === 'login'){
@@ -74,6 +80,14 @@ class SessionForm extends React.Component {
         </div>
       )
     }
+  }
+
+  guestUser(){
+    return (
+      <div className="guest-login">
+        <p className="guest-text" onClick={this.guestLogin}>Guest</p>
+      </div>
+    )
   }
 
   submitButton(){
@@ -131,6 +145,7 @@ class SessionForm extends React.Component {
               {this.submitButton()}
             </span>
             {this.navLink()}
+            {this.guestUser()}
             {this.renderErrors()}
           </div>
 

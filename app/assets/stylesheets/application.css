@@ -31,13 +31,23 @@
   font-size: 60%;
 }*/
 
-.google-map {
+/*.google-map {
   height: 500px;
   width: 500px;
-}
+}*/
 
-.temp-map {
+/*.temp-map {
   display: flex;
   justify-content: center;
   align-content: center;
+}*/
+
+.travel-icon{
+  width: 5%;
+  height: 5%;
+  margin: 0 10px;
+}
+
+.header-link{
+  cursor: initial;
 }

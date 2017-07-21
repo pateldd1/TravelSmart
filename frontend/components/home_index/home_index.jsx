@@ -48,13 +48,11 @@ class HomeIndex extends React.Component {
       )
     })
     return (
-      <div className="temp-map">
-        <div className="home-card-slider">
-          <div className="cards">
-          {selectedHomes}
-          </div>
+      <div className="home-card-slider">
+        <div className="cards">
+        {selectedHomes}
         </div>
-    </div>
+      </div>
     )
   }
 }

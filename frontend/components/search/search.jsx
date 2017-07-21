@@ -36,10 +36,12 @@ class Search extends React.Component {
 
   render() {
     return (
-      <section className='index-container'>
-      {this.filterBar()}
-      <HomeIndex homes={this.props.homes} />
-      </section>
+      <div className="filters-and-homes">
+        {this.filterBar()}
+        <section className='index-container'>
+        <HomeIndex homes={this.props.homes} />
+        </section>
+      </div>
     );
   }
 };

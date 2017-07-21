@@ -31,11 +31,28 @@ class PricingForm extends React.Component {
   constructor(props){
     super(props);
     this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.registerCurrentRange = this.registerCurrentRange.bind(this);
   }
 
   handlePriceChange(e) {
-    this.props.updateFilter('minPrice',e[0]);
-    this.props.updateFilter('maxPrice',e[1]);
+    if (e[0] != this.range[0])
+    {
+      console.log('changed min');
+      this.props.updateFilter('minPrice',e[0]);
+    }
+    else if(e[1] != this.range[1])
+    {
+      console.log('changed max');
+      this.props.updateFilter('maxPrice',e[1])
+    }
+    else
+    {
+      return;
+    };
+  }
+
+  registerCurrentRange(e){
+    this.range = e.slice(0);
   }
 
   render(){
@@ -49,10 +66,11 @@ class PricingForm extends React.Component {
             <ReactSlider withBars
               value={[this.props.minPrice, this.props.maxPrice]}
               min={10}
-              max={1000000}
-              step={1000}
+              max={4010}
+              step={50}
               minDistance={2}
-              onChange={this.handlePriceChange}/>
+              onBeforeChange={this.registerCurrentRange}
+              onAfterChange={this.handlePriceChange}/>
             <div className="min-max-container">
               <p>${this.props.minPrice}</p>
               <p>${this.props.maxPrice}+</p>
