@@ -7,13 +7,11 @@
     "test": "test"
   },
   "engines": {
-    "node": "4.2.1",
-    "npm": "2.14.7"
+    "node": "6.10.1",
+    "npm": "3.10.10"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "webpack",
-    "webpack": "webpack --watch"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -36,16 +34,10 @@
     "react-dom": "^15.0.0",
     "react-redux": "^4.4.5",
     "react-router-dom": "^4.1.1",
+    "react-slider": "^0.8.0",
     "redux": "^3.5.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.1.0",
     "webpack": "^2.3.3"
-  },
-  "engines": {
-    "node": "6.10.1",
-    "npm": "3.10.10"
-  },
-  "scripts": {
-    "postinstall": "webpack"
   }
 }

@@ -11,7 +11,7 @@ const sessionLinks = () => (
     <li><Link className="signupbutton" to="/signup">Sign up!</Link></li>
   </nav>
 );
-//currentUser and logout come from container maps
+//currentUser and logout come from container map
 const personalGreeting = (currentUser, logout) => (
   <hgroup className="header-group">
     <h2 className="header-name">{currentUser.username}</h2>
