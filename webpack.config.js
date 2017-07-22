@@ -17,13 +17,7 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          "presets": ["react",
-            ["env", {
-              "targets": {
-                "browsers": ["last 2 versions", "safari >= 7"]
-              }
-            }]
-          ]
+          "presets": ["react","es2015"]
         }
       }
     ]
