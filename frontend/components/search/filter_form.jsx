@@ -13,7 +13,7 @@ import ReactSlider from 'react-slider'
 // export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
 //   <div className="filter-col">
 //     <label>Min. Price ($):</label>
-//     <input className="filter-container"
+//     <input className="filter-container
 //       type="number"
 //       value={minPrice ? minPrice : 0}
 //       onChange={handleChange('minPrice', updateFilter)}
