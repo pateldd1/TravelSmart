@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
-
+import { sortBy } from 'lodash'
 class HomeIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -40,7 +40,8 @@ class HomeIndex extends React.Component {
 
   render() {
     const { homes } = this.props;
-    const selectedHomes = homes.map((home, idx) => {
+    const sortedHomes = _.sortBy(homes, [function(home){ return home.price }]);
+    const selectedHomes = sortedHomes.map((home, idx) => {
       return (
         <div className="home-card-container" key={idx}>
           {this.travelSmart(home)}
@@ -49,8 +50,9 @@ class HomeIndex extends React.Component {
     })
     return (
       <div className="home-card-slider">
+        <p className="price-button">Price Sort</p>
         <div className="cards">
-        {selectedHomes}
+          {selectedHomes}
         </div>
       </div>
     )

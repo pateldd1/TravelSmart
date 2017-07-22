@@ -35,14 +35,12 @@ class PricingForm extends React.Component {
   }
 
   handlePriceChange(e) {
-    if (e[0] != this.range[0])
+    if (e[0] != this.props.minPrice)
     {
-      console.log('changed min');
       this.props.updateFilter('minPrice',e[0]);
     }
-    else if(e[1] != this.range[1])
+    else if(e[1] != this.props.maxPrice)
     {
-      console.log('changed max');
       this.props.updateFilter('maxPrice',e[1])
     }
     else
@@ -60,16 +58,15 @@ class PricingForm extends React.Component {
       <div className="price-filter-container">
         <div className="price-filter">
           <div className="left-price-filter">
-            <label>Prices</label>
+            <label>Price Range:  </label>
           </div>
           <div className="right-price-filter">
             <ReactSlider withBars
               value={[this.props.minPrice, this.props.maxPrice]}
               min={10}
               max={4010}
-              step={50}
+              step={1}
               minDistance={2}
-              onBeforeChange={this.registerCurrentRange}
               onAfterChange={this.handlePriceChange}/>
             <div className="min-max-container">
               <p>${this.props.minPrice}</p>

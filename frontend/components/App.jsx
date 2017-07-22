@@ -9,12 +9,12 @@ import SearchContainer from './search/search_container';
 const App = () => (
   <div>
     <header>
-      <h1>
+      <nav>
         <Link to="/" className="header-link">
-          <img className="travel-icon" src="http://www.freeiconspng.com/uploads/travel-icon-png-25.jpg"></img>
+          <img className="travel-icon" src="https://image.flaticon.com/icons/svg/201/201623.svg"></img>
         </Link>
-      </h1>
-      <GreetingContainer />
+        <GreetingContainer />
+      </nav>
     </header>
 
     <SearchContainer />

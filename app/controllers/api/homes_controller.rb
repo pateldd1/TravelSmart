@@ -1,17 +1,24 @@
 class Api::HomesController < ApplicationController
   def index
     # if Home.all.length != 0
-      # bounds = params[:bounds]
-      # @homes = bounds ? Home.in_bounds(bounds) : Home.all
-      # if (params[:minHousing] && params[:maxHousing])
-      #   @homes = @homes.where(max_guests: housing_range)
-      # end
-      @homes = Home.all
+    #   bounds = params[:bounds]
+    #   @homes = bounds ? Home.in_bounds(bounds) : Home.all
+    #   if (params[:minHousing] && params[:maxHousing])
+    #     @homes = @homes.where(max_guests: housing_range)
+    #   end
+      # @homes = Home.all
+
       if (params[:minPrice] && params[:maxPrice])
-        @homes = @homes.where(price: price_range)
+        @homes = Home.where(price: price_range)
+      else
+        @homes = Home.all
       end
+
+      # if @homes.length === 0
+      #   render json: 'No homes fit the parameters'
+      # end
     # else
-      # render json: 'There are no homes'
+    #   render json: 'There are no homes'
     # end
   end
 

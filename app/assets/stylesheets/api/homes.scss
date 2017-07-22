@@ -31,7 +31,8 @@
   padding: 0px;
   overflow: visible;
   white-space: normal;
-  margin-top: 8px;
+  margin-top: 1px;
+  margin-left: -5px;
 }
 
 .home-card-container {
@@ -185,8 +186,22 @@
 }
 
 .cards {
-  margin-top: 19px;
+  // margin-top: 19px;
+  margin: -13px 0 0px 0px;
   // width: inherit;
   // position: relative;
   // overflow-y: scroll;
+}
+
+.filter-opts-nav {
+  font-size: 14px;
+  margin: 6px 0px 0px 4px;
+}
+
+.price-button {
+  margin: 36px 0px 0 0;
+}
+
+.price-button:hover {
+  text-decoration: underline;
 }

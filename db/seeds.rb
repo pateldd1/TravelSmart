@@ -72,7 +72,7 @@ homes5 = Home.create(
   description: "Great House",
   lat: 1.2,
   long: 3.3,
-  price: 8000,
+  price: 2200,
   host_id: 1,
   address: "best lane in the world",
   start_date: Date.new,
@@ -87,7 +87,7 @@ homes6 = Home.create(
   description: "Great House",
   lat: 1.2,
   long: 3.3,
-  price: 6000,
+  price: 2950,
   host_id: 1,
   address: "best lane in the world",
   start_date: Date.new,
@@ -162,7 +162,7 @@ homes11 = Home.create(
   description: "Great House",
   lat: 1.2,
   long: 3.3,
-  price: 5400,
+  price: 450,
   host_id: 1,
   address: "best lane in the world",
   start_date: Date.new,
@@ -185,6 +185,187 @@ homes12 = Home.create(
   bathrooms: 3,
   bedrooms: 7,
   image_url: "http://beijing.lps-china.com/wp-content/uploads/sites/3/2017/04/18.jpg",
+  beds: 3
+)
+
+homes13 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 1300,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://www.thepropertyaddict.com/wp-content/uploads/2015/11/imagereader1.jpg",
+  beds: 3
+)
+homes14 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 1500,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://images.adsttc.com/media/images/55e8/975c/46fe/9f6f/6100/0097/slideshow/main-image-89.jpg?1441306452",
+  beds: 3
+)
+homes15 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 1650,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://mle.a-cdn.net/thumbs/520x390/04/1/properties/Property-a12a00000000022400015846f6af-35924641.jpg",
+  beds: 3
+)
+homes16 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 1550,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_80/2795-20/teresina-apartments-swimming-pool.jpg",
+  beds: 3
+)
+homes17 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 2770,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_80/4141-28/urbana-apartments-exterior.jpg",
+  beds: 3
+)
+homes18 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 3610,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://cdn11.g5search.com/assets/275073/large-blacksburg-va-apartments-at-night.jpg?1404255738",
+  beds: 3
+)
+homes19 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 2900,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://www.bootcampuaustin.com/file/2016/09/have_you_taken_a_look_at_any_oak_and_co_condos.jpg",
+  beds: 3
+)
+homes20 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 150,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://austin.towers.net/wp-content/uploads/sites/19/360-condos-360-nueces-st-austin-texas-78701-09-1024x768.jpg",
+  beds: 3
+)
+homes21 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 350,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://l.b5z.net/i/u/10157169/i/Condo%20Developments/Westlake%20Condos/Lenox%20Greens/Lenox_Greens_Westlake_Ohio_Condos_for_Sale_Realtor_ezr.jpg",
+  beds: 3
+)
+homes22 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 200,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "https://www.taunyafagan.com/wp/wp-content/uploads/2016/09/The-Village-Bozeman-Condos-and-Townhomes-710x407.jpg",
+  beds: 3
+)
+homes23 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 100,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "http://www.bouma.com/site_data/bouma/condo_pics/pic_344814.650.jpg",
+  beds: 3
+)
+homes24 = Home.create(
+  title: "What a great Place",
+  description: "Great House",
+  lat: 1.2,
+  long: 3.3,
+  price: 150,
+  host_id: 1,
+  address: "best lane in the world",
+  start_date: Date.new,
+  end_date: Date.new,
+  bathrooms: 3,
+  bedrooms: 7,
+  image_url: "https://i.ytimg.com/vi/QsqKH7-hqJA/maxresdefault.jpg",
   beds: 3
 )
 

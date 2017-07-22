@@ -34,6 +34,7 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
 
 .SignOutButton {
   font-size: inherit;
+  margin: 0 16px 0 0;
 }
 
 .login-form-box {
@@ -135,4 +136,8 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
 
 .signup-login-errors{
   text-align: center;
+}
+
+.error {
+  color: red;
 }

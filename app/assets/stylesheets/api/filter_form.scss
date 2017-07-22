@@ -9,11 +9,11 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 0 15px 0;
 
     .left-price-filter {
-      width: 17%;
+      width: 80px;
 
       display: flex;
       align-items: center;
@@ -24,7 +24,7 @@
     }
 
     .right-price-filter {
-      width: 70%;
+      width: 60%;
 
       display: flex;
       flex-direction: column;

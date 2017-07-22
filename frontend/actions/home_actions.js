@@ -26,11 +26,12 @@ export const receivedHomes = homes => ({
 // );
 
 //THERE SHOULD BE FILTERS PASSED IN BECAUSE WE WILL USE FILTER TO SELECT CERTAIN THINGS
+//Left some empty space here in case you want to throw a debugger in
 
 export const requestHomes = (filters) => dispatch => (
-  APIUtil.requestHomes(filters).then(homes => (
-    dispatch(receivedHomes(homes))
-  ))
+  APIUtil.requestHomes(filters).then(homes => {
+    return dispatch(receivedHomes(homes))
+  })
 );
 
 // export const requestHome = id => dispatch => (

@@ -6,7 +6,7 @@ const defaultFilters = Object.freeze({
   bounds: {},
   // minHousing: 1,
   // maxHousing: 12,
-  minPrice: 0,
+  minPrice: 10,
   maxPrice: 4010,
 });
 //Min price and maxprice is only gonna change one at a time because of a slider
