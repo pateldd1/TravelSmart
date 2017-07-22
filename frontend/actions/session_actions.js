@@ -19,7 +19,6 @@ export const signup = user => dispatch => (
     dispatch(receiveCurrentUser(user));
     dispatch(clearErrors());
   }, err => {
-    console.log(err);
     dispatch(receiveErrors(err.responseJSON));
   })
 );
