@@ -1,26 +1,24 @@
 class Api::HomesController < ApplicationController
   def index
-    # if Home.all.length != 0
-    #   bounds = params[:bounds]
-    #   @homes = bounds ? Home.in_bounds(bounds) : Home.all
-    #   if (params[:minHousing] && params[:maxHousing])
-    #     @homes = @homes.where(max_guests: housing_range)
-    #   end
-      # @homes = Home.all
+    if Home.all.length != 0
+      bounds = params[:bounds]
+      @homes = bounds ? Home.in_bounds(bounds) : Home.all
+                                                            #   if (params[:minHousing] && params[:maxHousing])
+                                                            #     @homes = @homes.where(max_guests: housing_range)
+                                                            #   end
+                                                            # @homes = Home.all
 
       if (params[:minPrice] && params[:maxPrice])
         @homes = Home.where(price: price_range)
-      else
-        @homes = Home.all
       end
 
-      # if @homes.length === 0
-      #   render json: 'No homes fit the parameters'
-      # end
-    # else
-    #   render json: 'There are no homes'
-    # end
+                                                            # if @homes.length === 0
+                                                            #   render json: 'No homes fit the parameters'
+                                                            # end
+  else
+    render json: 'There are no homes'
   end
+end
 
   #following is important for giving me all of current user's homes
 
@@ -77,8 +75,8 @@ class Api::HomesController < ApplicationController
   #All of this will come in from the AJAX request and the data it sends through
   def home_params
     params.require(:home).permit(
-      :lat, :long, :price, :host,
-      :image_url, :title, :description,
+      :lat, :lng, :price, :host,
+      :title, :description,
       :address, :start_date, :end_date, :bathrooms,
       :beds, :bedrooms, :bounds
     )

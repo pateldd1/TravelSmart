@@ -12,7 +12,6 @@ class CreateHomes < ActiveRecord::Migration[5.0]
       t.date :end_date
       t.integer :bathrooms
       t.integer :bedrooms
-      t.string :image_url
       t.integer :beds
       t.timestamps
     end

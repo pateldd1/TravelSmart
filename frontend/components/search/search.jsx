@@ -1,5 +1,5 @@
 import React from 'react';
-// import TravelSmartMap from '../travel_smart_map/TravelSmartMap';
+import TravelSmartMap from '../travel_smart_map/TravelSmartMap';
 import HomeIndex from '../home_index/home_index';
 // import { HousingForm, PricingForm } from './filter_form';
 import PricingForm from './filter_form';
@@ -37,6 +37,7 @@ class Search extends React.Component {
   render() {
     return (
       <div className="filters-and-homes">
+        <TravelSmartMap homes={this.props.homes} updateFilter={this.props.updateFilter}  />
         {this.filterBar()}
         <section className='index-container'>
         <HomeIndex homes={this.props.homes} />

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720005908) do
+ActiveRecord::Schema.define(version: 20170723071446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,16 +21,19 @@ ActiveRecord::Schema.define(version: 20170720005908) do
     t.float    "lat"
     t.float    "long"
     t.integer  "price"
-    t.integer  "host_id",     null: false
+    t.integer  "host_id",            null: false
     t.string   "address"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "bathrooms"
     t.integer  "bedrooms"
-    t.string   "image_url"
     t.integer  "beds"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["bathrooms"], name: "index_homes_on_bathrooms", using: :btree
     t.index ["bedrooms"], name: "index_homes_on_bedrooms", using: :btree
     t.index ["beds"], name: "index_homes_on_beds", using: :btree

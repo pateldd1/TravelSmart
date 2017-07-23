@@ -9,7 +9,7 @@ const getCoordsObj = latLng => ({
 });
 // set the map to show NY
 const mapOptions = {
-  center: { lat: 40.7128, lng: -74.0059 }, // this is NY
+  center: { lat: 37.773972, lng: -122.431297 }, // SF coordinates
   zoom: 12,
   scrollwheel: false, // turn off scroll wheel
   styles: [
@@ -17,7 +17,7 @@ const mapOptions = {
   ]
 };
 
-class HomeMap extends React.Component {
+class TravelSmartMap extends React.Component {
 
   componentDidMount() {
     const map = this.refs.map;
@@ -25,7 +25,7 @@ class HomeMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
     if (this.props.singleHome) {
-      this.props.fetchHome(this.props.homeid);
+      this.props.requestHome(this.props.homeid);
     } else {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.homes);
@@ -34,7 +34,9 @@ class HomeMap extends React.Component {
 
   registerListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
-      const { north, south, east, west } = this.map.getBounds().toJSON();
+      console.log("here");
+      const { north, south, east, west } = this.map.getBounds().toJSON
+      console.log(this.map);
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west } };
@@ -42,6 +44,7 @@ class HomeMap extends React.Component {
     });
     google.maps.event.addListener(this.map, 'click', (event) => {
       const coords = getCoordsObj(event.latLng);
+      console.log(coords);
       this.handleClick(coords);
     });
   }
@@ -61,6 +64,7 @@ class HomeMap extends React.Component {
   }
 
   handleClick(coords) {
+    console.log(coords);
     this.props.history.push({
       pathname: '/homes',
       search: `lat=${coords.lat}&lng=${coords.lng})`
@@ -75,4 +79,4 @@ class HomeMap extends React.Component {
 
 }
 
-export default withRouter(HomeMap);
+export default withRouter(TravelSmartMap);

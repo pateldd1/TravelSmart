@@ -22,12 +22,15 @@
 
 class Home < ApplicationRecord
   validates :lat, :long, :price, :host, :title, :description, :address,
-  :start_date, :end_date, :bathrooms, :bedrooms, :beds, :image_url, presence: true
+  :start_date, :end_date, :bathrooms, :bedrooms, :beds, :image, presence: true
   #
   # validates :cancellation, inclusion: { in: %w(Strict Moderate Flexible)}
 
   # has_attached_file :image, default_url: "home2.jpg"
   # validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  has_attached_file :image, default_url: "https://s3-us-west-1.amazonaws.com/travelsmart1/Home+Images/home15.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   belongs_to :host,
     class_name: :User,

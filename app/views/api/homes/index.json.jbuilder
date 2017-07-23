@@ -15,6 +15,6 @@
         json.beds home.beds
       #   json.room_type home.room_type
       end
-      json.image_url asset_path(home.image_url)
+      json.image_url asset_path(home.image.url)
   end
 end
