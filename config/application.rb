@@ -13,7 +13,7 @@ module TravelSmart
     # -- all .rb files in that directory are automatically loaded.
 
     config.paperclip_defaults = {
-      :s3_host_name => "s3-#{ENV["s3_region"]}.amazonaws.com",
+      :s3_host_name => "s3-#{ENV["AWS_REGION"]}.amazonaws.com",
       :storage => :s3,
       :s3_region => "us-west-1",
       :bucket => ENV["s3_bucket"],
