@@ -29,7 +29,7 @@ end
   #   @homes = current_user.homes
   #   render :index
   # end
-# d
+# dd
   def show
     @home = Home.find(params[:id])
     if @home
