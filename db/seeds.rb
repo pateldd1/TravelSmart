@@ -403,3 +403,4 @@ homes24 = Home.create!(
   beds: 1,
   roomtype: "Shared Room"
 )
+# d
