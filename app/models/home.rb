@@ -21,7 +21,7 @@
 #
 
 class Home < ApplicationRecord
-  validates :lat, :long, :price, :host, :title, :description, :address,
+  validates :lat, :long, :price, :host, :title, :description, :address, :roomtype,
   :start_date, :end_date, :bathrooms, :bedrooms, :beds, :image, presence: true
   #
   # validates :cancellation, inclusion: { in: %w(Strict Moderate Flexible)}

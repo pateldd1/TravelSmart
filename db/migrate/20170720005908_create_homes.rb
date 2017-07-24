@@ -3,6 +3,7 @@ class CreateHomes < ActiveRecord::Migration[5.0]
     create_table :homes do |t|
       t.string :title
       t.string :description
+      t.string :roomtype
       t.float :lat
       t.float :long
       t.integer :price

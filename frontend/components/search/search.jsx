@@ -2,7 +2,7 @@ import React from 'react';
 import TravelSmartMap from '../travel_smart_map/TravelSmartMap';
 import HomeIndex from '../home_index/home_index';
 // import { HousingForm, PricingForm } from './filter_form';
-import PricingForm from './filter_form';
+import FilterForm from './filter_form';
 
 class Search extends React.Component {
 
@@ -18,12 +18,12 @@ class Search extends React.Component {
   filterBar() {
     return (
       <div className="filter-bar-index">
-        <PricingForm
+        <FilterForm
         minPrice={this.props.minPrice}
         maxPrice={this.props.maxPrice}
+        roomtype={this.props.roomtype}
         updateFilter={this.props.updateFilter}
         />
-
       </div>
     )
   };

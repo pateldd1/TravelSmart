@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import { signup, login, logout } from "./actions/session_actions"
 import configureStore from './store/store';
 import Root from './components/root';
-import {requestHomes} from './actions/home_actions'
+import {requestHomes} from './actions/home_actions';
+import {updateFilter} from './actions/filter_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signup = signup;
   window.login = login;
   window.logout = logout;
+  window.updateFilter = updateFilter;
 
   store.dispatch(requestHomes());
   //This grabs the id of root and then sends the Root component in there

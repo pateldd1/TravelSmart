@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170723071446) do
   create_table "homes", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
+    t.string   "roomtype"
     t.float    "lat"
     t.float    "long"
     t.integer  "price"

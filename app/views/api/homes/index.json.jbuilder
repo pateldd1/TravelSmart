@@ -8,7 +8,8 @@
       :host_id,
       :title,
       :description,
-      :address
+      :address,
+      :roomtype
 
       json.space do
       #   json.max_guests home.max_guests

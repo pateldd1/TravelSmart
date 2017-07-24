@@ -25,7 +25,7 @@ class HomeIndex extends React.Component {
           </div>
 
           <div className="card-bot-row">
-            <div className="card-norm">{home.space.beds} beds</div>
+            <div className="card-norm">{home.roomtype} · {home.space.beds} beds</div>
           </div>
 
           <div className="card-review">
@@ -48,13 +48,15 @@ class HomeIndex extends React.Component {
         </div>
       )
     })
+
+    // I'm moving these from here to the filter_form just to see if it works. makes for sense for it to be there
+    // <div className="more-filters">
+    //   <p className="filter-button">Room Type</p>
+    //   <p className="filter-button">More Filters</p>
+    //   <p className="filter-button">Toggle Price Sort</p>
+    // </div>
     return (
       <div className="home-card-slider">
-        <div className="more-filters">
-          <p className="filter-button">Room Type</p>
-          <p className="filter-button">More Filters</p>
-          <p className="filter-button">Toggle Price Sort</p>
-        </div>
         <div className="cards">
           {selectedHomes}
         </div>

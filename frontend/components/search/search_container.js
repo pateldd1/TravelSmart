@@ -9,6 +9,7 @@ import { requestHomes } from '../../actions/home_actions';
 const mapStateToProps = ({ homes, filters }) => {
   return {
     homes: selectAll(homes),
+    roomtype: filters.roomtype,
     // minHousing: filters.minHousing,
     // maxHousing: filters.maxHousing,
     minPrice: filters.minPrice,
