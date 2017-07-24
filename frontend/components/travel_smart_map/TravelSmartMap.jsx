@@ -10,11 +10,12 @@ const getCoordsObj = latLng => ({
 // set the map to show SF
 const mapOptions = {
   center: { lat: 37.773972, lng: -122.431297 }, // SF coordinates
-  zoom: 12,
-  scrollwheel: false, // turn off scroll wheel
+  zoom: 13,
+  // scrollwheel: false, // turn off scroll wheel
   styles: [
     { featureType: "water", stylers: [{hue: "#A4DDF5"}]}
   ],
+  mapTypeId: google.maps.MapTypeId.SATELLITE
 };
 
 class TravelSmartMap extends React.Component {
@@ -62,7 +63,7 @@ class TravelSmartMap extends React.Component {
 
   //Click a marker on the map and it leads us to that home's show page
   handleMarkerClick(home) {
-    this.props.history.push(`homes/${home.id}`);
+    this.props.history.push(`/${home.id}`);
   }
 
   //Once the window has been seen with new bounds, component has updated, so we

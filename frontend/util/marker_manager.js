@@ -36,10 +36,25 @@ export default class MarkerManager {
 // this is where homeid comes from and it sets the marker's homeid
 // Your inconsistency in naming longitude as long in the db and lng needed here caused a long problem.
 
+  //Actually I'm not sure, this provides constant time lookup by home ID because it is made into like a hash
+  //The reason for nesting ids is to provide constant time lookup. We get the houses we are supposed to render,
+  //then we get rid of the markers that don't belong to any of these houses. This way our markers, homes, etc. all stay
+  //updated
+
+  //Instead of deleting the markers alltogether you can just set the visibility property to change visibility
   createMarkerFromHome(home) {
     const image = "https://s3.amazonaws.com/safehavns-dev/mark.png";
     const lat = home.lat;
     const lng = home.long;
+    // var image = {
+    //       url: 'https://s3.amazonaws.com/safehavns-dev/mark.png',
+    //       // This marker is 20 pixels wide by 32 pixels high.
+    //       // size: new google.maps.Size(80, 42),
+    //       // The origin for this image is (0, 0).
+    //       // origin: new google.maps.Point(0, 0),
+    //       // The anchor for this image is the base of the flagpole at (0, 32).
+    //       // anchor: new google.maps.Point(0, 1)
+    //     };
     let marker = new google.maps.Marker({
       position: {lat, lng},
       label: {
@@ -47,7 +62,7 @@ export default class MarkerManager {
         fontFamily: "Helvetica",
         text: "$"+String(home.price),
         fontSize: "14.5px",
-        fontWeight: "700",
+        fontWeight: "700"
       },
       icon: image,
       animation: google.maps.Animation.DROP,
@@ -55,7 +70,7 @@ export default class MarkerManager {
       homeid: home.id
     });
     console.log(marker);
-    marker.addListener('click', this.toggleBounce.bind(marker));
+    // marker.addListener('click', this.toggleBounce.bind(marker));
 
     marker.addListener('click', () => this.handleClick(home));
     this.markers[marker.homeid] = marker;
@@ -75,12 +90,12 @@ export default class MarkerManager {
   //This is a waste of time.
   //Make yours more like AirBNB, where they hover and it lights up on the house
   //Also when you hover over the house from the home index, it will light up the house on the map
-  toggleBounce() {
-    if (this.getAnimation() !== null) {
-      this.setAnimation(null);
-    } else {
-      this.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  }
+  // toggleBounce() {
+  //   if (this.getAnimation() !== null) {
+  //     this.setAnimation(null);
+  //   } else {
+  //     this.setAnimation(google.maps.Animation.BOUNCE);
+  //   }
+  // }
 
 }

@@ -16,12 +16,10 @@ const App = () => (
         <GreetingContainer />
       </nav>
     </header>
-
-
+      <SearchContainer />
     <Switch>
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
-      <Route exact path="/" component={SearchContainer} />
     </Switch>
   </div>
 );

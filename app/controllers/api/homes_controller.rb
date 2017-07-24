@@ -3,6 +3,10 @@ class Api::HomesController < ApplicationController
     if Home.all.length != 0
       bounds = params[:bounds]
       @homes = bounds ? Home.in_bounds(bounds) : Home.all
+      #   if (params[:minHousing] && params[:maxHousing])
+      #     @homes = @homes.where(max_guests: housing_range)
+      #   end
+      # @homes = Home.all
                                                             #   if (params[:minHousing] && params[:maxHousing])
                                                             #     @homes = @homes.where(max_guests: housing_range)
                                                             #   end

@@ -50,7 +50,11 @@ class HomeIndex extends React.Component {
     })
     return (
       <div className="home-card-slider">
-        <p className="price-button">Price Sort</p>
+        <div className="more-filters">
+          <p className="filter-button">Room Type</p>
+          <p className="filter-button">More Filters</p>
+          <p className="filter-button">Toggle Price Sort</p>
+        </div>
         <div className="cards">
           {selectedHomes}
         </div>
