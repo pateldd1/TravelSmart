@@ -15,7 +15,6 @@ class Api::HomesController < ApplicationController
       if (params[:minPrice] && params[:maxPrice])
         @homes = @homes.where(price: price_range)
       end
-      # debugger
                                                             # if @homes.length === 0
                                                             #   render json: 'No homes fit the parameters'
                                                             # end
@@ -30,7 +29,7 @@ end
   #   @homes = current_user.homes
   #   render :index
   # end
-
+# d
   def show
     @home = Home.find(params[:id])
     if @home

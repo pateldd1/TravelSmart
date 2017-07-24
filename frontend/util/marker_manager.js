@@ -69,7 +69,6 @@ export default class MarkerManager {
       map: this.map,
       homeid: home.id
     });
-    console.log(marker);
     // marker.addListener('click', this.toggleBounce.bind(marker));
 
     marker.addListener('click', () => this.handleClick(home));
