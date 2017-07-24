@@ -9,9 +9,9 @@ class Api::HomesController < ApplicationController
                                                             # @homes = Home.all
 
       if (params[:minPrice] && params[:maxPrice])
-        @homes = Home.where(price: price_range)
+        @homes = @homes.where(price: price_range)
       end
-
+      # debugger
                                                             # if @homes.length === 0
                                                             #   render json: 'No homes fit the parameters'
                                                             # end

@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 def lat
-  (37.773972 + rand()*1.2)
+  (37.773972 * rand(1..1.00042357))
 end
 
-def lng # NYC
-  (-122.431297 + rand()*1.2)
+def lng # SF
+  (-122.431297 * rand(1..1.00057267))
 end
 
 Home.destroy_all;
