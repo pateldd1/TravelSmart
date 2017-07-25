@@ -1,11 +1,17 @@
 import { requestHomes } from './home_actions'
 
 export const UPDATE_FILTER = 'UPDATE_FILTER';
+export const SORT_FILTER = 'SORT_FILTER';
 
 export const changeFilter = (filter, value) => ({
   type: UPDATE_FILTER,
   filter,
   value
+});
+
+export const sortFilter = (boolean) => ({
+  type: SORT_FILTER,
+  boolean
 });
 
 //This function is kinda confusing, but it means that we are going to requestHomes

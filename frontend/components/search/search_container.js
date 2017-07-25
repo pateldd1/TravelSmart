@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectAll } from '../../reducers/selectors';
-import { updateFilter } from '../../actions/filter_actions.js';
+import { updateFilter, sortFilter } from '../../actions/filter_actions.js';
 import Search from './search';
 import { requestHomes } from '../../actions/home_actions';
 
@@ -14,6 +14,7 @@ const mapStateToProps = ({ homes, filters }) => {
     // maxHousing: filters.maxHousing,
     minPrice: filters.minPrice,
     maxPrice: filters.maxPrice,
+    sorted: filters.sorted
   };
 };
 
@@ -23,7 +24,8 @@ const mapDispatchToProps = dispatch => {
   // requestHomes: (filters) => dispatch(requestHomes(filters)) ---- Instead of doing this here like you did
   //in home-index-container, dispatch this action in filter_actions after the filters have changed.
 
-    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+    sortFilter: (boolean) => dispatch(sortFilter(boolean))
   };
 };
 

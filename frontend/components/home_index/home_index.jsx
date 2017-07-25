@@ -40,8 +40,15 @@ class HomeIndex extends React.Component {
 
   render() {
     const { homes } = this.props;
-    const sortedHomes = _.sortBy(homes, [function(home){ return home.price }]);
-    const selectedHomes = sortedHomes.map((home, idx) => {
+    let arrangedHomes;
+    if ( this.props.sorted === true )
+    {
+      arrangedHomes = _.sortBy(homes, [function(home){ return home.price }]);
+    }
+    else{
+      arrangedHomes = homes;
+    }
+    const selectedHomes = arrangedHomes.map((home, idx) => {
       return (
         <div className="home-card-container" key={idx}>
           {this.travelSmart(home)}
@@ -49,17 +56,9 @@ class HomeIndex extends React.Component {
       )
     })
 
-    // I'm moving these from here to the filter_form just to see if it works. makes for sense for it to be there
-    // <div className="more-filters">
-    //   <p className="filter-button">Room Type</p>
-    //   <p className="filter-button">More Filters</p>
-    //   <p className="filter-button">Toggle Price Sort</p>
-    // </div>
     return (
-      <div className="home-card-slider">
-        <div className="cards">
-          {selectedHomes}
-        </div>
+      <div className="cards">
+        {selectedHomes}
       </div>
     )
   }

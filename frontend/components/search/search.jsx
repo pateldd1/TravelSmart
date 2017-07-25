@@ -23,6 +23,7 @@ class Search extends React.Component {
         maxPrice={this.props.maxPrice}
         roomtype={this.props.roomtype}
         updateFilter={this.props.updateFilter}
+        sortFilter={this.props.sortFilter}
         />
       </div>
     )
@@ -40,7 +41,7 @@ class Search extends React.Component {
         <TravelSmartMap homes={this.props.homes} updateFilter={this.props.updateFilter}  />
         {this.filterBar()}
         <section className='index-container'>
-        <HomeIndex homes={this.props.homes} />
+        <HomeIndex sorted={this.props.sorted} homes={this.props.homes} />
         </section>
       </div>
     );

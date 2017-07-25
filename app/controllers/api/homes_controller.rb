@@ -3,7 +3,7 @@ class Api::HomesController < ApplicationController
     if Home.all.length != 0
       bounds = params[:bounds]
       @homes = bounds ? Home.in_bounds(bounds) : Home.all
-        if (params[:roomtype])
+        if (params[:roomtype] && params[:roomtype] != "alltypes")
           @homes = @homes.where("roomtype = ?", params[:roomtype])
         end
                                                             #   if (params[:minHousing] && params[:maxHousing])

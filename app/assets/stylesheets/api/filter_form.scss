@@ -151,21 +151,26 @@ cursor: pointer;
 .more-filters{
   display: flex;
   align-items: center;
+  margin-left: 13px;
 }
 
 /* Dropdown Button */
 .roomtype-button, .filter-button {
-    background-color: #4CAF50;
+    background-color: #008489;
     color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    padding: 6px;
+    font-size: 14px;
+    font-family: sans-serif;
+    border: 1px solid #003366;
     cursor: pointer;
+    margin-right: -3px;
+    margin-left: 5px;
+    border-radius: 2px;
 }
 
 /* Dropdown button on hover & focus */
 .roomtype-button:hover, .roomtype-button:focus , .filter-button:hover, .filter-button:focus{
-    background-color: #3e8e41;
+    background-color: #007b80;
     text-decoration: none;
 }
 
@@ -185,9 +190,9 @@ cursor: pointer;
     z-index: 1;
 }
 
-// .drop-li:hover {
-//   text-decoration: none;
-// }
+.drop-li:hover {
+  cursor: pointer;
+}
 
 /* Links inside the dropdown */
 .roomhide a {
@@ -201,4 +206,7 @@ cursor: pointer;
 .roomhide a:hover {background-color: #f1f1f1}
 
 /* Show the dropdown menu (use JS to add this class to the .roomhide container when the user clicks on the dropdown button) */
-.show {display:block;}
+.show {
+  display:block;
+  margin-left: 2px;
+}

@@ -35,10 +35,14 @@ class FilterForm extends React.Component {
     this.slide = this.slide.bind(this);
     this.dropDownRooms = this.dropDownRooms.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.remainOpen = this.remainOpen.bind(this);
+    this.close = this.close.bind(this)
+    this.togglePriceSort = this.togglePriceSort.bind(this);
     this.state = {
       minslide: this.props.minPrice,
       maxslide: this.props.maxPrice,
-      dropDownRoomsShown: "roomhide"
+      dropDownRoomsShown: "roomhide",
+      priceBool: false
     }
   }
 
@@ -49,6 +53,18 @@ class FilterForm extends React.Component {
     }
     else {
       this.setState({dropDownRoomsShown: "roomhide"});
+    }
+  }
+
+  togglePriceSort(){
+    if ( this.state.priceBool === false )
+    {
+      this.props.sortFilter(true);
+      this.setState({priceBool: true});
+    }
+    else {
+      this.props.sortFilter(false);
+      this.setState({priceBool: false});
     }
   }
 
@@ -69,15 +85,24 @@ class FilterForm extends React.Component {
 
   dropDownRooms(){
     return(
-      <div className="dropdown">
-        <a className="roomtype-button" onClick={this.toggleMenu}>Room-Type</a>
+      <div className="dropdown" onClick={this.toggleMenu}>
+        <a className="roomtype-button" >Room-Type</a>
         <div className={this.state.dropDownRoomsShown}>
+          <a className="drop-li" onClick={()=>this.props.updateFilter("roomtype", "alltypes")}>All Types</a>
           <a className="drop-li" onClick={()=>this.props.updateFilter("roomtype", "Shared Room")}>Shared Room</a>
           <a className="drop-li" onClick={()=>this.props.updateFilter("roomtype", "Private Room")}>Private Room</a>
           <a className="drop-li" onClick={()=>this.props.updateFilter("roomtype", "Entire Home")}>Entire Home</a>
         </div>
       </div>
     )
+  }
+
+  remainOpen(){
+    this.setState({dropDownRoomsShown: "roomhide show"});
+  }
+
+  close(){
+    this.setState({dropDownRoomsShown: "roomhide"});
   }
 
   slide(e){
@@ -116,7 +141,7 @@ class FilterForm extends React.Component {
         <div className="more-filters">
           {this.dropDownRooms()}
           <a className="filter-button">More Filters</a>
-          <a className="filter-button">Toggle Price Sort</a>
+          <a className="filter-button" onClick={this.togglePriceSort}>Toggle Price Sort</a>
         </div>
       </div>
     )
