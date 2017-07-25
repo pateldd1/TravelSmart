@@ -3,20 +3,26 @@ class Api::HomesController < ApplicationController
     if Home.all.length != 0
       bounds = params[:bounds]
       @homes = bounds ? Home.in_bounds(bounds) : Home.all
-        if (params[:roomtype] && params[:roomtype] != "alltypes")
-          @homes = @homes.where("roomtype = ?", params[:roomtype])
-        end
-                                                            #   if (params[:minHousing] && params[:maxHousing])
-                                                            #     @homes = @homes.where(max_guests: housing_range)
-                                                            #   end
-                                                            # @homes = Home.all
 
       if (params[:minPrice] && params[:maxPrice])
         @homes = @homes.where(price: price_range)
       end
-                                                            # if @homes.length === 0
-                                                            #   render json: 'No homes fit the parameters'
-                                                            # end
+
+      if (params[:roomtype] && params[:roomtype] != "alltypes")
+        @homes = @homes.where("roomtype = ?", params[:roomtype])
+      end
+
+      if (params[:beds])
+        @homes = @homes.where("beds = ?", params[:beds])
+      end
+
+      if (params[:bedrooms])
+        @homes = @homes.where("bedrooms = ?", params[:bedrooms])
+      end
+
+      if (params[:bathrooms])
+        @homes = @homes.where("bathrooms = ?", params[:bathrooms])
+      end
   else
     render json: 'There are no homes'
   end

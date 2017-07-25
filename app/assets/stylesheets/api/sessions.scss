@@ -105,12 +105,23 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
 }
 
 .guest-text:hover {
-  text-decoration: underline;
+  background-color: #007b80;
+  text-decoration: none;
 }
 
 .guest-text {
-  color: blue;
+  background-color: #008489;
+  color: white;
+  padding: 11px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: sans-serif;
   cursor: pointer;
+  margin-right: 10px;
+  margin-left: 5px;
+  border-radius: 2px;
+  width: 22%;
+  text-align: center;
 }
 
 .btn-text {
