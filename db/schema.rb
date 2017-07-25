@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170723071446) do
+ActiveRecord::Schema.define(version: 20170725170033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,23 @@ ActiveRecord::Schema.define(version: 20170723071446) do
     t.index ["bedrooms"], name: "index_homes_on_bedrooms", using: :btree
     t.index ["beds"], name: "index_homes_on_beds", using: :btree
     t.index ["end_date"], name: "index_homes_on_end_date", using: :btree
+    t.index ["lat"], name: "index_homes_on_lat", using: :btree
+    t.index ["long"], name: "index_homes_on_long", using: :btree
     t.index ["price"], name: "index_homes_on_price", using: :btree
+    t.index ["roomtype"], name: "index_homes_on_roomtype", using: :btree
     t.index ["start_date"], name: "index_homes_on_start_date", using: :btree
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.integer  "visitor_id", null: false
+    t.integer  "home_id",    null: false
+    t.date     "start_date", null: false
+    t.date     "end_date",   null: false
+    t.float    "totalcost",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_trips_on_home_id", using: :btree
+    t.index ["visitor_id"], name: "index_trips_on_visitor_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

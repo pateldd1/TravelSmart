@@ -22,5 +22,8 @@ class CreateHomes < ActiveRecord::Migration[5.0]
     add_index :homes, [:beds]
     add_index :homes, [:start_date]
     add_index :homes, [:end_date]
+    add_index :homes, [:roomtype]
+    add_index :homes, [:lat]
+    add_index :homes, [:long]
   end
 end

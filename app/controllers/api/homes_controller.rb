@@ -30,11 +30,11 @@ end
 
   #following is important for giving me all of current user's homes
 
-  # def my
-  #   @homes = current_user.homes
-  #   render :index
-  # end
-# ddd
+  def my
+    @homes = current_user.homes
+    render :index
+  end
+
   def show
     @home = Home.find(params[:id])
     if @home

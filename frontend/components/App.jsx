@@ -9,7 +9,7 @@ import SearchContainer from './search/search_container';
 const App = () => (
   <div>
     <header>
-      <nav>
+      <nav className="header-nav">
         <Link to="/" className="header-link">
           <img className="travel-icon" src="https://image.flaticon.com/icons/svg/201/201623.svg"></img>
         </Link>

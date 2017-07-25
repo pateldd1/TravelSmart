@@ -15,7 +15,7 @@ const mapOptions = {
   styles: [
     { featureType: "water", stylers: [{hue: "#A4DDF5"}]}
   ],
-  mapTypeId: google.maps.MapTypeId.SATELLITE
+  mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 
 class TravelSmartMap extends React.Component {

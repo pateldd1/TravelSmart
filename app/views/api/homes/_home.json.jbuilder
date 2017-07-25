@@ -3,14 +3,14 @@ json.extract! home,
   :lat,
   :lng,
   :price,
-  # :host,
+  :host,
   :title,
   :description,
   :address,
-  # :trips,
+  :trips,
   :reviews
   :roomtype
-  
+
   json.image_url asset_path(home.image.url)
 
   json.space do
@@ -19,7 +19,6 @@ json.extract! home,
     json.bedrooms home.bedrooms
     json.beds home.beds
     # json.property_type home.property_type
-    # json.room_type home.room_type
   end
 
   # json.amenities do
@@ -27,6 +26,5 @@ json.extract! home,
   #   json.family home.family
   #   json.parking home.parking
   #   json.kitchen home.kitchen
-
 
 end
