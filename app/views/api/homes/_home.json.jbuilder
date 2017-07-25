@@ -9,7 +9,8 @@ json.extract! home,
   :address,
   # :trips,
   :reviews
-
+  :roomtype
+  
   json.image_url asset_path(home.image.url)
 
   json.space do
