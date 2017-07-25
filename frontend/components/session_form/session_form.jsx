@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import  OpenModal  from '../../actions/open_modal';
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -156,22 +158,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <div className="modal-root" >
-          <div className="modal-parent">
-            <div className="modal-screen">
-              <div className="modal-wrapper">
-                <div className="closeModal"/>
-                <div className="modal-content">
-                  {this.modalContent()}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <OpenModal content={this.modalContent()} />
   }
 }
 
