@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import  OpenModal  from '../../actions/open_modal';
+import SearchContainer from '../search/search_container';
+import HomeShowContainer from '../home_show/home_show_container';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
+      formType: this.props.formType
     }
     //HandleSubmit must be bound to this since it is a callback
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,12 +27,17 @@ class SessionForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      this.props.history.push("/");
+      // this.props.history.push("/");
+      this.props.updateModal(null, false);
     }
   }
 
+  // componentWillMount(){
+  //   this.props.location.pathname, "lsdjl;kafj";
+  // }
+
   componentDidMount() {
-      document.addEventListener('click', this.handleOutClick.bind(this), true);
+    document.addEventListener('click', this.handleOutClick.bind(this), true);
   }
 
   componentWillUnmount() {
@@ -38,9 +45,10 @@ class SessionForm extends React.Component {
   }
 
   handleOutClick(event) {
-      if (event.target.className === 'closeModal') {
-        this.props.history.push("/")
-      }
+    let that = this;
+    if (event.target.className === 'closeModal') {
+      that.props.updateModal(null, false);
+    }
   }
   //Update methods are made to change the state
   //e.currentTarget is the <form> because the form had the event listener
@@ -57,7 +65,13 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm({user: this.state})
+    if ( this.state.formType === "login" )
+    {
+      this.props.login({user: {username: this.state.username, password: this.state.password}});
+    }
+    else {
+      this.props.signup({user: {username: this.state.username, password: this.state.password}});
+    }
   }
 
   guestLogin(e){
@@ -66,11 +80,11 @@ class SessionForm extends React.Component {
 
   //Depending on the formtype, we are going to show signup or log in instead
   navLink() {
-    if (this.props.formType === 'login'){
+    if (this.state.formType === 'login'){
       return (
         <div className="redirection">
           <h4>Don't have a TravelSmart account?</h4>
-          <Link className="redirect-to-signup" to="/signup">Sign Up</Link>
+          <h4 className="redirect-to-signup" onClick={()=> this.setState({formType: 'signup'})}>Sign Up</h4>
         </div>
       )
     }
@@ -78,7 +92,7 @@ class SessionForm extends React.Component {
       return (
         <div className="redirection">
           <h4>Already have a TravelSmart account?</h4>
-          <Link className="redirect-to-login" to="/login">Log In</Link>
+          <h4 className="redirect-to-login" onClick={()=> this.setState({formType: 'login'})}>Log In</h4>
         </div>
       )
     }
@@ -91,6 +105,20 @@ class SessionForm extends React.Component {
       </div>
     )
   }
+
+  // background(){
+  //   if ( this.props.location.pathname === "/" )
+  //   {
+  //     return (
+  //       <SearchContainer />
+  //     )
+  //   }
+  //   else {
+  //     return (
+  //       <HomeShowContainer />
+  //     )
+  //   }
+  // }
 
   submitButton(){
     if ( this.props.formType === 'login' )
@@ -116,7 +144,7 @@ class SessionForm extends React.Component {
   }
 
   //OnChange will change the the state on keystroke and will go through update method.
-  modalContent() {
+  render() {
     return (
       <div className="login-form-container">
 
@@ -157,9 +185,9 @@ class SessionForm extends React.Component {
     );
   }
 
-  render() {
-    return <OpenModal content={this.modalContent()} />
-  }
+  // render() {
+  //   return <OpenModal content={this.modalContent()} />
+  // }
 }
 
 export default withRouter(SessionForm);

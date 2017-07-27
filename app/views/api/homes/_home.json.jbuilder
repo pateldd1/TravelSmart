@@ -1,14 +1,14 @@
 json.extract! home,
   :id,
   :lat,
-  :lng,
+  :long,
   :price,
   :host,
   :title,
   :description,
   :address,
   :trips,
-  :reviews
+  # :reviews
   :roomtype
 
   json.image_url asset_path(home.image.url)
@@ -27,4 +27,4 @@ json.extract! home,
   #   json.parking home.parking
   #   json.kitchen home.kitchen
 
-end
+# end

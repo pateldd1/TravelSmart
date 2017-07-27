@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
-import BookItNowContainer from '../trip/book_it_now';
+import BookItNowContainer from '../trip/book_it_now_container';
 // import Footer from '../footer';
 // import Reviews from '../review/reviews';
 
@@ -73,9 +73,6 @@ class HomeShow extends React.Component {
 
             </div>
           </div>
-          <div className='footer-container'>
-            <Footer/>
-          </div>
         </section>
       )
     }
@@ -89,4 +86,9 @@ export default withRouter(HomeShow);
 // <div className="review-divider">
 //   <Reviews
 //     reviews={reviews}/>
+// </div>
+
+//Add this at the end
+// <div className='footer-container'>
+//   <Footer/>
 // </div>

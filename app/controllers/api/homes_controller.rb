@@ -1,32 +1,28 @@
 class Api::HomesController < ApplicationController
   def index
-    if Home.all.length != 0
-      bounds = params[:bounds]
-      @homes = bounds ? Home.in_bounds(bounds) : Home.all
+    bounds = params[:bounds]
+    @homes = bounds ? Home.in_bounds(bounds) : Home.all
 
-      if (params[:minPrice] && params[:maxPrice])
-        @homes = @homes.where(price: price_range)
-      end
+    if (params[:minPrice] && params[:maxPrice])
+      @homes = @homes.where(price: price_range)
+    end
 
-      if (params[:roomtype] && params[:roomtype] != "alltypes")
-        @homes = @homes.where("roomtype = ?", params[:roomtype])
-      end
+    if (params[:roomtype] && params[:roomtype] != "alltypes")
+      @homes = @homes.where("roomtype = ?", params[:roomtype])
+    end
 
-      if (params[:beds])
-        @homes = @homes.where("beds = ?", params[:beds])
-      end
+    if (params[:beds])
+      @homes = @homes.where("beds = ?", params[:beds])
+    end
 
-      if (params[:bedrooms])
-        @homes = @homes.where("bedrooms = ?", params[:bedrooms])
-      end
+    if (params[:bedrooms])
+      @homes = @homes.where("bedrooms = ?", params[:bedrooms])
+    end
 
-      if (params[:bathrooms])
-        @homes = @homes.where("bathrooms = ?", params[:bathrooms])
-      end
-  else
-    render json: 'There are no homes'
+    if (params[:bathrooms])
+      @homes = @homes.where("bathrooms = ?", params[:bathrooms])
+    end
   end
-end
 
   #following is important for giving me all of current user's homes
 

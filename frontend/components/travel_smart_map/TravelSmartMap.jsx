@@ -9,7 +9,7 @@ const getCoordsObj = latLng => ({
 });
 // set the map to show SF
 const mapOptions = {
-  center: { lat: 37.773972, lng: -122.431297 }, // SF coordinates
+  center: { lat: 37.73972, lng: -122.436297 }, // SF coordinates
   zoom: 13,
   // scrollwheel: false, // turn off scroll wheel
   styles: [
@@ -32,7 +32,6 @@ class TravelSmartMap extends React.Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-
     //NOT SURE ABOUT THE SINGLEHOME THING MAKES NO SENSE
     if (this.props.singleHome) {
       this.props.requestHome(this.props.homeid);
@@ -63,7 +62,7 @@ class TravelSmartMap extends React.Component {
 
   //Click a marker on the map and it leads us to that home's show page
   handleMarkerClick(home) {
-    this.props.history.push(`/${home.id}`);
+    this.props.history.push(`/homes/${home.id}`);
   }
 
   //Once the window has been seen with new bounds, component has updated, so we

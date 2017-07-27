@@ -1,6 +1,7 @@
 import React from 'react';
 import TravelSmartMap from '../travel_smart_map/TravelSmartMap';
 import HomeIndex from '../home_index/home_index';
+import {withRouter} from 'react-router-dom';
 // import { HousingForm, PricingForm } from './filter_form';
 import FilterForm from './filter_form';
 

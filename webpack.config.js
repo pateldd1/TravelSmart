@@ -1,29 +1,79 @@
-const path = require('path');
+// const path = require('path');
+//
+// module.exports = {
+//   context: __dirname,
+//   entry: './frontend/travel_smart.jsx',
+//   output: {
+//     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+//     filename: 'bundle.js'
+//   },
+//   resolve: {
+//     extensions: ['.js', '.jsx', '*']
+//   },
+//   module: {
+//     loaders: [
+//       {
+//         test: /\.jsx?$/,
+//         exclude: /(node_modules)/,
+//         loader: 'babel-loader',
+//         query: {
+//           presets: ["react","es2015"]
+//         }
+//       }
+//     ]
+//   },
+//   devtool: 'source-map'
+// };
+
+var path = require("path");
+var webpack = require("webpack");
+
+var plugins = []; // if using any plugins for both dev and production
+var devPlugins = []; // if using any plugins for development
+
+var prodPlugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      'NODE_ENV': JSON.stringify('production')
+    }
+  }),
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: true
+    }
+  })
+];
+
+plugins = plugins.concat(
+  process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
+)
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/travel_smart.jsx',
+  entry: "./frontend/travel_smart.jsx",
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js'
+    filename: "bundle.js"
   },
-  resolve: {
-    extensions: ['.js', '.jsx', '*']
-  },
+  plugins: plugins,
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules)/,
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ["react","es2015"]
+          presets: ['es2015', 'react']
         }
       }
     ]
   },
-  devtool: 'source-map'
+  devtool: 'source-maps',
+  resolve: {
+    extensions: [".js", ".jsx", "*"]
+  }
 };
+
 
 // I used babel-preset-env instead of babel-preset-react and babel-preset-es2015 in the package
 // json so if this causes any browser support probs, install those back in

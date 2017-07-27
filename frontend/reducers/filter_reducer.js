@@ -16,7 +16,7 @@ const defaultFilters = Object.freeze({
 //The action.filter is what key we are filtering by and action.value is the new value of this key
 
 const FilterReducer = (state = defaultFilters, action) => {
-  Object.freeze(state)
+  Object.freeze(state);
   if (action.type === UPDATE_FILTER) {
     const newFilter = {
       [action.filter]: action.value

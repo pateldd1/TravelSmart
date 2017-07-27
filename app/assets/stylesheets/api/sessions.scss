@@ -22,11 +22,37 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
   list-style: none;
   margin-left: 16px;
   margin-right: 16px;
+  margin-top: -10px;
   display: flex;
   background-repeat: no-repeat;
   border: none;
 }
 
+.pinkButton:hover, .x-close:hover {
+  cursor: pointer;
+}
+
+.pinkButton {
+  margin-top: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #484848;
+  font-weight: 700;
+  padding-right: 24px;
+  padding-left: 24px;
+  min-width: 77.66563145999496px;
+  background: #FF5A5F;
+  align-items: flex-start;
+}
 
 .redirect:hover{
   text-decoration: underline;
@@ -129,9 +155,14 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
   color: white;
 }
 
-.redirect-to-signup,{
+.redirect-to-signup {
   margin: 0 0 0 10px;
   color: blue;
+}
+
+.redirect-to-signup:hover, .redirect-to-login:hover {
+  border-bottom: 2px solid blue;
+  cursor: pointer;
 }
 
 .redirect-to-login{

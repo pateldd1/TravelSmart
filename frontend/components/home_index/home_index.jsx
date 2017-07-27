@@ -14,7 +14,7 @@ class HomeIndex extends React.Component {
   travelSmart(home) {
     return (
       <div className="home-card">
-        <Link to={`/${home.id}`} className="link-to">
+        <Link to={`/homes/${home.id}`} className="link-to">
 
           <div className="show-card-container">
             <img className="show-card" src={home.image_url}/>

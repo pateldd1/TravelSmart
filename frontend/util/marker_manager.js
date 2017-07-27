@@ -65,7 +65,7 @@ export default class MarkerManager {
         fontWeight: "700"
       },
       icon: image,
-      animation: google.maps.Animation.DROP,
+      // animation: google.maps.Animation.DROP,
       map: this.map,
       homeid: home.id
     });
