@@ -4,17 +4,22 @@
 
 .loginbutton, .signupbutton {
   margin: 12px;
+  font-size: 15px;
+  font-weight: normal;
 }
 
-li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
+.loginbutton {
+  margin-right: 48px;
+}
+.loginbutton:hover, .signupbutton:hover, .SignOutButton:hover, .AllTripsButton:hover {
   cursor: pointer;
   list-style: none;
-  border-bottom: 2px solid #484848;
   text-decoration: none;
+  border-bottom: 2px solid #484848;
 }
 
 .login-signup, .SignOutButton {
-  padding: 8px 0;
+  // padding: 8px 0;
   vertical-align: middle;
   // line-height: 1;
   // border-bottom: 2px solid transparent;
@@ -22,7 +27,7 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
   list-style: none;
   margin-left: 16px;
   margin-right: 16px;
-  margin-top: -10px;
+  margin-top: 0px;
   display: flex;
   background-repeat: no-repeat;
   border: none;
@@ -58,9 +63,21 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
   text-decoration: underline;
 }
 
-.SignOutButton {
-  font-size: inherit;
+.Signed-In-User-Header {
+  display: flex;
+  align-items: center;
+}
+
+.SignOutButton,  {
+  font-size: 15px;
   margin: 0 16px 0 0;
+}
+
+.AllTripsButton {
+  font-size: 15px;
+  margin-right: 48px;
+  padding-bottom: 1px;
+  list-style: none;
 }
 
 .login-form-box {

@@ -24,7 +24,10 @@ const personalGreeting = (currentUser, logout) => (
       <img className="travel-icon" src="https://image.flaticon.com/icons/svg/201/201623.svg"></img>
     </Link>
     <h2 className="header-name">Welcome {currentUser.username}!</h2>
-    <h3 className="SignOutButton" onClick={logout}>Log Out</h3>
+    <div className="Signed-In-User-Header">
+      <Link className="AllTripsButton" to="/user/:userid/trips">Your Trips</Link>
+      <li className="SignOutButton" onClick={logout}>Log Out</li>
+    </div>
   </hgroup>
 );
 

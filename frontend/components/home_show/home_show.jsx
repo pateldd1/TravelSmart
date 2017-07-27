@@ -4,7 +4,7 @@ import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
 import BookItNowContainer from '../trip/book_it_now_container';
 // import Footer from '../footer';
-// import Reviews from '../review/reviews';
+// import Reviews from '../review/review';
 
 //Take care of the bug where you resize the window and it ends up changing the filters and gets rid of the house you got currently.
 
@@ -66,7 +66,6 @@ class HomeShow extends React.Component {
 
                 </div>
                 <HomeDetail listing={listing}/>
-
               </div>
 
               <div className="to-book-it-divider">
@@ -80,15 +79,15 @@ class HomeShow extends React.Component {
     }
   }
 }
+// <div className="review-divider">
+//   <Reviews
+//     reviews={reviews}/>
+// </div>
 
 export default withRouter(HomeShow);
 
 
 //Add this when you get reviews
-// <div className="review-divider">
-//   <Reviews
-//     reviews={reviews}/>
-// </div>
 
 //Add this at the end
 // <div className='footer-container'>
