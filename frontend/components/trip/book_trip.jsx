@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
 //Take care of the bug where you refresh on this page and it gives you an error
 class BookTrip extends React.Component {
   constructor(props) {

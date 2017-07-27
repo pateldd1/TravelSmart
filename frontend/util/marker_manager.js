@@ -65,7 +65,7 @@ export default class MarkerManager {
         fontWeight: "700"
       },
       icon: image,
-      // animation: google.maps.Animation.DROP,
+      animation: google.maps.Animation.DROP,
       map: this.map,
       homeid: home.id
     });
@@ -86,7 +86,6 @@ export default class MarkerManager {
     delete this.markers[marker.homeid];
   }
 
-  //This is a waste of time.
   //Make yours more like AirBNB, where they hover and it lights up on the house
   //Also when you hover over the house from the home index, it will light up the house on the map
   // toggleBounce() {

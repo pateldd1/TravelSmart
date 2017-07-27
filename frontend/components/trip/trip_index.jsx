@@ -14,7 +14,7 @@ class TripIndex extends React.Component {
 
   //We don't want someone who isn't logged in to be able to trips that belong to a user.
   componentDidUpdate() {
-    if (!this.props.currentUser) {
+    if (Object.keys(this.props.currentUser).length === 0) {
       this.props.history.push("/");
     }
   }
@@ -24,7 +24,7 @@ class TripIndex extends React.Component {
     const tripsIndex = this.props.trips.map((trip, idx) => {
       return (
         <div className="trip-card-container" key={idx}>
-          <TripIndexItem trip={trip} deleteTrip={deleteTrip}/>
+          <TripIndexItem currentUser={this.props.currentUser} updateModal={this.props.updateModal} trip={trip} deleteTrip={deleteTrip}/>
         </div>
       )
     });

@@ -8,14 +8,12 @@ import { withRouter } from 'react-router-dom';
 // import { clearErrors } from '../../actions/session_actions'
 // import { createReview, fetchReviews } from '../../actions/review_actions';
 
-const mapStateToProps = ({ homes, reviews }, {match}) => { //remember the entities is nexted in home which is nested in state
+const mapStateToProps = ({ homes }, {match}) => { //remember the entities is nexted in home which is nested in state
   const homeid = match.params.homeid;
   const listing = homes[homeid];
-
   return {
     homeid,
     listing,
-    reviews,
   }
 }
 
@@ -31,7 +29,6 @@ const mapDispatchToProps = (dispatch) => {
     requestHome: id => dispatch(requestHome(id)),
 
     // Haven't gotten to the reviews yet
-    // requestReviews: (id) => dispatch(requestReviews(id)),
   }
 }
 

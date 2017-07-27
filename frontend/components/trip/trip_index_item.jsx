@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
-
+import * as APIUtil from '../../util/review_api_util';
+import ReviewForm from '../review/review_form';
 //We are getting all of the currentUsers trips and the homes of these trips by making associations
 //between the trip and the currentUser by querying the db in the backend in trip controller
 //for all the trips with the current user's userId and then we do .includes(:homes) so that we
@@ -14,6 +15,7 @@ class TripIndexItem extends React.Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this);
+    // this.updateModal = this.props.updateModal.bind(this);
   }
 
   handleClick(e) {
@@ -40,12 +42,15 @@ class TripIndexItem extends React.Component {
               <div className='scheduled-box'>
                 <div className='address-box'>{trip.home.title}</div>
 
-                <div className="space-top">{trip.start_date} to {trip.end_date} guests</div>
+                <div className="space-top">{trip.start_date} to {trip.end_date}</div>
                 <div className="space-top">{trip.home.address}</div>
               </div>
             </div>
 
             <div className="trip-div"/>
+              <div className="trip-actions-wrap">
+                <div className='trip-actions trip-hov' onClick={() => this.props.updateModal(<ReviewForm currentUser={this.props.currentUser} updateModal={this.props.updateModal} homeid={trip.home.id}/>, true)}>Write a Review</div>
+              </div>
             <div className='trip-actions-wrap'>
               <div className='trip-actions'>Paid ${trip.totalcost}</div>
             </div>

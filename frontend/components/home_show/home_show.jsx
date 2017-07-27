@@ -4,21 +4,22 @@ import HomeShowContainer from './home_show_container';
 import HomeDetail from './home_detail';
 import BookItNowContainer from '../trip/book_it_now_container';
 // import Footer from '../footer';
-// import Reviews from '../review/review';
 
 //Take care of the bug where you resize the window and it ends up changing the filters and gets rid of the house you got currently.
 
 // shows a single listing
 class HomeShow extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   //I'm pretty sure you can change this to componentWillMount and get rid of the conditional in the render method
-  componentDidMount() {
+  componentWillMount() {
+    // if ( Object.keys )
+    // {
+    //
+    // }
     this.props.requestHome(this.props.homeid);
-    // Haven't gotten to reviews yet
-    // this.props.requestReviews(this.props.homeid);
   }
 
   //If the person was to put a different home into the url, then it would go to that home instead
@@ -29,8 +30,8 @@ class HomeShow extends React.Component {
   }
 
   render() {
-    const { listing, homeid, requestHome, reviews } = this.props;
-    if (listing === undefined) {
+    const { listing, homeid, requestHome } = this.props;
+    if (listing === undefined || !listing.host) {
 
       return (
         <div className="loading">Finding Home...</div>
@@ -66,6 +67,7 @@ class HomeShow extends React.Component {
 
                 </div>
                 <HomeDetail listing={listing}/>
+
               </div>
 
               <div className="to-book-it-divider">
@@ -79,10 +81,6 @@ class HomeShow extends React.Component {
     }
   }
 }
-// <div className="review-divider">
-//   <Reviews
-//     reviews={reviews}/>
-// </div>
 
 export default withRouter(HomeShow);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 // import { trueAmenities } from '../../reducers/selectors.js';
+import Reviews from '../review/review';
 
 const cancellationText = {
   Strict: "Cancel up to 7 days before your trip and get a 50% refund plus service fees back.",
@@ -124,14 +125,24 @@ class HomeDetail extends React.Component{
 
   //Add this stuff later
   // {this.theAmenities()}
-  
+
+  // <hr className="rowDivider hr-abbrev"/>
+  // {this.theAmenities()}
+
   render() {
+    const { listing } = this.props;
     return (
       <div className="single-listing-container">
         <div className="summary-box">
           <div className="hcol">
-            <div className="sum-title">{this.props.listing.title}</div>
-            <div className="sum-address">{this.props.listing.address}</div>
+            <div className="top-row-sum">
+              <div className="sum-title">{listing.title}</div>
+              <div className="sum-abs">
+                <img className="show-pfpic" src={listing.host_image_url}></img>
+                <div className="show-name">{listing.host.first}</div>
+              </div>
+            </div>
+            <div className="sum-address">{listing.address}</div>
 
             <hr className="rowDivider"/>
             {this.summaryIcons()}
@@ -141,26 +152,30 @@ class HomeDetail extends React.Component{
           </div>
         </div>
 
-
         <div className="details-box">
           <div className="hcol">
             <div className="details-row about-listing">
               <div className="details-title">About this home</div>
-              <div className="details-text">{this.props.listing.description}</div>
+              <div className="details-text">{listing.description}</div>
             </div>
 
             <hr className="rowDivider"/>
             {this.theSpace()}
             <hr className="rowDivider hr-abbrev"/>
-            <hr className="rowDivider hr-abbrev"/>
             {this.cancellationPolicy()}
-            <hr className="rowDivider hr-abbrev"/>
+            <hr className="rowDivider"/>
           </div>
         </div>
+
+        <div className="review-divider">
+          <Reviews listing={listing}/>
+        </div>
+
       </div>
+
     )
   }
 
 }
 
-export default HomeDetail
+export default HomeDetail;

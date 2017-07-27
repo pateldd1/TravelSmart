@@ -73,6 +73,8 @@ class BookItNow extends React.Component {
     )
   };
 
+//according to your currentUser, it is originally an empty object, so you should just check if the keys of this user are none or not.
+
   // renderErrors() {
   //   if (!this.props.currentUser) {
   //     return (<li><h2>Not Logged In</h2></li>);

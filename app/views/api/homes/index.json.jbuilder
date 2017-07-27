@@ -5,9 +5,9 @@
       :lat,
       :long,
       :price,
-      :host_id,
+      # :host_id,
       :title,
-      :description,
+      # :description,
       :address,
       :roomtype
 
