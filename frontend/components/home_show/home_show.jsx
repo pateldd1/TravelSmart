@@ -6,6 +6,8 @@ import BookItNowContainer from '../trip/book_it_now_container';
 // import Footer from '../footer';
 // import Reviews from '../review/reviews';
 
+//Take care of the bug where you resize the window and it ends up changing the filters and gets rid of the house you got currently.
+
 // shows a single listing
 class HomeShow extends React.Component {
   constructor(props) {

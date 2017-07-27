@@ -20,8 +20,17 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  # has_many :links
-  # has_many :comments
+  has_many :homes,
+  class_name: :Home,
+  foreign_key: :host_id
+
+  has_many :trips,
+    class_name: :Trip,
+    foreign_key: :visitor_id
+
+  # has_many :reviews,
+  #   class_name: :Review,
+  #   foreign_key: :author_id
 
   def self.find_by_credentials(username, password)
     @user = User.find_by_username(username)

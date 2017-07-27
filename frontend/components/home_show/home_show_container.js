@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import { connect } from 'react-redux';
 import { requestHome } from '../../actions/home_actions';
 // import { receiveInput } from '../../actions/input_actions';

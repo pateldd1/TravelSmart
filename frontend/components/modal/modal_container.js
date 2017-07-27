@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Modal from './modal';
+import {updateModal} from '../../actions/modal_actions';
 
 const mapStateToProps = ( { modality } ) => {
   return {
@@ -8,7 +9,13 @@ const mapStateToProps = ( { modality } ) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateModal: (content, open) => dispatch(updateModal(content,open))
+  }
+}
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Modal);

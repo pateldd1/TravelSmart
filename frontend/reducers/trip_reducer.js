@@ -29,3 +29,5 @@ const TripReducer = (state = defaultState, action) => {
       return state;
   }
 };
+
+export default TripReducer;

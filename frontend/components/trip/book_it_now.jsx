@@ -3,6 +3,11 @@ import { Link, withRouter } from 'react-router-dom';
 import { DateRangePicker } from 'react-dates';
 import SessionFormContainer from '../session_form/session_form_container';
 
+//We are going to store the inputs from this form into the 'inputs slice of state' so that we can
+//keep these inputs for the next page and just draw our info from these inputs. Since
+//book trip container subscribes to the inputs slice of state of the store, then it can use this
+//information.
+
 class BookItNow extends React.Component {
   constructor(props) {
     super(props)
@@ -10,6 +15,7 @@ class BookItNow extends React.Component {
       startDate: null, /// just for now... bookings not done yet
       endDate: null,
       num_guests: 1,
+      maxGuests: Math.floor((Math.random() * 8) + 1)
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -29,7 +35,7 @@ class BookItNow extends React.Component {
   modalContent(){
     return (
       <div className="prompt-box">
-        <div className="no-date-prompt">Which days are you interested in booking?</div>
+        <div className="no-date-prompt">Please tell us when you want to check-in and check-out.</div>
       </div>
     )
   }
@@ -57,10 +63,11 @@ class BookItNow extends React.Component {
   };
 
   pricePerNight(){
+    let nightly = Math.floor(this.props.listing.price/30);
     return (
       <div className="offers-box">
         <div className="thunderbolt"/>
-        <div className="book-it-price">${this.props.listing.price}</div>
+        <div className="book-it-price">${nightly}</div>
         <div className="per-night">per night</div>
       </div>
     )
@@ -81,7 +88,7 @@ class BookItNow extends React.Component {
     const options = [
       <option value="1" key={1}>1 guest</option>
     ];
-    for (let i = 2; i <= this.props.listing.space.max_guests; i++) {
+    for (let i = 2; i <= this.state.maxGuests; i++) {
 
       options.push(
         <option value={i} key={i}>{i} guests</option>
@@ -126,7 +133,7 @@ class BookItNow extends React.Component {
           </button>
 
           <div className='margin-top-8px'>
-            <span className="disclaimer book-disc">You won't be charged yet, but you'll give me a paycheck soon.</span>
+            <span className="disclaimer book-disc">Don't Worry, You won't be charged yet</span>
           </div>
         </form>
 

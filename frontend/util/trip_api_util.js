@@ -1,8 +1,7 @@
-export const requestTrips = (data) => (
+export const requestTrips = () => (
   $.ajax({
     method: 'GET',
     url: 'api/trips',
-    data,
   })
 );
 
@@ -17,15 +16,15 @@ export const createTrip = trip => (
   $.ajax({
     method: 'POST',
     url: 'api/trips',
-    data: trip,
+    data: trip
     // contentType: false,
     // processData: false,
   })
 );
 
-export const deleteTrip = trip => (
+export const deleteTrip = tripId => (
   $.ajax({
     method: 'DELETE',
-    url: `api/trips/${trip.id}`,
+    url: `api/trips/${tripId}`,
   })
 );

@@ -8,6 +8,8 @@ import SearchContainer from './search/search_container';
 import HomeShowContainer from './home_show/home_show_container';
 import BookTripContainer from './trip/book_trip_container';
 import ModalContainer from './modal/modal_container';
+import TripIndexContainer from './trip/trip_index_container';
+
 
 const App = () => (
   <div>
@@ -20,6 +22,7 @@ const App = () => (
     <Switch>
       <Route exact path="/homes/:homeid/book" component={BookTripContainer} />
       <Route exact path="/homes/:homeid" component={HomeShowContainer} />
+      <Route exact path="/user/:userid/trips" component={TripIndexContainer}/>
       <Route path="/" component={SearchContainer} />
     </Switch>
   </div>

@@ -6,6 +6,7 @@ const defaultState = {
   startDate: null,
   endDate: null,
   num_guests: 0,
+  maxGuests: 1
   // showPayment: false,
   // pageToShow: 1
 };
@@ -16,14 +17,11 @@ const UserInputReducer = (state = defaultState, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_INPUT:
-      let startDate = action.startDate;
-      let endDate = action.endDate;
-      let num_guests = action.num_guests;
-      if (startDate && endDate && num_guests) {
-        return newState = merge({}, state, { startDate, endDate, num_guests })
-      } else {
-        return state;
-      };
+      // if (startDate && endDate && num_guests) {
+        return newState = merge({}, state, action)
+      // } else {
+        // return state;
+      // };
     default:
       return state;
   }

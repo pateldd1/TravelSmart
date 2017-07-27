@@ -31,25 +31,7 @@ class SessionForm extends React.Component {
       this.props.updateModal(null, false);
     }
   }
-
-  // componentWillMount(){
-  //   this.props.location.pathname, "lsdjl;kafj";
-  // }
-
-  componentDidMount() {
-    document.addEventListener('click', this.handleOutClick.bind(this), true);
-  }
-
-  componentWillUnmount() {
-      document.removeEventListener('click', this.handleOutClick.bind(this), true);
-  }
-
-  handleOutClick(event) {
-    let that = this;
-    if (event.target.className === 'closeModal') {
-      that.props.updateModal(null, false);
-    }
-  }
+ 
   //Update methods are made to change the state
   //e.currentTarget is the <form> because the form had the event listener
   //installed on it. currentTarget is what we have installed an event listener onto
