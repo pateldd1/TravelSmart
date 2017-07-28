@@ -13,12 +13,12 @@ class HomeIndex extends React.Component {
   //   this.props.requestHomes(null);
   // }
 
-  bounce(homeId){
-    this.props.updateFilter("bouncingMarker", {homeId: homeId, bouncing: true});
+  bounce(homeid){
+    this.props.bounceFilter(homeid, true);
   }
 
-  nobounce(homeId){
-    this.props.updateFilter("bouncingMarker", {homeId: homeId, bouncing: false});
+  nobounce(homeid){
+    this.props.bounceFilter(homeid, false);
   }
 
   travelSmart(home) {

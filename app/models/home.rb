@@ -30,8 +30,12 @@ class Home < ApplicationRecord
   #
   # validates :cancellation, inclusion: { in: %w(Strict Moderate Flexible)}
 
-  has_attached_file :image, default_url: "http://res.cloudinary.com/dxplu7mua/image/upload/v1500922276/Home1_vghd9e.jpg"
+  has_attached_file :image, default_url: "http://res.cloudinary.com/dxplu7mua/image/upload/v1500922276/Home1_vghd9e.jpg", :styles => {
+    :small => "500x500>"
+  }
+
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
 
   belongs_to :host,
     class_name: :User,

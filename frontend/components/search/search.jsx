@@ -42,7 +42,7 @@ class Search extends React.Component {
         <TravelSmartMap bouncingMarker={this.props.bouncingMarker} homes={this.props.homes} updateFilter={this.props.updateFilter}  />
         {this.filterBar()}
         <section className='index-container'>
-        <HomeIndex updateFilter={this.props.updateFilter} sorted={this.props.sorted} homes={this.props.homes} />
+        <HomeIndex bounceFilter={this.props.bounceFilter} sorted={this.props.sorted} homes={this.props.homes} />
         </section>
       </div>
     );

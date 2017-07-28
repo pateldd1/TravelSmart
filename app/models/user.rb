@@ -20,6 +20,11 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_attached_file :image, default_url: "defaultuser.jpg", :styles => {
+    :small => "20x20>"
+  }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
   has_many :homes,
   class_name: :Home,
   foreign_key: :host_id
@@ -28,9 +33,9 @@ class User < ApplicationRecord
     class_name: :Trip,
     foreign_key: :visitor_id
 
-  # has_many :reviews,
-  #   class_name: :Review,
-  #   foreign_key: :author_id
+  has_many :reviews,
+    class_name: :Review,
+    foreign_key: :author_id
 
   def self.find_by_credentials(username, password)
     @user = User.find_by_username(username)

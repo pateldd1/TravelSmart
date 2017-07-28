@@ -79,7 +79,7 @@ class TravelSmartMap extends React.Component {
   //will update the markers
   componentDidUpdate() {
 
-    let bouncer = this.MarkerManager.markers[this.props.bouncingMarker.homeId];
+    let bouncer = this.MarkerManager.markers[this.props.bouncingMarker.homeid];
     if (this.props.bouncingMarker.bouncing) {
       this.MarkerManager.makeBounce.apply(bouncer);
     }
@@ -119,9 +119,9 @@ class TravelSmartMap extends React.Component {
     initAutocomplete() {
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
+
         var searchBox = new google.maps.places.SearchBox(input);
         // this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
-
         // Bias the SearchBox results towards current map's viewport.
         // this.map.addListener('bounds_changed', () => {
         //   searchBox.setBounds(this.map.getBounds());
@@ -130,6 +130,7 @@ class TravelSmartMap extends React.Component {
         // // Listen for the event fired when the user selects a prediction and retrieve
         // // more details for that place.
         searchBox.addListener('places_changed', () => {
+          console.log("helllo");
           var places = searchBox.getPlaces();
 
           if (places.length == 0) {
@@ -155,7 +156,7 @@ class TravelSmartMap extends React.Component {
             }
           });
           this.map.fitBounds(bounds);
-          this.props.history.push("/")
+          // this.props.history.push("/")
         });
       }
   }

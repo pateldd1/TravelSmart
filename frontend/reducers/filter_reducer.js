@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { UPDATE_FILTER, SORT_FILTER } from '../actions/filter_actions';
+import { UPDATE_FILTER, SORT_FILTER, BOUNCE_FILTER } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
   bounds: {},
@@ -10,7 +10,7 @@ const defaultFilters = Object.freeze({
   minPrice: 10,
   maxPrice: 4010,
   sorted: false,
-  bouncingMarker: {homeId: 0, bouncing: false}
+  bouncingMarker: {homeid: 0, bouncing: false}
 });
 //Min price and maxprice is only gonna change one at a time because of a slider
 //bounds is the latitude and longitude. (User returns longitude like long and filters have lng)
@@ -26,6 +26,9 @@ const FilterReducer = (state = defaultFilters, action) => {
   }
   else if(action.type === SORT_FILTER){
     return merge({}, state, {sorted: action.boolean})
+  }
+  else if(action.type === BOUNCE_FILTER){
+    return merge({}, state, {bouncingMarker: {homeid: action.homeid, bouncing: action.boolean}})
   }
   else {
     return state;

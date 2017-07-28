@@ -40,7 +40,6 @@ class HomeDetail extends React.Component{
     this.tv = [true, false].randomElement();
     this.num_guests = [1,2,3,4,5,6,7,8].randomElement();
     const random1 = Math.floor(Math.random()*4);
-    console.log(random1);
     this.amenities = ["internet","family","parking","kitchen"].slice(random1);
     this.theAmenities = this.theAmenities.bind(this);
   }
@@ -103,8 +102,6 @@ class HomeDetail extends React.Component{
     let idx = 0; // give unique keys
     for (var key in amenityText) {
       idx++;
-      console.log(key);
-      console.log(amenitiesArray.indexOf(key));
       if (amenitiesArray.indexOf(key) > -1) {
         confirmedAmenities.push(
           <div key={idx} className="amenity-container">

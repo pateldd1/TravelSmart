@@ -11,7 +11,7 @@ json.extract! home,
   # :reviews
   :roomtype
 
-  json.image_url asset_path(home.image.url)
+  json.image_url asset_path(home.image.url(:small))
 
   json.space do
     # json.max_guests home.max_guests
