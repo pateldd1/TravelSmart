@@ -89,19 +89,16 @@ export default class MarkerManager {
   //Make yours more like AirBNB, where they hover and it lights up on the house
   //Also when you hover over the house from the home index, it will light up the house on the map
   makeBounce() {
-    // if (this.getAnimation() !== null) {
-    //   this.setAnimation(null);
-    // } else {
+    if ( this )
+    {
       this.setAnimation(google.maps.Animation.BOUNCE);
-    // }
+    }
   }
 
   dontmakeBounce() {
-    // if (this.getAnimation() !== null) {
-    //   this.setAnimation(null);
-    // } else {
+    if(this){
       this.setAnimation(null);
-    // }
+    }
   }
 
 }

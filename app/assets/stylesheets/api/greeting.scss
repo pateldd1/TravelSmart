@@ -2,11 +2,12 @@
 //   background: yellow;
 // }
 .header-name{
-  margin: 7px 0px 0 91px;
+  margin: -4px 0 0 106px;
   text-align: right;
   font-style: serif;
   color: #FF5A5F;
   font-size: 21px;
+  text-align: center;
 }
 
 // .header-name:hover {
@@ -19,6 +20,7 @@
 }
 
 .header-nav {
+  display: flex;
   margin-top: 10px;
   border: 1px solid lightgrey;
   padding: 5px;

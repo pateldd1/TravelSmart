@@ -18,9 +18,11 @@ const mapOptions = {
   mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 
+
 class TravelSmartMap extends React.Component {
   constructor(props){
     super(props);
+    this.initAutocomplete = this.initAutocomplete.bind(this);
   }
   //refs will grab the DOM Node that we specified where this map is located. Once
   //this renders the map into the DOM Node location we initiated with refs
@@ -54,6 +56,7 @@ class TravelSmartMap extends React.Component {
   //We register the idle event and the click event on the map that will change the url
   //that will add the lat and lng to the url allowing a user to copy and paste the url easier(that's all that its useful for)
   registerListeners() {
+    this.initAutocomplete();
     google.maps.event.addListener(this.map, 'idle', () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
@@ -112,6 +115,48 @@ class TravelSmartMap extends React.Component {
     );
   }
 
-}
+  //This is the search by location feature.
+    initAutocomplete() {
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        // this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        // this.map.addListener('bounds_changed', () => {
+        //   searchBox.setBounds(this.map.getBounds());
+        // });
+
+        // // Listen for the event fired when the user selects a prediction and retrieve
+        // // more details for that place.
+        searchBox.addListener('places_changed', () => {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach((place) => {
+            if (!place.geometry) {
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            if (place.geometry.viewport) {
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          this.map.fitBounds(bounds);
+        });
+      }
+  }
 
 export default withRouter(TravelSmartMap);

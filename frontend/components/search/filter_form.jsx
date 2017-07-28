@@ -35,6 +35,7 @@ class FilterForm extends React.Component {
     this.slide = this.slide.bind(this);
     this.dropDownRooms = this.dropDownRooms.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.detoggleMenu = this.detoggleMenu.bind(this);
     this.remainOpen = this.remainOpen.bind(this);
     this.close = this.close.bind(this)
     this.togglePriceSort = this.togglePriceSort.bind(this);
@@ -46,14 +47,12 @@ class FilterForm extends React.Component {
     }
   }
 
+  detoggleMenu(){
+    this.setState({dropDownRoomsShown: "roomhide show"});
+  }
+
   toggleMenu(){
-    if ( this.state.dropDownRoomsShown === "roomhide")
-    {
-      this.setState({dropDownRoomsShown: "roomhide show"});
-    }
-    else {
-      this.setState({dropDownRoomsShown: "roomhide"});
-    }
+    this.setState({dropDownRoomsShown: "roomhide"})
   }
 
   togglePriceSort(){
@@ -85,7 +84,7 @@ class FilterForm extends React.Component {
 
   dropDownRooms(){
     return(
-      <div className="dropdown" onClick={this.toggleMenu}>
+      <div className="dropdown" onMouseOver={this.detoggleMenu} onMouseLeave={this.toggleMenu}>
         <a className="roomtype-button" >Room-Type</a>
         <div className={this.state.dropDownRoomsShown}>
           <a className="drop-li" onClick={()=>this.props.updateFilter("roomtype", "alltypes")}>All Types</a>

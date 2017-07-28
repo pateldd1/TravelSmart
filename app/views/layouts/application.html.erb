@@ -4,7 +4,7 @@
     <title>TravelSmart</title>
     <%= csrf_meta_tags %>
 
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCqR05G1xdfZk2aNaMpmIr6Hb_Dso12Egc" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCqR05G1xdfZk2aNaMpmIr6Hb_Dso12Egc&libraries=places" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag 'application' %>
@@ -22,3 +22,5 @@
     <%= yield %>
   </body>
 </html>
+
+<!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->

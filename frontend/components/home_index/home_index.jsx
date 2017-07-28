@@ -26,8 +26,8 @@ class HomeIndex extends React.Component {
       <div className="home-card">
         <Link to={`/homes/${home.id}`} className="link-to">
 
-          <div className="show-card-container" onMouseEnter={() => this.bounce(home.id)} onMouseLeave={() => this.nobounce(home.id)}>
-            <img className="show-card" src={home.image_url}/>
+          <div className="show-card-container">
+            <img onMouseOver={() => this.bounce(home.id)} onMouseLeave={() => this.nobounce(home.id)} className="show-card" src={home.image_url}/>
           </div>
 
           <div className="card-top-row">

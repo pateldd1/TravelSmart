@@ -8,21 +8,15 @@ import SessionFormContainer from '../session_form/session_form_container';
 
 const sessionLinks = (updateModal) => (
   <div>
-    <Link to="/" className="header-link">
-      <img className="travel-icon" src="https://image.flaticon.com/icons/svg/201/201623.svg"></img>
-    </Link>
     <nav className="login-signup">
-      <li><h3 className="loginbutton" onClick={() => updateModal(<SessionFormContainer formType="login" />, true)}>Login</h3></li>
-      <li><h3 className="signupbutton" onClick={() => updateModal(<SessionFormContainer formType="signup" />, true)}>Sign up!</h3></li>
+      <h3 className="loginbutton" onClick={() => updateModal(<SessionFormContainer formType="login" />, true)}>Login</h3>
+      <h3 className="signupbutton" onClick={() => updateModal(<SessionFormContainer formType="signup" />, true)}>Sign up!</h3>
     </nav>
   </div>
 );
 //currentUser and logout come from container map
 const personalGreeting = (currentUser, logout) => (
   <hgroup className="header-group">
-    <Link to="/" className="header-link">
-      <img className="travel-icon" src="https://image.flaticon.com/icons/svg/201/201623.svg"></img>
-    </Link>
     <h2 className="header-name">Welcome {currentUser.username}!</h2>
     <div className="Signed-In-User-Header">
       <Link className="AllTripsButton" to="/user/:userid/trips">Your Trips</Link>
