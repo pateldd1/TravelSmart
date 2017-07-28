@@ -21,7 +21,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_attached_file :image, default_url: "defaultuser.jpg", :styles => {
-    :small => "20x20>"
+    :small => "80x80>"
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 

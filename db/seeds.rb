@@ -103,205 +103,156 @@ end
 User.destroy_all
 guest_user = User.create!(username: "Guest", password: "123456")
 users = [
-User.create({"email": "guest@live.com",
-  "first": "Oprah",
-  "last": "Winfrey",
+User.create!({
+  "username": "Walter White",
   "password": "asdf1234",
-  "month": 5,
-  "day": 11,
-  "year": 1980,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/oprah.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/walt_a1xbly.jpg"
 }),
-User.create({
-  "email": "david@qydc.com",
-  "first": "David",
-  "last": "Chen",
+
+User.create!({
+  "username": "Donald Trump",
   "password": "password123",
-  "month": 5,
-  "day": 12,
-  "year": 1991,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/david.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/trump_jwua61.jpg"
 }),
-User.create({
-  "email": "iheartjay@recordlabel.com",
-  "first": "Beyonce",
-  "last": "Knowles",
+
+User.create!({
+  "username": "Sheldon",
   "password": "qwerty55",
-  "month": 2,
-  "day": 12,
-  "year": 1984,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/beyonce.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/sheldon_xkyu0d.jpg"
 }),
-User.create({
-  "email": "conan@conaco.com",
-  "first": "Conan",
-  "last": "Obrien",
+
+User.create!({
+  "username": "Programmer",
   "password": "funny69lol",
-  "month": 2,
-  "day": 12,
-  "year": 1968,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/conan.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/programmer_u2mrea.jpg"
 }),
-User.create({
-  "email": "candaceswan@victoria.com",
-  "first": "Candice",
-  "last": "Swanpoele",
+
+User.create!({
+  "username": "Penny",
   "password": "victoriasecret99",
-  "month": 2,
-  "day": 12,
-  "year": 1989,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/candice.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/kaley_xkvfug.jpg"
 }),
-User.create({
-  "email": "deadpool@marvel.com",
-  "first": "Deadpool",
-  "last": "Wilson",
+
+User.create!({
+  "username": "Jack Sparrow",
   "password": "chalupas55",
-  "month": 8,
-  "day": 22,
-  "year": 1979,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/deadpool.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278501/jack_sparrow_jbtq8g.jpg"
 }),
-User.create({
-  "email": "ollivander@wand.com",
-  "first": "Emma",
-  "last": "Watson",
+User.create!({
+  "username": "Hermione",
   "password": "iloveron1",
-  "month": 3,
-  "day": 13,
-  "year": 1990,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/emma.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278501/hermione_kicftk.jpg"
 }),
-User.create({
-  "email": "kungfu@comedy.com",
-  "first": "Jackie",
-  "last": "Chan",
+User.create!({
+  "username": "Hacker",
   "password": "policestory3",
-  "month": 7,
-  "day": 13,
-  "year": 1977,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/jackie.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/hacker_e2e7ye.jpg"
 }),
-User.create({
-  "email": "action@comedy.com",
-  "first": "Jet",
-  "last": "Li",
+User.create!({
+  "username": "Future",
   "password": "taichumaster44",
-  "month": 11,
-  "day": 21,
-  "year": 1984,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/jet.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278501/future_wx0tit.jpg"
 }),
-User.create({
-  "email": "lovekanya@west.com",
-  "first": "Kim",
-  "last": "Kardashian",
+User.create!({
+  "username": "James Bond",
   "password": "graduationday",
-  "month": 12,
-  "day": 12,
-  "year": 1989,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/kim.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/bond_uyt87c.jpg"
 }),
-User.create({
-  "email": "petlife@comedian.com",
-  "first": "Louis",
-  "last": "CK",
+User.create!({
+  "username": "300",
   "password": "amazingeyelashes",
-  "month": 4,
-  "day": 14,
-  "year": 1979,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/louis.jpg"
-}),
-User.create({
-  "email": "wolfofwall@street.com",
-  "first": "Margot",
-  "last": "Robbie",
-  "password": "queloods55",
-  "month": 8,
-  "day": 18,
-  "year": 1990,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/margot.jpg"
-}),
-User.create({
-  "email": "rapper@gangsta.com",
-  "first": "Nicki",
-  "last": "Minaj",
-  "password": "ilovepinkhair",
-  "month": 5,
-  "day": 26,
-  "year": 1987,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/nicki.jpg"
-}),
-User.create({
-  "email": "scarlett@marvel.com",
-  "first": "Scarlett",
-  "last": "Johansson",
-  "password": "ghostinshell33",
-  "month": 1,
-  "day": 4,
-  "year": 1991,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/scarlett.jpg"
-}),
-User.create({
-  "email": "loralee@doublel.com",
-  "first": "Lora",
-  "last": "Lee",
-  "password": "appacademyll",
-  "month": 11,
-  "day": 27,
-  "year": 1990,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/lora.jpg"
-}),
-User.create({
-  "email": "worldpeace@nobel.com",
-  "first": "Malala",
-  "last": "Yousafzai",
-  "password": "lovepeace",
-  "month": 4,
-  "day": 27,
-  "year": 1994,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/malala.jpg"
-}),
-User.create({
-  "email": "doomfist@overwatch.com",
-  "first": "Terry",
-  "last": "Crews",
-  "password": "ultimate1",
-  "month": 9,
-  "day": 15,
-  "year": 1980,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/terry.jpg"
-}),
-User.create({
-  "email": "seeds@apple.com",
-  "first": "Johnny",
-  "last": "Appleseed",
-  "password": "talltale",
-  "month": 3,
-  "day": 13,
-  "year": 1983,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/michael.jpg"
-}),
-User.create({
-  "email": "steph@henk.com",
-  "first": "Stephanie",
-  "last": "Henkoff",
-  "password": "appacademybrooklyn",
-  "month": 7,
-  "day": 21,
-  "year": 1991,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/stephanie.jpg"
-}),
-User.create({
-  "email": "wadah@appacademybrooklyn.com",
-  "first": "Wadah",
-  "last": "Adlan",
-  "password": "ilovememes",
-  "month": 6,
-  "day": 16,
-  "year": 1989,
-  "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/wadah.jpg"
+  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/300_daaizt.png"
 })
+# User.create({
+#   "email": "wolfofwall@street.com",
+#   "first": "Margot",
+#   "last": "Robbie",
+#   "password": "queloods55",
+#   "month": 8,
+#   "day": 18,
+#   "year": 1990,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/margot.jpg"
+# }),
+# User.create({
+#   "email": "rapper@gangsta.com",
+#   "first": "Nicki",
+#   "last": "Minaj",
+#   "password": "ilovepinkhair",
+#   "month": 5,
+#   "day": 26,
+#   "year": 1987,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/nicki.jpg"
+# }),
+# User.create({
+#   "email": "scarlett@marvel.com",
+#   "first": "Scarlett",
+#   "last": "Johansson",
+#   "password": "ghostinshell33",
+#   "month": 1,
+#   "day": 4,
+#   "year": 1991,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/scarlett.jpg"
+# }),
+# User.create({
+#   "email": "loralee@doublel.com",
+#   "first": "Lora",
+#   "last": "Lee",
+#   "password": "appacademyll",
+#   "month": 11,
+#   "day": 27,
+#   "year": 1990,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/lora.jpg"
+# }),
+# User.create({
+#   "email": "worldpeace@nobel.com",
+#   "first": "Malala",
+#   "last": "Yousafzai",
+#   "password": "lovepeace",
+#   "month": 4,
+#   "day": 27,
+#   "year": 1994,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/malala.jpg"
+# }),
+# User.create({
+#   "email": "doomfist@overwatch.com",
+#   "first": "Terry",
+#   "last": "Crews",
+#   "password": "ultimate1",
+#   "month": 9,
+#   "day": 15,
+#   "year": 1980,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/terry.jpg"
+# }),
+# User.create({
+#   "email": "seeds@apple.com",
+#   "first": "Johnny",
+#   "last": "Appleseed",
+#   "password": "talltale",
+#   "month": 3,
+#   "day": 13,
+#   "year": 1983,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/michael.jpg"
+# }),
+# User.create({
+#   "email": "steph@henk.com",
+#   "first": "Stephanie",
+#   "last": "Henkoff",
+#   "password": "appacademybrooklyn",
+#   "month": 7,
+#   "day": 21,
+#   "year": 1991,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/stephanie.jpg"
+# }),
+# User.create({
+#   "email": "wadah@appacademybrooklyn.com",
+#   "first": "Wadah",
+#   "last": "Adlan",
+#   "password": "ilovememes",
+#   "month": 6,
+#   "day": 16,
+#   "year": 1989,
+#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/wadah.jpg"
+# })
 ]
 
 Home.destroy_all
@@ -737,23 +688,22 @@ urls = [
   })
 end
 
-3.times do |i|
-  Trip.create({
-    visitor_id: User.all.sample.id,
+5.times do |i|
+  Trip.create!({
+    visitor_id: guest_user.id,
     home_id: Home.all.sample.id,
     start_date: Time.at(rand * Time.now.to_i),
     end_date: Time.at(rand * Time.now.to_i),
-    num_guests: 1,
-    totalcost: rand(200..5000),
+    totalcost: rand(200..10000)
     }
   )
 end
 
-600.times do |i|
-  Review.create({
+300.times do |i|
+  Review.create!({
     author_id: User.all.sample.id,
     home_id: Home.all.sample.id,
     rating: rand(5..10),
-    body: Faker::Hipster.paragraph(2, false, 2)
+    body: Faker::Lorem.sentence(rand(5..40))
   })
 end
