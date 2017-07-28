@@ -145,6 +145,8 @@ class FilterForm extends React.Component {
     )
   }
 }
+
+//You also need to add the filter that you are filtering by and render this filter so that someone will know
 //WORK ON THIS LATER AND GET THE FILTERS TO FILTER BY BEDS/ETC.
 // <a className="filter-button">More Filters</a>
 

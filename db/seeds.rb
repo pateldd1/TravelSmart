@@ -688,6 +688,8 @@ urls = [
   })
 end
 
+Trip.destroy_all
+
 5.times do |i|
   Trip.create!({
     visitor_id: guest_user.id,
@@ -698,6 +700,8 @@ end
     }
   )
 end
+
+Review.destroy_all
 
 300.times do |i|
   Review.create!({
