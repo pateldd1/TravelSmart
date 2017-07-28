@@ -14,7 +14,8 @@ const mapStateToProps = ({ homes, filters }) => {
     // maxHousing: filters.maxHousing,
     minPrice: filters.minPrice,
     maxPrice: filters.maxPrice,
-    sorted: filters.sorted
+    sorted: filters.sorted,
+    bouncingMarker: filters.bouncingMarker
   };
 };
 

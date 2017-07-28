@@ -41,6 +41,13 @@ class TravelSmartMap extends React.Component {
     }
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.bouncingMarkerId) {
+  //     let bouncingMarker = this.MarkerManager.markers[nextProps.bouncingMarkerId];
+  //     this.MarkerManager.toggleBounce.apply(bouncingMarker);
+  //   }
+  // }
+
   //When the map is idle, we will get the bounds and change the filters to
   //cause a re-rendering
   //event is the event that occurs within the google maps
@@ -68,6 +75,18 @@ class TravelSmartMap extends React.Component {
   //Once the window has been seen with new bounds, component has updated, so we
   //will update the markers
   componentDidUpdate() {
+
+    let bouncer = this.MarkerManager.markers[this.props.bouncingMarker.homeId];
+    if (this.props.bouncingMarker.bouncing) {
+      this.MarkerManager.makeBounce.apply(bouncer);
+    }
+    else
+    {
+      if ( bouncer )
+      {
+        this.MarkerManager.dontmakeBounce.apply(bouncer);
+      }
+    }
     if (this.props.singleHome) {
       const targetHomeKey = Object.keys(this.props.homes)[0];
       const targetHome = this.props.homes[targetHomeKey];

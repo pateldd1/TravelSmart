@@ -9,7 +9,8 @@ const defaultFilters = Object.freeze({
   roomtype: undefined,
   minPrice: 10,
   maxPrice: 4010,
-  sorted: false
+  sorted: false,
+  bouncingMarker: {homeId: 0, bouncing: false}
 });
 //Min price and maxprice is only gonna change one at a time because of a slider
 //bounds is the latitude and longitude. (User returns longitude like long and filters have lng)

@@ -3,7 +3,9 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 import { sortBy } from 'lodash'
 class HomeIndex extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.bounce = this.bounce.bind(this);
+    this.nobounce = this.nobounce.bind(this);
   }
 
   //This is added just for testing
@@ -11,12 +13,20 @@ class HomeIndex extends React.Component {
   //   this.props.requestHomes(null);
   // }
 
+  bounce(homeId){
+    this.props.updateFilter("bouncingMarker", {homeId: homeId, bouncing: true});
+  }
+
+  nobounce(homeId){
+    this.props.updateFilter("bouncingMarker", {homeId: homeId, bouncing: false});
+  }
+
   travelSmart(home) {
     return (
       <div className="home-card">
         <Link to={`/homes/${home.id}`} className="link-to">
 
-          <div className="show-card-container">
+          <div className="show-card-container" onMouseEnter={() => this.bounce(home.id)} onMouseLeave={() => this.nobounce(home.id)}>
             <img className="show-card" src={home.image_url}/>
           </div>
 

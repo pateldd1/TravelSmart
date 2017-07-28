@@ -39,10 +39,10 @@ class Search extends React.Component {
   render() {
     return (
       <div className="filters-and-homes">
-        <TravelSmartMap homes={this.props.homes} updateFilter={this.props.updateFilter}  />
+        <TravelSmartMap bouncingMarker={this.props.bouncingMarker} homes={this.props.homes} updateFilter={this.props.updateFilter}  />
         {this.filterBar()}
         <section className='index-container'>
-        <HomeIndex sorted={this.props.sorted} homes={this.props.homes} />
+        <HomeIndex updateFilter={this.props.updateFilter} sorted={this.props.sorted} homes={this.props.homes} />
         </section>
       </div>
     );
