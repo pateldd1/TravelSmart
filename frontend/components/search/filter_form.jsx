@@ -140,7 +140,7 @@ class FilterForm extends React.Component {
         <div className="more-filters">
           {this.dropDownRooms()}
           <a className="filter-button">More Filters</a>
-          <a className="filter-button" onClick={this.togglePriceSort}>Toggle Price Sort</a>
+          <a className="filter-button" onClick={this.togglePriceSort}>Price Sorter</a>
         </div>
       </div>
     )

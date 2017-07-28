@@ -36,6 +36,7 @@ class TripIndex extends React.Component {
           <div className="trip-cards">
           {tripsIndex}
           </div>
+          <Link to="/" className="pinkButton book-btn trip-button">Book another trip!</Link>
         </div>
       )
     } else {
@@ -45,7 +46,7 @@ class TripIndex extends React.Component {
           <div className="trip-cards-txt">
           You have no upcoming trips.
           </div>
-          <Link to="/" className="pinkButton book-btn trip-button">Book another trip!</Link>
+          <Link to="/" className="pinkButton book-btn trip-button">Book your First trip!</Link>
         </div>
       )
     }

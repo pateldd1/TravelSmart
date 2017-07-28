@@ -1,6 +1,10 @@
 import React from 'react';
 // import { trueAmenities } from '../../reducers/selectors.js';
 import Reviews from '../review/review';
+import RenderStars from '../helper/star';
+Array.prototype.randomElement = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
 
 const cancellationText = {
   Strict: "Cancel up to 7 days before your trip and get a 50% refund plus service fees back.",
@@ -26,12 +30,31 @@ const amenityText = {
 
 class HomeDetail extends React.Component{
 
+  constructor(props){
+    super(props);
+    this.rating = [1,2,3,4,5].randomElement();
+    this.prop_type = ["House", "Apartment", "Condo"].randomElement();
+    this.wifi = [true, false].randomElement();
+    this.ac = [true, false].randomElement();
+    this.kitchen = [true, false].randomElement();
+    this.tv = [true, false].randomElement();
+    this.num_guests = [1,2,3,4,5,6,7,8].randomElement();
+    const random1 = Math.floor(Math.random()*4);
+    console.log(random1);
+    this.amenities = ["internet","family","parking","kitchen"].slice(random1);
+    this.theAmenities = this.theAmenities.bind(this);
+  }
+
   summaryIcons() {
     return (
       <div className="sum-col">
         <div className="sum-detail-cols">
           <i className="room-type-icon sicon"></i>
           <div className="summary-icon-desc">{this.props.listing.roomtype}</div>
+        </div>
+        <div className="sum-detail-cols">
+          <i className="guests-type-icon sicon"></i>
+          <div className="summary-icon-desc">{this.num_guests} Guests</div>
         </div>
         <div className="sum-detail-cols">
           <i className="bedrooms-type-icon sicon"></i>
@@ -74,47 +97,49 @@ class HomeDetail extends React.Component{
     )
   }
 
-  // theAmenities() {
-  //   const amenitiesArray = trueAmenities(this.props.listing.amenities)
-  //   const confirmedAmenities = []; // confirms if amenity should be crossed out or bolded in Styling
-  //   let idx = 0; // give unique keys
-  //   for (var key in amenityText) {
-  //     idx++;
-  //     if (amenitiesArray.indexOf(key) > -1) {
-  //       confirmedAmenities.push(
-  //         <div key={idx} className="amenity-container">
-  //           <div className={"amen-ico " + amenityText[key][1]}></div>
-  //           <div className="amenity-true">{amenityText[key][0]}</div>
-  //         </div>
-  //       )
-  //     } else {
-  //       confirmedAmenities.push(
-  //         <div key={idx} className="amenity-container">
-  //           <div className={"amen-ico " + amenityText[key][1]}></div>
-  //           <div key={idx} className="amenity-false">{amenityText[key][0]}</div>
-  //         </div>
-  //       )
-  //     }
-  //   }
-  //   return (
-  //     <div className="details-row space-box">
-  //       <div className="details-sub-col1">Amenities</div>
-  //       <div className="details-sub-col2">
-  //         <div className="details-sub-col3">
-  //           {confirmedAmenities.slice(0, Math.ceil(confirmedAmenities.length/2))}
-  //         </div>
-  //         <div className="details-sub-col3">
-  //           {confirmedAmenities.slice(Math.ceil(confirmedAmenities.length/2))}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
+  theAmenities() {
+    const amenitiesArray = this.amenities;
+    const confirmedAmenities = []; // confirms if amenity should be crossed out or bolded in Styling
+    let idx = 0; // give unique keys
+    for (var key in amenityText) {
+      idx++;
+      console.log(key);
+      console.log(amenitiesArray.indexOf(key));
+      if (amenitiesArray.indexOf(key) > -1) {
+        confirmedAmenities.push(
+          <div key={idx} className="amenity-container">
+            <div className={"amen-ico " + amenityText[key][1]}></div>
+            <div className="amenity-true">{amenityText[key][0]}</div>
+          </div>
+        )
+      } else {
+        confirmedAmenities.push(
+          <div key={idx} className="amenity-container">
+            <div className={"amen-ico " + amenityText[key][1]}></div>
+            <div key={idx} className="amenity-false">{amenityText[key][0]}</div>
+          </div>
+        )
+      }
+    }
+    return (
+      <div className="details-row space-box">
+        <div className="details-sub-col1">Amenities</div>
+        <div className="details-sub-col2">
+          <div className="details-sub-col3">
+            {confirmedAmenities.slice(0, Math.ceil(confirmedAmenities.length/2))}
+          </div>
+          <div className="details-sub-col3">
+            {confirmedAmenities.slice(Math.ceil(confirmedAmenities.length/2))}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   cancellationPolicy() {
     return (
       <div className="details-row space-box">
-        <div className="details-sub-col1">Cancellations</div>
+        <div className="details-sub-col1">Reviews</div>
         <div className="details-sub-col2">
           <div className="details-cancellation">{this.props.listing.cancellation}</div>
           <div className="details-text">{cancellationText[this.props.listing.cancellation]}</div>
@@ -162,11 +187,13 @@ class HomeDetail extends React.Component{
             <hr className="rowDivider"/>
             {this.theSpace()}
             <hr className="rowDivider hr-abbrev"/>
+            {this.theAmenities()}
+            <hr className="rowDivider hr-abbrev"/>
             {this.cancellationPolicy()}
             <hr className="rowDivider"/>
           </div>
         </div>
-
+        <RenderStars rating={this.rating} />
         <div className="review-divider">
           <Reviews listing={listing}/>
         </div>

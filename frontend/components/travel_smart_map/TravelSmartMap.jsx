@@ -155,6 +155,7 @@ class TravelSmartMap extends React.Component {
             }
           });
           this.map.fitBounds(bounds);
+          this.props.history.push("/")
         });
       }
   }
