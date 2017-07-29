@@ -105,7 +105,7 @@ Home Show Page State Shape:
 }
 ```
 
-![safehavn-show](/app/assets/images/book_home.gif)
+![TravelSmart-show](/app/assets/images/book_home.gif)
 
 ## Map Filters
 TravelSmart offers real-time filtering based on roomtype and price (per month). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map. Markers pertaining to a certain house bounce when the house is hovered over in the homes index, and there
