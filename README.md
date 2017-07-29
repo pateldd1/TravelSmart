@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-# SafeHavn
-URL: [Live Link](http://www.safehavn.site/#/)
+# TravelSmart
+URL: [Live Link](https://travelsmart1.herokuapp.com)
 
 ![travelsmart-home](/app/assets/images/Home_page_search.png)
 
-TravelSmart draws inspiration from AirBnB that helps users find unique locations. The user can filter locations with multiple filters, book, and review locations.
+TravelSmart draws inspiration from AirBnB and helps users find homes for temporary stay based on multiple filters. It also lets them book and review locations.
 
 ## Contents
 **Features**
