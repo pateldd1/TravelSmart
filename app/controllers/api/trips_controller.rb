@@ -15,7 +15,8 @@ class Api::TripsController < ApplicationController
 
   #the only thing that we don't have for this trip is the visitor_id and that id
   #is the current user's id so trip.visitor = current_user will set the visitor id up since
-  #we have made the asssociation for this to work.
+  #we have made the asssociation for this to work. No need to take the visitor id from the front
+  #end since this id will belong to the current user in the back end.
 
   def create
     @trip = Trip.new(trip_params)
@@ -44,7 +45,7 @@ class Api::TripsController < ApplicationController
   #as the home ids in the current join table of user and trips. Overall this is done to get a lot of information about a trip including
   #user and home data that are all going to be picked up by jbuilder
 
-  
+
   def destroy
     @trip = Trip.find(params[:id])
 
