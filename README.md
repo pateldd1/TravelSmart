@@ -1,25 +1,27 @@
 # SafeHavn
 URL: [Live Link](http://www.safehavn.site/#/)
 
-![safehavn-Landing](/app/assets/images/Home_page_search.png)
+![travelsmart-home](/app/assets/images/Home_page_search.png)
 
-SafeHavn draws inspiration from AirBnB that helps users find unique locations. The user can filter these locations, book them, and manage them in a clear, intuitive, user-friendly navigation.
+TravelSmart draws inspiration from AirBnB that helps users find unique locations. The user can filter locations with multiple filters, book, and review locations.
 
 ## Contents
 **Features**
 
-* [User Authentication](#user-authentication)
-* [Home Show Page](#home-show-page)
-* [Instant Map Filters](#instant-map-filters)
-* [Booking a Trip](#booking-a-trip)
+* [User Auth](#user-authentication)
+* [Home Show](#home-show-page)
+* [Map Filters](#map-filters)
+* [Booking](#booking)
 * [Reviews](#reviews)
 
 ## Project Information
-This project was developed in two weeks utilizing Ruby on Rails, React.js with Redux, Google Maps, and Amazon S3.
+This project was developed in 10 days using Ruby on Rails, React.js with Redux, Google Maps, and Amazon S3.
 
 ## Features
   * Account creation and authentication
-  * Search for trips in a geographic location by price and guest size
+  * Search for trips in a geographic location by price and roomtype
+  # Search using the google maps SearchBox feature
+
   * View homes' show page
   * Displays home details (address, amenities, space details)
   * Book a home
@@ -28,7 +30,8 @@ This project was developed in two weeks utilizing Ruby on Rails, React.js with R
   * Visitors may only post reviews on homes that they visit
 
 ## User Authentication
-On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed and compared to the encrypted password in order to verify the log-in.
+On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed and compared to the encrypted password in order to verify the log-in. A session token is used to achieve this, making sure the user is logged in when navigating the website. SecureRandom
+gem was used for this.
 
 ## Home Show Page
 All homes are stored in the database, which contains columns for:
@@ -37,19 +40,19 @@ All homes are stored in the database, which contains columns for:
   * `price` per night
   * `title` of the home
   * `description` of the home
-  * `cancellation` policy
   * the `address` of home
-  * an `image_url` referencing it's picture hosted in AWS
-  * `max_guests`, the maximum number of guests for the home
-  * the number of `bathrooms` (can also be float to accommodate for 1.5 bathrooms, etc.)
+  * an `image_url` referencing it's picture hosted in AWS, packaged using paperclip
+  * the number of `bathrooms`
   * the number of `bedrooms`
   * the number of `beds`
-  * the `property_type` of home (Mansion, House, Cabin, Cabana, etc.)
   * the `room_type` that the host is servicing (Shared Room, Entire House, Entire Room, etc.)
+
+  ----The Following is not stored in the database but is randomly generated----
   * a boolean that determines if the host provides the `internet` amenity
   * a boolean that determines if the host provides the `family`-friendly amenity
   * a boolean that determines if the host provides the free-`parking` amenity
   * a boolean that determines if the host provides a `kitchen`
+  -----------------------------------------------------------------------------
 
 Below is an example of a state shape for the home index page:
 
@@ -151,7 +154,7 @@ Below is an example of a state shape for the home show page:
 
 ![safehavn-show](/app/assets/images/demo/SafeHavnShow.png)
 
-## Instant Map Filters
+## Map Filters
 SafeHavn offers real-time filtering based on party size and price (per night). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map.
 
 ![filter-map](/app/assets/images/demo/filter-map.gif)
@@ -224,7 +227,7 @@ There is currently no model validation or validations to determine if the home i
 Integration with mobile using React Native.
 
 #### More Filters
-Filtering by amenities and housing accommodations will improve usability. Adding dropdowns and modals will allow the expansion of such filters.
+Filtering by number of beds and bedrooms as well as by reviews will help to improve usability. Drop Downs will be needed.
 
 #### Improved Styling/Design
 Compared with AirBnB, there are countless UX design tweaks that I can improve on such as: adding a carousel that spins through photos of the home. Adding a slider bar to filter budgets and guest size.
