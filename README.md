@@ -176,7 +176,7 @@ Here is an example of a filter state slice:
   }
 ```
 
-![map-drag](/app/assets/images/demo/map-drag.gif)
+![map-drag](/app/assets/images/map_dragging.gif)
 
 ## Home Details
 The home show page contains a more in-depth explanation of the home's features. The page is shown when a user clicks on either a home from
