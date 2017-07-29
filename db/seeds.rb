@@ -171,7 +171,7 @@ User.create!({
 #   "month": 8,
 #   "day": 18,
 #   "year": 1990,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/margot.jpg"
+#   "image": ""
 # }),
 # User.create({
 #   "email": "rapper@gangsta.com",
@@ -181,7 +181,7 @@ User.create!({
 #   "month": 5,
 #   "day": 26,
 #   "year": 1987,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/nicki.jpg"
+#   "image": ""
 # }),
 # User.create({
 #   "email": "scarlett@marvel.com",
@@ -191,7 +191,7 @@ User.create!({
 #   "month": 1,
 #   "day": 4,
 #   "year": 1991,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/scarlett.jpg"
+#   "image": ""
 # }),
 # User.create({
 #   "email": "loralee@doublel.com",
@@ -201,7 +201,7 @@ User.create!({
 #   "month": 11,
 #   "day": 27,
 #   "year": 1990,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/lora.jpg"
+#   "image": ""
 # }),
 # User.create({
 #   "email": "worldpeace@nobel.com",
@@ -211,7 +211,7 @@ User.create!({
 #   "month": 4,
 #   "day": 27,
 #   "year": 1994,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/malala.jpg"
+#   "image": ""
 # }),
 # User.create({
 #   "email": "doomfist@overwatch.com",
@@ -221,7 +221,7 @@ User.create!({
 #   "month": 9,
 #   "day": 15,
 #   "year": 1980,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/terry.jpg"
+#   "image": ""
 # }),
 # User.create({
 #   "email": "seeds@apple.com",
@@ -231,7 +231,7 @@ User.create!({
 #   "month": 3,
 #   "day": 13,
 #   "year": 1983,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/michael.jpg"
+#   "image": ""
 # }),
 # User.create({
 #   "email": "steph@henk.com",
@@ -241,7 +241,7 @@ User.create!({
 #   "month": 7,
 #   "day": 21,
 #   "year": 1991,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/stephanie.jpg"
+#   "image": ""
 # }),
 # User.create({
 #   "email": "wadah@appacademybrooklyn.com",
@@ -251,7 +251,7 @@ User.create!({
 #   "month": 6,
 #   "day": 16,
 #   "year": 1989,
-#   "image": "https://s3.us-east-2.amazonaws.com/safehavnusers/wadah.jpg"
+#   "image": ""
 # })
 ]
 

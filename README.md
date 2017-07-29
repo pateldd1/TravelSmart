@@ -1,7 +1,7 @@
 # TravelSmart
 URL: [Live Link](https://travelsmart1.herokuapp.com)
 
-![travelsmart-home](/app/assets/images/Home_page_search.png)
+![travelsmart-home](/app/assets/images/search_page.gif)
 
 TravelSmart draws inspiration from AirBnB and helps users find homes for temporary stay based on multiple filters. It also lets them book and review locations.
 
@@ -15,12 +15,12 @@ TravelSmart draws inspiration from AirBnB and helps users find homes for tempora
 * [Reviews](#reviews)
 
 ## Project Information
-This project was developed in 10 days using Ruby on Rails, React.js with Redux, Google Maps, and Amazon S3.
+This project was developed in 10 days using Ruby on Rails, React.js with Redux, Google Maps, Cloudinary, and Amazon S3.
 
 ## Features
   * Account creation and authentication
-  * Search for trips in a geographic location by price and roomtype
-  # Search using the google maps SearchBox feature
+  * Search for trips in a geographic location by price and roomtype in home
+  * Search using the google maps SearchBox feature
 
   * View homes' show page
   * Displays home details (address, amenities, space details)
@@ -30,24 +30,24 @@ This project was developed in 10 days using Ruby on Rails, React.js with Redux, 
   * Visitors may only post reviews on homes that they visit
 
 ## User Authentication
-On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed and compared to the encrypted password in order to verify the log-in. A session token is used to achieve this, making sure the user is logged in when navigating the website. SecureRandom
-gem was used for this.
+On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed using BCrypt and compared to the encrypted password in order to verify the log-in. A session token is used to achieve this, making sure the user is logged in when navigating the website. SecureRandom gem was used for this. Bootstrapping the current
+user is used to keep the user logged in on refresh of the page.
 
 ## Home Show Page
 All homes are stored in the database, which contains columns for:
   * the home `id`
-  * the Geographic location (`lat` and `lng`)
-  * `price` per night
+  * the Geographic location (`lat` and `long`)
   * `title` of the home
   * `description` of the home
+  * `price` per night
   * the `address` of home
   * an `image_url` referencing it's picture hosted in AWS, packaged using paperclip
   * the number of `bathrooms`
   * the number of `bedrooms`
   * the number of `beds`
-  * the `room_type` that the host is servicing (Shared Room, Entire House, Entire Room, etc.)
+  * the `roomtype` that the host is servicing (Shared Room, Entire House, Private Room)
 
-  ----The Following is not stored in the database but is randomly generated----
+  ----The Following is not stored in the database but is randomly generated on home show----
   * a boolean that determines if the host provides the `internet` amenity
   * a boolean that determines if the host provides the `family`-friendly amenity
   * a boolean that determines if the host provides the free-`parking` amenity
@@ -60,126 +60,107 @@ Below is an example of a state shape for the home index page:
 {
   1: {
     id: 1,
-    lat: 41.1706021488593,
-    lng: -74.9294859019342,
-    price: 138,
-    title: "Three Island",
-    description: "Classic Brooklyn Brownstone. Suite 627 is a spacious 1 bedroom apt with private entry. Living room, full kitchen and bath on the second floor on quiet tree-lined block in historic Bedford-Stuyvesant, Brooklyn. Built in 1899, Suite 627 features original architectural details, such as hardwood floors, fireplaces and built-ins. Accommodates 4 with a queen bed and convertible sofa. Close to subway for easy access to Manhattan. Short cab ride from both JFK and LaGuardia airports. The space Suite 627 is a comfortable oasis. You have the entire floor and features a private entryway. All inclusive amenities include Wi-fi, air conditioning, laptop work-space and smart TV to access your favorite apps. Perfect for couples retreat, family get-a-way or business traveler. Interaction with guests My family and I occupy the lower levels of the home and have been residents of Bedford Stuyvesant for over 20 years. We enjoy everything about our neighborhood--friends, family, and friends who are extended family. I am a self professed HGTV enthusiast. I love watching the magic that happens when people love their house and transform it into a home. I apply these learnings to my own home and by extension Suite 627. Suite 627 is waiting for you to join in on the good people, great diverse food, beautiful art and non-stop culture. So many things to do and see! Don't wait, book Suite 627 now! We can't wait to have you as our guest!",
-    address: "79886 Skiles Mission, Lake Marlee, Mauritania",
-    host: {
-      first: "Kim",
-      last: "Kardashian"
-    },
-    revcount: 9,
-    avg: 7,
-    space: {
-      max_guests: 12,
-      beds: 12,
-      room_type: "Private Room"
-    },
-    image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/001/original/0.jpg?1500573048"
+    lat: 37.98435639,
+    lng: -107.9596022,
+    price: 1338,
+    title: "some_title",
+    address: "some_address",
+    beds: 12,
+    roomtype: "Private Room",
+    image_url: "some_image_url"
   },
   2: {
     id: 2,
-    lat: 40.6777110577057,
-    lng: -73.8242275239494,
+    lat: 34.43947806,
+    lng: -101.3342404,
     price: 338,
     title: "Icirrus City",
-    description: "Beautiful, newly renovated apartment. Very clean(really) and quiet. Has a fully equipped kitchen, cable tv, smart tv, wifi troughout. Located a stone throw away from the Freedom tower, Wall Street, NYSE, Shopping malls, Battery Park City, Hudson River boardwalk, Statue of Liberty ferry, Federal Reserve Bank, Goldman Sachs and more. All within 5 min walk from my place. I would love to share my love of New York City with you. Я говорю по русски. Пишите, спрашивайте. Thank you and see you soon. The space Designed with home in mind, all of the pieces were carefully selected to make you feel cozy. Lots of clean towels, sheets and essentials for a comfortable stay in my place. Interaction with guests I love New York, especially Downtown and Finacial district, Battery Park city promenade and the marina. Got my sailors license there. Would love to show you my favorite places or advice you on where to go. We have it all down here! And the clean air, and water, and beautiful parks.",
     address: "7547 Franz Falls, Dooleyport, Honduras",
-    host: {
-      first: "Emma",
-      last: "Watson"
-    },
-    revcount: 4,
-    avg: 7,
-    space: {
-      max_guests: 12,
-      beds: 12,
-      room_type: "Entire home/apt"
-    },
-    image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/002/original/1.jpg?1500573048"
+    beds: 12,
+    room_type: "Entire home",
+    image_url: "some_image_url"
   }
 }
 ```
 
-Below is an example of a state shape for the home show page:
+Home Show Page State Shape:
 
 ```JavaScript
 {
   id: 29,
-  lat: 40.817193641856,
-  lng: -74.0953376465903,
-  price: 244,
-  title: "Vermilion City",
-  description: "Classic Brooklyn Brownstone. Suite 627 is a spacious 1 bedroom apt with private entry. Living room, full kitchen and bath on the second floor on quiet tree-lined block in historic Bedford-Stuyvesant, Brooklyn. Built in 1899, Suite 627 features original architectural details, such as hardwood floors, fireplaces and built-ins. Accommodates 4 with a queen bed and convertible sofa. Close to subway for easy access to Manhattan. Short cab ride from both JFK and LaGuardia airports. The space Suite 627 is a comfortable oasis. You have the entire floor and features a private entryway. All inclusive amenities include Wi-fi, air conditioning, laptop work-space and smart TV to access your favorite apps. Perfect for couples retreat, family get-a-way or business traveler. Interaction with guests My family and I occupy the lower levels of the home and have been residents of Bedford Stuyvesant for over 20 years. We enjoy everything about our neighborhood--friends, family, and friends who are extended family. I am a self professed HGTV enthusiast. I love watching the magic that happens when people love their house and transform it into a home. I apply these learnings to my own home and by extension Suite 627. Suite 627 is waiting for you to join in on the good people, great diverse food, beautiful art and non-stop culture. So many things to do and see! Don't wait, book Suite 627 now! We can't wait to have you as our guest!",
-  cancellation: "Strict",
-  address: "9821 Soledad Green, North Erika, Romania",
-  trips: [
-    {
-    id: 4,
-    visitor_id: 1,
-    home_id: 29,
-    start_date: "2017-08-08",
-    end_date: "2017-08-15",
-    created_at: "2017-07-20T18:54:39.861Z",
-    updated_at: "2017-07-20T18:54:39.861Z",
-    num_guests: 4,
-    totalcost: 1763
-    }
-  ],
-  host: {
-    id: 3,
-    first: "Beyonce",
-    last: "Knowles"
-  },
-  host_image_url: "http://s3.amazonaws.com/safehavns-dev/users/images/000/000/003/original/beyonce.jpg?1500573040",
-  image_url: "http://s3.amazonaws.com/safehavns-dev/homes/images/000/000/029/original/28.jpg?1500573065",
+  lat: 34.43947806,
+  lng: -101.3342404,
+  price: 2404,
+  title: "some_title",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  address: "some_address",
+  roomtype: "Shared Room"
+  image_url: "some_image_url",
   space: {
-    max_guests: 4,
     bathrooms: 1,
     bedrooms: 2,
     beds: 4,
-    property_type: "Farmhouse",
-    room_type: "Shared Room"
   },
-  amenities: {
-    internet: false,
-    family: false,
-    parking: true,
-    kitchen: false
-  }
 }
 ```
 
 ![safehavn-show](/app/assets/images/demo/SafeHavnShow.png)
 
 ## Map Filters
-SafeHavn offers real-time filtering based on party size and price (per night). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map.
+TravelSmart offers real-time filtering based on roomtype and price (per month). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map. Markers pertaining to a certain house bounce when the house is hovered over in the homes index, and there
+is google search functionality with a searchbar that will set the bounds of the map.
 
 ![filter-map](/app/assets/images/demo/filter-map.gif)
 
 #### Implementation
 
-On the backend, the home model will take in a query based on a latitude and longitude rectangular boundary. The home controller will also query based on guest range and price range.
+On the backend, the home model will take in a query based on a latitude and longitude rectangular boundary. The home controller will also query based on roomtype and price range.
 
   ``` Ruby
-  @homes = bounds ? Home.in_bounds(bounds) : Home.all
-  if (params[:minHousing] && params[:maxHousing])
-    @homes = @homes.where(max_guests: housing_range)
+  class Home
+    def self.in_bounds(bounds)
+    self.where("lat < ?", bounds[:northEast][:lat])
+        .where("lat > ?", bounds[:southWest][:lat])
+        .where("long > ?", bounds[:southWest][:lng])
+        .where("long < ?", bounds[:northEast][:lng])
+    end
   end
-  if (params[:minPrice] && params[:maxPrice])
-    @homes = @homes.where(price: price_range)
+
+  class HomesController
+    def index
+      bounds = params[:bounds]
+      @homes = bounds ? Home.in_bounds(bounds) : Home.all
+
+      if (params[:minPrice] && params[:maxPrice])
+        @homes = @homes.where(price: price_range)
+      end
+
+      if (params[:roomtype] && params[:roomtype] != "alltypes")
+        @homes = @homes.where("roomtype = ?", params[:roomtype])
+      end
+    end
   end
   ```
 
-On the frontend, a filter object will be a slice of state that will be passed in when making an ajax request for an index of homes, and the subsequent response will update the map api with the filtered index.
+On the frontend, a filter object will be a slice of state that will be passed in when making an ajax request for an index of homes, and the subsequent response will update the map api with the filtered index. Sort Filter action and Bounce Filter actions were added to help
+with the bouncing of markers based on mouse hovering and the sorting of the houses based on price.
 
 ``` JavaScript
 export const updateFilter = (filter, value) => (dispatch, getState) => {
   dispatch(changeFilter(filter, value));
   return fetchHomes(getState().filters)(dispatch);
 };
+
+export const sortFilter = (boolean) => ({
+  type: SORT_FILTER,
+  boolean
+});
+
+export const bounceFilter = (homeid, boolean) => ({
+  type: BOUNCE_FILTER,
+  homeid,
+  boolean
+})
 ```
 
 Here is an example of a filter state slice:
@@ -189,10 +170,10 @@ Here is an example of a filter state slice:
       northEast: {lat: 39.123551, lng: -73.951231},
       southWest: {lat: 41.139024, lng: -69.994121}
     }
-    minHousing: 2,
-    maxHousing: 4,
-    minPrice: 50,
-    maxPrice: 250,
+    minPrice: 300,
+    maxPrice: 3400,
+    bouncingmarker: {homeid: 3, bouncing: true},
+    sorted: true
   }
 ```
 
@@ -212,7 +193,9 @@ This is the page where the user can post a review of their trips.
 
 ## Reviews
 
-Only visitors can make a review of the homes they visit. A review requires a rating and a body. The rating has to be between 1-10 and the body has to be less than 500 characters just like AirBnB. Upon creating a review, the review will be posted on the respective home show page. In the backend, each review will be tallied and the average rating calculated. This information will be displayed on the home index page.
+Only visitors can make a review of the homes they visit. A review requires a rating and a body. The rating has to be between 1-10 and the body has to be less than 500 characters just like AirBnB. Upon creating a review, the review will be posted on the respective home show page. Since review info, author info, and home info are needed, the reviews controller queries the reviews table for reviews that
+have the same id as the params[:homeid] that is passed in from front end. The .includes method was used to make a join table with users
+across an author id. This way we can take the author returned from jbuilder and user his information.
 
 ## Future Concepts
 During my two week course of development, I discovered many more implementation that can deliver a better user experience listed below:
