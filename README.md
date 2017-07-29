@@ -1,5 +1,5 @@
 # TravelSmart
-URL: [Live Link](https://travelsmart1.herokuapp.com)
+See Live Version Here: [https://travelsmart1.herokuapp.com](https://travelsmart1.herokuapp.com)
 
 ![travelsmart-home](/app/assets/images/search_page.gif)
 
