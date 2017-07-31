@@ -31,7 +31,6 @@ class HomeShow extends React.Component {
 
   render() {
     const { listing, homeid, requestHome } = this.props;
-    console.log(listing);
     if (listing === undefined || !listing.host) {
 
       return (

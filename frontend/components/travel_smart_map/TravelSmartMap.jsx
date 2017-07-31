@@ -130,7 +130,6 @@ class TravelSmartMap extends React.Component {
         // // Listen for the event fired when the user selects a prediction and retrieve
         // // more details for that place.
         searchBox.addListener('places_changed', () => {
-          console.log("helllo");
           var places = searchBox.getPlaces();
 
           if (places.length == 0) {
