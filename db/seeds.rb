@@ -110,12 +110,6 @@ User.create!({
 }),
 
 User.create!({
-  "username": "Donald Trump",
-  "password": "password123",
-  "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/trump_jwua61.jpg"
-}),
-
-User.create!({
   "username": "Sheldon",
   "password": "qwerty55",
   "image": "http://res.cloudinary.com/dxplu7mua/image/upload/v1501278502/sheldon_xkyu0d.jpg"
