@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
       this.props.updateModal(null, false);
     }
   }
- 
+
   //Update methods are made to change the state
   //e.currentTarget is the <form> because the form had the event listener
   //installed on it. currentTarget is what we have installed an event listener onto
@@ -129,7 +129,11 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-
+        <div className="siteintro">
+        <span className="sitename">TravelSmart</span>
+        <span className="blurb">Book unique homes</span>
+        <span className="blurb">And experience a city like a local</span>
+        </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br/>
           <div className="login-form">
