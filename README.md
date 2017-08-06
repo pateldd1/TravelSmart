@@ -1,7 +1,7 @@
 # TravelSmart
 See Live Version Here: [https://travelsmart1.herokuapp.com](https://travelsmart1.herokuapp.com)
 
-![travelsmart-home](/app/assets/images/search_page.gif)
+![travelsmart-search](/app/assets/images/searching.gif)
 
 TravelSmart draws inspiration from AirBnB and helps users find homes for temporary stay based on multiple filters. It also lets them book and review locations.
 
