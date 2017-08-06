@@ -43,7 +43,7 @@ export default class MarkerManager {
 
   //Instead of deleting the markers alltogether you can just set the visibility property to change visibility
   createMarkerFromHome(home) {
-    const image = "https://s3.amazonaws.com/safehavns-dev/mark.png";
+    const image = "assets/gmap_icon.png";
     const lat = home.lat;
     const lng = home.long;
     // var image = {
@@ -58,13 +58,14 @@ export default class MarkerManager {
     let marker = new google.maps.Marker({
       position: {lat, lng},
       label: {
-        color: "#ffffff",
+        color: "black",
         fontFamily: "Helvetica",
         text: "$"+String(home.price),
         fontSize: "14.5px",
-        fontWeight: "700"
+        fontWeight: "500"
       },
-      icon: image,
+      anchor: new google.maps.Point(500, 0),
+      icon: {url: image, origin: new google.maps.Point(0,-3)},
       animation: google.maps.Animation.DROP,
       map: this.map,
       homeid: home.id
@@ -91,13 +92,19 @@ export default class MarkerManager {
   makeBounce() {
     if ( this )
     {
-      this.setAnimation(google.maps.Animation.BOUNCE);
+      var label = this.getLabel();
+      label.color="white";
+      this.setLabel(label);
+      this.setIcon("assets/gmap_icon_hover.png")
     }
   }
 
   dontmakeBounce() {
     if(this){
-      this.setAnimation(null);
+      var label = this.getLabel();
+      label.color="black";
+      this.setLabel(label);
+      this.setIcon("assets/gmap_icon.png")
     }
   }
 
