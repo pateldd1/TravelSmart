@@ -43,7 +43,7 @@ export default class MarkerManager {
 
   //Instead of deleting the markers alltogether you can just set the visibility property to change visibility
   createMarkerFromHome(home) {
-    const image = "assets/gmap_icon.png";
+    const image = "http://res.cloudinary.com/dxplu7mua/image/upload/v1502019658/gmap_icon_dn7jht.png";
     const lat = home.lat;
     const lng = home.long;
     // var image = {
@@ -95,7 +95,7 @@ export default class MarkerManager {
       var label = this.getLabel();
       label.color="white";
       this.setLabel(label);
-      this.setIcon("assets/gmap_icon_hover.png")
+      this.setIcon("http://res.cloudinary.com/dxplu7mua/image/upload/v1502019672/gmap_icon_hover_rwcjmn.png")
     }
   }
 
@@ -104,7 +104,7 @@ export default class MarkerManager {
       var label = this.getLabel();
       label.color="black";
       this.setLabel(label);
-      this.setIcon("assets/gmap_icon.png")
+      this.setIcon("http://res.cloudinary.com/dxplu7mua/image/upload/v1502019658/gmap_icon_dn7jht.png")
     }
   }
 
