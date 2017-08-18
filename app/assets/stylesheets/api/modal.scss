@@ -1,5 +1,5 @@
-.modal-root {
-  z-index: 2000 !important;
+.out-modal {
+  z-index: 1960 !important;
   position: fixed;
   top: 0px;
   right: 0px;
@@ -9,20 +9,20 @@
   display: block;
 }
 
-.modal-parent {
+.theparentmodal {
   display: table;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(265, 238, 234, 0.55);
 }
 
-.modal-screen {
+.themodalscrn {
   display: table-cell;
   vertical-align: middle;
   padding: 64px;
 }
 
-.closeModal {
+.modalfinish {
   position: fixed;
   z-index: -1;
   top: 0px;
@@ -33,17 +33,18 @@
   display: block;
 }
 
-.modal-wrapper {
+.modalwrap {
   z-index: 0;
   background-color: #ffffff;
   margin: auto;
-  max-width: 568px;
+  max-width: 429px;
   width: 100%;
   position: relative;
 }
 
-.modal-content {
-  background-color: #ffffff;
+.themodalvalue {
+  background-color: darkslategrey;
   padding: 32px;
   box-sizing: border-box;
+  border-radius: 19px;
 }

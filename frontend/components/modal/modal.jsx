@@ -18,21 +18,21 @@ class Modal extends React.Component {
 
   handleOutClick(event) {
     let that = this;
-    if (event.target.className === 'closeModal') {
+    if (event.target.className === 'modalfinish') {
       that.props.updateModal(null, false);
     }
   }
-  
+
   render(){
     if(this.props.open){
       return (
         <div>
-          <div className="modal-root" >
-            <div className="modal-parent">
-              <div className="modal-screen">
-                <div className="modal-wrapper">
-                  <div className="closeModal"/>
-                  <div className="modal-content">
+          <div className="out-modal" >
+            <div className="theparentmodal">
+              <div className="themodalscrn">
+                <div className="modalwrap">
+                  <div className="modalfinish"/>
+                  <div className="themodalvalue">
                     {this.props.content}
                   </div>
                 </div>

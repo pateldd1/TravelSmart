@@ -34,7 +34,7 @@ class BookItNow extends React.Component {
 
   modalContent(){
     return (
-      <div className="prompt-box">
+      <div className="errorBox">
         <div className="no-date-prompt">Please tell us when you want to check-in and check-out.</div>
       </div>
     )

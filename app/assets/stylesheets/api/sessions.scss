@@ -14,18 +14,17 @@
 }
 
 .sitename {
-  // font-weight: 700;
-  // color: #FF5A5F;
   font-family: monospace;
   font-size: 30px;
+  color: white;
   margin: 0 0 17px 15px;
 }
 
 .blurb {
-  font-weight: 200;
-  // color: #FF5A5F;
+  font-weight: 500;
   text-align: right;
   font-size: 16px;
+  color: white;
 }
 
 .loginbutton {
@@ -113,9 +112,8 @@
   font-family: sans-serif;
   font-size: 19px;
   line-height: 24px;
-  color: #484848;
-  font-weight: 300;
-  background-color: transparent;
+  font-weight: 600;
+  background-color: white;
   border: 0px;
   padding: 11px;
   width: 100%;
@@ -141,14 +139,15 @@
 }
 
 .entrance-button {
-  margin-top: 16px;
+  margin-top: 4px;
+  margin-left: 6px;
   text-align: center;
   cursor: pointer;
   transition: background 0.3s, border-color 0.3s;
   position: relative;
   border: 2px solid transparent;
   border-radius: 4px;
-  width: 100%;
+  width: 96%;
   font-size: 19px;
   line-height: 22px;
   padding-top: 12px;
@@ -158,7 +157,7 @@
   padding-right: 24px;
   padding-left: 24px;
   min-width: 77.66563145999496px;
-  background: #FF5A5F;
+  background: #335BCA;
   align-items: flex-start;
 }
 
@@ -168,23 +167,25 @@
   margin: 0 0 30px 0;
 }
 
-.guest-text:hover {
-  background-color: #007b80;
-  text-decoration: none;
-}
+// .guest-text:hover {
+//   background-color: #007b80;
+//   text-decoration: none;
+// }
 
 .guest-text {
-  background-color: #008489;
+  background-color: #FF5A5F;
   color: white;
   padding: 11px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   font-family: sans-serif;
   cursor: pointer;
   margin-right: 10px;
-  margin-left: 5px;
-  border-radius: 2px;
-  width: 22%;
+  margin-left: 8px;
+  margin-top: 19px;
+  border-radius: 4px;
+  width: 68%;
+  padding: 16px 0 19px 0;
   text-align: center;
 }
 
@@ -195,7 +196,8 @@
 
 .redirect-to-signup {
   margin: 10px;
-  color: blue;
+  color: lawngreen;
+  font-weight: 500;
 }
 
 .redirect-to-signup:hover, .redirect-to-login:hover {
@@ -205,13 +207,21 @@
 
 .redirect-to-login{
   margin-left: 10px;
-  color: blue;
+  color: lawngreen;
+  font-weight: 500;
+}
+
+.tsaccount {
+  font-size: 17px;
+  color: white;
+  font-weight: 500;
 }
 
 .redirection{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -21px;
 }
 
 .signup-login-errors{

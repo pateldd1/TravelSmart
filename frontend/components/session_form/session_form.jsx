@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
     if (this.state.formType === 'login'){
       return (
         <div className="redirection">
-          <h4>Don't have a TravelSmart account?</h4>
+          <h4 className="tsaccount">Don't have a TravelSmart account?</h4>
           <h4 className="redirect-to-signup" onClick={()=> this.setState({formType: 'signup'})}>Sign Up</h4>
         </div>
       )
@@ -73,7 +73,7 @@ class SessionForm extends React.Component {
     else {
       return (
         <div className="redirection">
-          <h4>Already have a TravelSmart account?</h4>
+          <h4 className="tsaccount">Already have a TravelSmart account?</h4>
           <h4 className="redirect-to-login" onClick={()=> this.setState({formType: 'login'})}>Log In</h4>
         </div>
       )
@@ -160,8 +160,8 @@ class SessionForm extends React.Component {
             <span className="btn-text">
               {this.submitButton()}
             </span>
-            {this.navLink()}
             {this.guestUser()}
+            {this.navLink()}
             {this.renderErrors()}
           </div>
 

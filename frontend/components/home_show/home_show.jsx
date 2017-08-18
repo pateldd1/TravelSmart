@@ -15,10 +15,6 @@ class HomeShow extends React.Component {
 
   //I'm pretty sure you can change this to componentWillMount and get rid of the conditional in the render method
   componentWillMount() {
-    // if ( Object.keys )
-    // {
-    //
-    // }
     this.props.requestHome(this.props.homeid);
   }
 
@@ -32,48 +28,24 @@ class HomeShow extends React.Component {
   render() {
     const { listing, homeid, requestHome } = this.props;
     if (listing === undefined || !listing.host) {
-
       return (
-        <div className="loading">Finding Home...</div>
+        <div></div>
       );
     } else {
-      // in line 47-49
-      // <div className="single-listing-viewimage">
-      // <button type="button" className="view-btn">View Photos</button>
-      // </div>
-      // in line 59-61
-      // <div className="navigation-selection">Reviews</div>
-      // <div className="navigation-selection">The Host</div>
-      // <div className="navigation-selection">Location</div>
       return (
         <section className="listing-show-page">
-
-          <div className="single-listing-photocontainer">
-            <img className="show-photo" src={this.props.listing.image_url}/>
-
-
-
-          </div>
-
+          <div className="single-listing-photocontainer"><img className="show-photo" src={this.props.listing.image_url}/></div>
           <div className="main-detail">
             <div className="container-detail">
-
               <div className="sub-container-detail">
-
                 <div className="navigation-detail">
                   <div className="navigation-selection">Overview</div>
-
-
-
                 </div>
-                <BetterHomeDetail listing={listing}/>
-
+                  <BetterHomeDetail listing={listing}/>
               </div>
-
               <div className="to-book-it-divider">
                 <BookItNowContainer listing={listing}/>
               </div>
-
             </div>
           </div>
         </section>
