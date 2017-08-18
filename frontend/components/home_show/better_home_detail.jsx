@@ -1,8 +1,5 @@
-//Maybe make it this way when you have the time.
-
 import React from 'react';
 import Reviews from '../review/review';
-import renderStars from '../helper/star';
 Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
@@ -17,34 +14,19 @@ class BetterHomeDetail extends React.Component {
     this.kitchen = [true, false].randomElement();
     this.tv = [true, false].randomElement();
     this.num_guests = [1,2,3,4,5,6,7,8].randomElement();
-    this.renderStars = renderStars.bind(this);
   }
 
-  // <span>{ ` ${room.reviews} ` + (room.reviews === 1 ? 'review' : 'reviews') }</span>
-  // <div className="host-container">
-  //   <div>
-  //     <img src={room.host.avatar_url} />
-  //   </div>
-  //   <div>
-  //     <p>{room.host.username}</p>
-  //   </div>
-  // </div>
   render(){
     return (
       <div>
         <div className="rm-detail-title rm-detail-bottom">
           <div>
-            <h2>{this.props.listing.title}</h2>
-            <p>{this.props.listing.address}</p>
-            <span>
-              <span className="star md sm-marg">
-                { this.renderStars(this.rating) }
-              </span>
-            </span>
+            <h2 className="listingsnomer">{this.props.listing.title}</h2>
+            <p className="listingsaddr">{this.props.listing.address}</p>
           </div>
         </div>
 
-        <div className="rm-detail-bottom rm-icon-list">
+        <div className="rm-detail-bottom theiconstoshow">
           <div className="room-icon-item">
             <i className="room-type-icon sicon"></i>
             <p>{this.props.listing.roomtype}</p>
@@ -70,20 +52,19 @@ class BetterHomeDetail extends React.Component {
 
           <div>
             <strong>100% refundable</strong>
-            <p>Cancel up to 5 days before your trip and get a full refund, including service fees.</p>
           </div>
         </div>
 
         <div className="rm-detail-bottom">
           <h3>About this listing</h3>
-          <p>{this.props.listing.description}</p>
+          <p className="addrdescript">{this.props.listing.description}</p>
         </div>
 
-        <div className="rm-detail-box">
+        <div className="aboxofdetails">
           <div className="box-title">
             <h4>The space</h4>
           </div>
-          <div className="box-info rm-detail-list">
+          <div className="box-info thedetailstoshow">
             <ul>
               <li>Bathrooms: <strong>{this.props.listing.space.bathrooms}</strong></li>
               <li>Bedrooms: <strong>{this.props.listing.space.bedrooms}</strong></li>
@@ -98,11 +79,11 @@ class BetterHomeDetail extends React.Component {
           </div>
         </div>
 
-        <div className="rm-detail-box">
+        <div className="aboxofdetails">
           <div className="box-title">
             <h4>Amenities</h4>
           </div>
-          <div className="box-info rm-detail-list rm-detail-amen">
+          <div className="box-info thedetailstoshow rm-detail-amen">
             <ul>
               <li className={this.wifi ? "" : "no-amen"}>{this.wifi ? <i className="fa fa-wifi" aria-hidden="true"></i> : ""} Wireless Internet</li>
               <li className={this.kitchen ? "" : "no-amen"}>{this.kitchen ? <i className="fa fa-cutlery" aria-hidden="true"></i> : ""} Kitchen</li>
@@ -119,7 +100,7 @@ class BetterHomeDetail extends React.Component {
           </div>
         </div>
 
-        <div className="rm-detail-box">
+        <div className="aboxofdetails">
           <div className="box-title">
             <h4>Prices</h4>
           </div>
@@ -129,23 +110,20 @@ class BetterHomeDetail extends React.Component {
               <li>Weekly Discount: <strong>10%</strong></li>
               <li>Cleaning Fee: <strong>${ Math.floor(this.props.listing.price / 8) }</strong></li>
             </ul>
-            <div className="price-disclaimer">
+            <div className="thepricetodisclaim">
               <strong>Always Travel Smart</strong>
               <p>To protect your payment, never transfer money or communicate outside of the TravelSmart website or app.</p>
             </div>
           </div>
         </div>
 
-        <div className="rm-detail-box">
+        <div className="aboxofdetails">
           <div className="box-title">
             <h4>Description</h4>
           </div>
-          <div className="box-info">
-            <p>{this.props.listing.description}</p>
-          </div>
         </div>
 
-        <div className="rm-detail-box">
+        <div className="aboxofdetails">
           <div className="box-title">
             <h4>Safety features</h4>
           </div>
@@ -157,7 +135,7 @@ class BetterHomeDetail extends React.Component {
           </div>
         </div>
 
-        <div className="rm-detail-box">
+        <div className="aboxofdetails">
           <div className="box-title">
             <h4>House Rules</h4>
           </div>

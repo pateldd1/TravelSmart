@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import HomeShowContainer from './home_show_container';
-import HomeDetail from './home_detail';
+import BetterHomeDetail from './better_home_detail';
 import BookItNowContainer from '../trip/book_it_now_container';
 // import Footer from '../footer';
 
@@ -66,7 +66,7 @@ class HomeShow extends React.Component {
 
 
                 </div>
-                <HomeDetail listing={listing}/>
+                <BetterHomeDetail listing={listing}/>
 
               </div>
 
