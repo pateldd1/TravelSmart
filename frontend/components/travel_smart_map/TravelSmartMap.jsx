@@ -43,12 +43,9 @@ class TravelSmartMap extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.bouncingMarkerId) {
-  //     let bouncingMarker = this.MarkerManager.markers[nextProps.bouncingMarkerId];
-  //     this.MarkerManager.toggleBounce.apply(bouncingMarker);
-  //   }
-  // }
+  componentWillUnmount(){
+    delete this.map;
+  }
 
   //When the map is idle, we will get the bounds and change the filters to
   //cause a re-rendering
@@ -154,8 +151,14 @@ class TravelSmartMap extends React.Component {
               bounds.extend(place.geometry.location);
             }
           });
-          this.map.fitBounds(bounds);
-          // this.props.history.push("/")
+          if ( this.props.match )
+          {
+            this.props.history.push("/");
+          }
+          else
+          {
+            this.map.fitBounds(bounds);
+          }
         });
       }
   }
