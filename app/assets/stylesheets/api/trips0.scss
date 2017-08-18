@@ -31,14 +31,14 @@
   padding-right: 12px;
 }
 
-.trip-image-container {
+.tripicturer {
   position: relative;
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-.trip-image {
+.image-of-trip {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -82,7 +82,7 @@
   text-decoration: none;
 }
 
-.trip-padding {
+.layer-for-trip {
   width: 100%;
   height: 490px;
   position: relative;
@@ -91,7 +91,7 @@
   padding-bottom: 20px;
 }
 
-.trip-text {
+.textfortrip {
   text-align: center;
   padding: 0;
   margin-top: 0;
@@ -100,7 +100,7 @@
   color: #2d2d2d;
 }
 
-.trip-time {
+.timefortrip {
   width: 100%;
   padding-bottom: 20px;
   padding-top: 20px;
@@ -116,19 +116,19 @@
   color: #2d2d2d;
 }
 
-.scheduled-box {
+.boxsched {
   padding: 0 20px;
   color: #484848;
 }
 
-.address-box {
+.the-box-address {
   margin-bottom: 18px;
   margin-top: 18px;
   font-size: 26px;
   color: #2d2d2d;
 }
 
-.space-top {
+.the-top-space {
   margin-top: 6px;
 }
 
