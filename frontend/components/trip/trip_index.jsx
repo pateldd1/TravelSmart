@@ -24,7 +24,7 @@ class TripIndex extends React.Component {
     let theTrips = [];
     this.props.trips.forEach((trip, idx) => {
       theTrips.push(
-        <div className="trip-card-container" key={idx}>
+        <div className="tripbox" key={idx}>
           <TripIndexItem currentUser={this.props.currentUser} updateModal={this.props.updateModal} trip={trip} deleteTrip={this.props.deleteTrip}/>
         </div>
       )
@@ -35,29 +35,27 @@ class TripIndex extends React.Component {
   render() {
     const { deleteTrip } = this.props;
     let allTheTrips = this.allTrips();
-    if (allTheTrips.length > 0) {
+    if (allTheTrips.length === 0) {
       return (
-        <div className="trip-slider">
-        <span className="trip-tit">Your Travels</span>
-          <div className="trip-cards">
-          {allTheTrips}
+        <div className="tripOverView">
+          <span className="yourtravels">Your Travels</span>
+          <div className="textfortrip">
+            You need to travel more...
           </div>
-          <Link to="/" className="pinkButton book-btn trip-button">Book another trip!</Link>
+          <Link to="/" className="tosubmitdarkblue book-btn trip-button">Book your First trip!</Link>
         </div>
       )
     } else {
       return (
-        <div className="trip-slider">
-        <span className="trip-tit">Your Travels</span>
-          <div className="trip-cards-txt">
-          You have no upcoming trips.
+        <div className="tripOverView">
+          <span className="yourtravels">Your Travels</span>
+          <div className="trip-cards">
+            {allTheTrips}
           </div>
-          <Link to="/" className="pinkButton book-btn trip-button">Book your First trip!</Link>
+          <Link to="/" className="tosubmitdarkblue book-btn trip-button">Book another trip!</Link>
         </div>
       )
     }
-
-
   }
 }
 

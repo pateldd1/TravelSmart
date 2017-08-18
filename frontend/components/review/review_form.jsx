@@ -42,7 +42,7 @@ class ReviewForm extends React.Component{
             value={this.state.body} onChange={this.handleSelectChange('body')}
             />
           </div>
-          <button className="pinkButton bk-tp-btn post-review" onClick={(e) => this.handleSubmit(e)}>
+          <button className="tosubmitdarkblue bk-tp-btn post-review" onClick={(e) => this.handleSubmit(e)}>
             <span className="btn-text">
               Post Review
             </span>

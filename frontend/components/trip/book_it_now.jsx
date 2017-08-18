@@ -117,7 +117,7 @@ class BookItNow extends React.Component {
           </div>
 
           <button onClick={this.handleSubmit}
-            className="pinkButton book-btn">
+            className="tosubmitdarkblue book-btn">
             <span className="btn-text">Book</span>
           </button>
 

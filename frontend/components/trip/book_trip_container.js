@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { receiveInput } from '../../actions/input_actions';
-import BookTrip from './book_trip';
-import { withRouter } from 'react-router-dom';
-import { requestHome } from '../../actions/home_actions';
 import { createTrip } from '../../actions/trip_actions';
+import BookTrip from './book_trip';
+import { requestHome } from '../../actions/home_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({currentUser, homes, inputs}, {match}) => {
   const homeid = match.params.homeid;

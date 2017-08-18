@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.trip-slider {
+.tripOverView {
   margin-top: 24px;
   margin-bottom: 24px;
   width: 1080px;
@@ -13,7 +13,7 @@
   font-family: Helvetica !important;
 }
 
-.trip-tit {
+.yourtravels {
   color: #2d2d2d;
   font-size: 32px;
   font-weight: normal;
@@ -23,7 +23,7 @@
   margin-top: 0;
 }
 
-.trip-card-container {
+.tripbox {
   width: 32.0%;
   float: left;
   position: relative;
@@ -64,7 +64,7 @@
   margin-top: 0px;
 }
 
-.trip-cards-txt {
+.textfortrip {
   margin: 16px 0 16px 0;
 }
 
