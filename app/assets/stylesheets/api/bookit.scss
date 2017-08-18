@@ -13,16 +13,17 @@
 }
 
 .to-book-it-divider {
-  width: 33.33333333333333% !important;
-  float: left !important;
+  width: 33.33333333333333%;
+  float: left;
   height: 1px;
   margin-left: 16px;
 }
 
 .bookItContainer {
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  border-top: 0
+  top: 206px;
+  border-top: 0;
 }
 
 .book-it {
@@ -93,7 +94,7 @@
   display: block;
   padding-bottom: 8px;
   font-weight: 400;
-  font-size: 15px !important;
+  font-size: 15px;
   width: 50%;
   margin-left: 8px;
 }
@@ -104,8 +105,8 @@
 }
 
 .guests {
-  font-size: 15px !important;
-  font-weight: 400 !important;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .margin-top-8px {
@@ -116,13 +117,13 @@
 .book-btn {
   display: table;
   margin: 0 auto;
-  width: 97.5% !important;
+  width: 97.5%;
 }
 
 .book-disc {
   display: table;
   max-width: 210px;
-  margin: 0 auto !important;
+  margin: 0 auto;
 }
 
 .dash {

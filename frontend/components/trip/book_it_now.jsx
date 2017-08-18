@@ -91,8 +91,6 @@ class BookItNow extends React.Component {
         <form className="row-condensed">
           <div>
             <div className="guest-header">
-              <div className="guest-check">Check In</div>
-              <div className="guest-check">Check Out</div>
             </div>
           <div className="date-range-calendar" placeholder='mm/dd/yyyy'>
             <DateRangePicker
@@ -105,9 +103,9 @@ class BookItNow extends React.Component {
           </div>
 
           </div>
+          <br />
         <div className="guest-dd-container">
             <div className='select-container'>
-              <label className="guest-check">Guests</label>
                 <div className='select-dd-container'>
                   <select className='select-dropdown guests' value={this.state.num_guests}
                       onChange={this.handleSelectChange('num_guests')}>{this.guestsNumber()}

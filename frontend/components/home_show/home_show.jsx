@@ -24,8 +24,8 @@ class HomeShow extends React.Component {
 
   //If the person was to put a different home into the url, then it would go to that home instead
   componentWillReceiveProps(nextProps) {
-  if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
-    this.props.requestHome(nextProps.match.params.homeid);
+    if (this.props.match.params.homeid !== nextProps.match.params.homeid) {
+      this.props.requestHome(nextProps.match.params.homeid);
     }
   }
 
