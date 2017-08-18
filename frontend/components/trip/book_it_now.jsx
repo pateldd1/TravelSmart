@@ -72,31 +72,20 @@ class BookItNow extends React.Component {
       </div>
     )
   };
-
-//according to your currentUser, it is originally an empty object, so you should just check if the keys of this user are none or not.
-
-  // renderErrors() {
-  //   if (!this.props.currentUser) {
-  //     return (<li><h2>Not Logged In</h2></li>);
-  //   } else if (this.props.errors) {
-  //     return (this.props.errors.map((err, idx) => {
-  //       return (<li key={idx}>{ err }</li>);
-  //     }));
-  //   }
-  // }
-
-  //You need to make a max_guests for home for this to work properly!
-  bookingForm() {
-    const options = [
-      <option value="1" key={1}>1 guest</option>
-    ];
-    for (let i = 2; i <= this.state.maxGuests; i++) {
-
-      options.push(
-        <option value={i} key={i}>{i} guests</option>
+  //This makes a dropdown selection of the number of guests that a person wants to bring.
+  guestsNumber(){
+    const guestNumber = [<option value="1" key={1}>1 guest</option>];
+    let idx = 2;
+    while (idx <= this.state.maxGuests) {
+      guestNumber.push(
+        <option key={idx} value={idx}>{idx} visitors</option>
       );
+      idx++;
     }
+    return guestNumber;
+  }
 
+  bookingForm() {
     return (
       <div>
         <form className="row-condensed">
@@ -121,7 +110,7 @@ class BookItNow extends React.Component {
               <label className="guest-check">Guests</label>
                 <div className='select-dd-container'>
                   <select className='select-dropdown guests' value={this.state.num_guests}
-                      onChange={this.handleSelectChange('num_guests')}>{options}
+                      onChange={this.handleSelectChange('num_guests')}>{this.guestsNumber()}
                   </select>
                     <span className="dropdown-arrow"></span>
                   </div>

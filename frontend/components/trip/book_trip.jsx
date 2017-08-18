@@ -4,11 +4,7 @@ import { withRouter } from 'react-router-dom';
 class BookTrip extends React.Component {
   constructor(props) {
     super(props);
-    // if ( !this.props.listing )
-    // {
-    //   this.props.history.push("/");
-    // }
-    const end = this.props.inputs.endDate; //calculates the difference between days
+    const end = this.props.inputs.endDate;
     const beg = this.props.inputs.startDate;
     this.nightly = Math.floor(this.props.listing.price/30);
     this.maxGuests = this.props.inputs.maxGuests;
@@ -17,8 +13,8 @@ class BookTrip extends React.Component {
     this.cleaning = 40;
     this.service = 55;
     this.totalcost = this.cost + this.cleaning + this.service;
-    this.utcBeg = beg.format('MMM D, YYYY'); // makes days read like english
-    this.utcEnd = end.format('MMM D, YYYY');
+    this.utcBeg = beg.format('D MMM, YYYY');
+    this.utcEnd = end.format('D MMM, YYYY');
     this.state = {
       num_guests: this.props.inputs.num_guests,
       totalcost: this.totalcost
@@ -55,22 +51,23 @@ class BookTrip extends React.Component {
 		this.props.createTrip({trip}).then(this.props.history.push(`/user/${this.props.currentUser.id}/trips`));
   };
 
+  guestsNumber(){
+    const guestNumber = [<option key={1} value="1">1 guest</option>];
+    let idx = 2;
+    while (idx <= this.maxGuests) {
+      guestNumber.push(
+        <option key={idx} value={idx}>{idx} visitors</option>
+      );
+      idx++;
+    }
+    return guestNumber;
+  }
+
   handleSelectChange(property) {
     return e => this.setState({ [property]: e.target.value });
   };
 
   selectGuests() {
-    const options = [
-      <option value="1" key={1}>1 guest</option>
-    ];
-    for (let i = 2; i <= this.maxGuests; i++) {
-      options.push(
-        <option value={i}
-        key={i}
-        >{i} guests</option>
-      )
-    };
-
     return (
       <div className="book-column">
         <div className='select-container book-txt'>
@@ -78,7 +75,7 @@ class BookTrip extends React.Component {
           <div className='select-dd-container book-dd'>
             <select className='select-dropdown select-bk-dd' value={this.state.num_guests}
               onChange={this.handleSelectChange('num_guests')}
-            >{options}</select>
+            >{this.guestsNumber()}</select>
             <span className="dropdown-arrow"></span>
           </div>
         </div>

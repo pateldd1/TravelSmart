@@ -5,7 +5,8 @@ import TripIndexItem from './trip_index_item';
 
 class TripIndex extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.allTrips = this.allTrips.bind(this);
   }
 
   componentDidMount() {
@@ -19,22 +20,27 @@ class TripIndex extends React.Component {
     }
   }
 
-  render() {
-    const { deleteTrip } = this.props;
-    const tripsIndex = this.props.trips.map((trip, idx) => {
-      return (
+  allTrips(){
+    let theTrips = [];
+    this.props.trips.forEach((trip, idx) => {
+      theTrips.push(
         <div className="trip-card-container" key={idx}>
-          <TripIndexItem currentUser={this.props.currentUser} updateModal={this.props.updateModal} trip={trip} deleteTrip={deleteTrip}/>
+          <TripIndexItem currentUser={this.props.currentUser} updateModal={this.props.updateModal} trip={trip} deleteTrip={this.props.deleteTrip}/>
         </div>
       )
-    });
+    })
+    return theTrips;
+  }
 
-    if (tripsIndex.length > 0) {
+  render() {
+    const { deleteTrip } = this.props;
+    let allTheTrips = this.allTrips();
+    if (allTheTrips.length > 0) {
       return (
         <div className="trip-slider">
         <span className="trip-tit">Your Travels</span>
           <div className="trip-cards">
-          {tripsIndex}
+          {allTheTrips}
           </div>
           <Link to="/" className="pinkButton book-btn trip-button">Book another trip!</Link>
         </div>
