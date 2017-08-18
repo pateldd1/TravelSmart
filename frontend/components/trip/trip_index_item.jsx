@@ -47,17 +47,17 @@ class TripIndexItem extends React.Component {
               </div>
             </div>
 
-            <div className="trip-div"/>
-              <div className="trip-actions-wrap">
-                <div className='trip-actions trip-hov' onClick={() => this.props.updateModal(<ReviewForm currentUser={this.props.currentUser} updateModal={this.props.updateModal} homeid={trip.home.id}/>, true)}>Write a Review</div>
+            <div className="divider-for-trip"/>
+              <div className="trip-make-action">
+                <div className='occurrences-for-trip trip-hov' onClick={() => this.props.updateModal(<ReviewForm currentUser={this.props.currentUser} updateModal={this.props.updateModal} homeid={trip.home.id}/>, true)}>Write a Review</div>
               </div>
-            <div className='trip-actions-wrap'>
-              <div className='trip-actions'>Paid ${trip.totalcost}</div>
+            <div className='trip-make-action'>
+              <div className='occurrences-for-trip'>Paid ${trip.totalcost}</div>
             </div>
 
-            <div className="trip-div"/>
-            <div className="trip-actions-wrap">
-              <div className='trip-actions cancel-trip' onClick={this.handleClick}>Remove / Cancel</div>
+            <div className="divider-for-trip"/>
+            <div className="trip-make-action">
+              <div className='occurrences-for-trip cancel-trip' onClick={this.handleClick}>Remove / Cancel</div>
             </div>
           </div>
         </div>
@@ -65,8 +65,8 @@ class TripIndexItem extends React.Component {
     )
   }
 }
-// <div className='trip-actions-wrap'>
-// <div className='trip-actions'>Make a Review</div>
+// <div className='trip-make-action'>
+// <div className='occurrences-for-trip'>Make a Review</div>
 // </div>
 
 export default TripIndexItem;
