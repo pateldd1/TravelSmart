@@ -25,12 +25,6 @@ export const requestTrips = () => dispatch => (
   )
 );
 
-// export const requestTrip = id => dispatch => (
-//   APIUtil.requestTrip(id).then(trip => (
-//     dispatch(receivedTrip(trip)))
-//   )
-// );
-
 //The reveived trip part of this is done so that we can get the trip into our store and then render from trip index container.
 
 export const createTrip = trip => dispatch => (

@@ -9,11 +9,6 @@ export const receiveCurrentUser = currentUser => ({
   currentUser
 });
 
-// export const receiveErrors = errors => ({
-//   type: RECEIVE_ERRORS,
-//   errors
-// });
-
 export const signup = user => dispatch => (
   APIUtil.signup(user).then(user => {
     dispatch(receiveCurrentUser(user));

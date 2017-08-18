@@ -33,6 +33,10 @@ class TravelSmartMap extends React.Component {
   componentDidMount() {
     const map = this.refs.map;
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    if ( this.props.location.state )
+    {
+      this.map.fitBounds(this.props.location.state);
+    }
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     //NOT SURE ABOUT THE SINGLEHOME THING MAKES NO SENSE
     if (this.props.singleHome) {
@@ -118,12 +122,6 @@ class TravelSmartMap extends React.Component {
         var input = document.getElementById('pac-input');
 
         var searchBox = new google.maps.places.SearchBox(input);
-        // this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
-        // Bias the SearchBox results towards current map's viewport.
-        // this.map.addListener('bounds_changed', () => {
-        //   searchBox.setBounds(this.map.getBounds());
-        // });
-
         // // Listen for the event fired when the user selects a prediction and retrieve
         // // more details for that place.
         searchBox.addListener('places_changed', () => {
@@ -151,9 +149,12 @@ class TravelSmartMap extends React.Component {
               bounds.extend(place.geometry.location);
             }
           });
-          if ( this.props.match )
+          if ( this.props.history.location.pathname.match(/\/.+/))
           {
-            this.props.history.push("/");
+            this.props.history.push({
+              pathname: '/',
+              state: bounds
+            });
           }
           else
           {
