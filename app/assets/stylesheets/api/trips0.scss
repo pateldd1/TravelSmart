@@ -84,6 +84,7 @@
 
 }
 
+
 .trip-card:hover {
   text-decoration: none;
 }
@@ -184,7 +185,21 @@
   cursor: pointer;
 }
 
-.cancel-trip:hover {
+.caroline:hover {
   cursor: pointer;
   text-decoration: underline;
+  color: red;
+}
+
+.caroline {
+  color: red;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img
+{
+  height: 700px !important;
+}
+
+.caro{
+  color: white;
 }
