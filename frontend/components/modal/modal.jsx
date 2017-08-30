@@ -19,6 +19,7 @@ class Modal extends React.Component {
   handleOutClick(event) {
     let that = this;
     if (event.target.className === 'modalfinish') {
+      this.props.clearErrors();
       that.props.updateModal(null, false);
     }
   }

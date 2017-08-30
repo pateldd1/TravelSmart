@@ -38,7 +38,7 @@ class ReviewForm extends React.Component{
         <form className="form-horizontal">Write a review
           {this.selectRating()}
           <div className="say-hello-container">Tell everyone about your stay:
-            <textarea className="say-yo" value={this.state.body} onChange={this.handleSelectChange('body')}
+            <textarea autoFocus="autofocus" className="say-yo" value={this.state.body} onChange={this.handleSelectChange('body')}
             />
           </div>
           <button className="tosubmitdarkblue bk-tp-btn post-review" onClick={(e) => this.handleSubmit(e)}>

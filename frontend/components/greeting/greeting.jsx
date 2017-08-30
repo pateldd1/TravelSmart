@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import SessionFormContainer from '../session_form/session_form_container';
 
 const sessionLinks = (updateModal) => (
-  <div>
+  <div className="signandlog">
     <nav className="login-signup">
       <h3 className="loginbutton" onClick={() => updateModal(<SessionFormContainer formType="login" />, true)}>Login</h3>
       <h3 className="signupbutton" onClick={() => updateModal(<SessionFormContainer formType="signup" />, true)}>Sign up!</h3>

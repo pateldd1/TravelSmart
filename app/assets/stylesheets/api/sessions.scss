@@ -56,6 +56,11 @@
   cursor: pointer;
 }
 
+.signandlog {
+  display: flex;
+  align-items: center;
+}
+
 .tosubmitdarkblue {
   margin-top: 16px;
   text-align: center;
@@ -84,8 +89,8 @@
 
 .Signed-In-User-Header {
   display: flex;
-  align-items: center;
-  margin-left: 334px;
+  // align-items: center;
+  margin-left: 291px;
 }
 
 .SignOutButton,  {
@@ -220,5 +225,5 @@
 }
 
 .error {
-  color: black;
+  color: white;
 }

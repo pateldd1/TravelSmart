@@ -25,7 +25,7 @@ class TripIndex extends React.Component {
     this.props.trips.forEach((trip, idx) => {
       theTrips.push(
         <div className="tripbox" key={idx}>
-          <TripIndexItem currentUser={this.props.currentUser} updateModal={this.props.updateModal} trip={trip} deleteTrip={this.props.deleteTrip}/>
+          <TripIndexItem currentUser={this.props.currentUser} trip={trip} deleteTrip={this.props.deleteTrip}/>
         </div>
       )
     })

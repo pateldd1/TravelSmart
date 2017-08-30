@@ -89,7 +89,7 @@ class SessionForm extends React.Component {
   }
 
   submitButton(){
-    if ( this.props.formType === 'login' )
+    if ( this.state.formType === 'login' )
     {
       return <input className="entrance-button btn-text" type="submit" value="Login" />
     }

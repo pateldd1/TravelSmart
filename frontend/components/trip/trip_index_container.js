@@ -4,7 +4,6 @@ import TripIndex from './trip_index.jsx';
 import { withRouter } from 'react-router-dom';
 import { requestTrips, deleteTrip } from '../../actions/trip_actions';
 import { selectAll } from '../../reducers/selectors.js';
-import {updateModal} from '../../actions/modal_actions';
 
 const mapStateToProps = ({trips, currentUser}) => {
   return {
@@ -19,8 +18,7 @@ const mapStateToProps = ({trips, currentUser}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     requestTrips: () => dispatch(requestTrips()),
-    deleteTrip: tripId => dispatch(deleteTrip(tripId)),
-    updateModal: (content, open) => dispatch(updateModal(content, open))
+    deleteTrip: tripId => dispatch(deleteTrip(tripId))
   }
 };
 

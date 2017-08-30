@@ -74,7 +74,7 @@ class BookItNow extends React.Component {
   };
   //This makes a dropdown selection of the number of guests that a person wants to bring.
   guestsNumber(){
-    const guestNumber = [<option value="1" key={1}>1 guest</option>];
+    const guestNumber = [<option value="1" key={1}>1 visitor</option>];
     let idx = 2;
     while (idx <= this.state.maxGuests) {
       guestNumber.push(
@@ -90,24 +90,24 @@ class BookItNow extends React.Component {
       <div>
         <form className="row-condensed">
           <div>
-            <div className="guest-header">
+              <div className="guest-header">
+              </div>
+            <div className="date-range-calendar" placeholder='mm/dd/yyyy'>
+              <DateRangePicker
+                startDate={ this.state.startDate }
+                endDate={ this.state.endDate }
+                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                focusedInput={ this.state.focusedInput }
+                onFocusChange={ focusedInput => this.setState({ focusedInput }) }
+                />
             </div>
-          <div className="date-range-calendar" placeholder='mm/dd/yyyy'>
-            <DateRangePicker
-              startDate={ this.state.startDate }
-              endDate={ this.state.endDate }
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-              focusedInput={ this.state.focusedInput }
-              onFocusChange={ focusedInput => this.setState({ focusedInput }) }
-              />
-          </div>
 
           </div>
-          <br />
         <div className="guest-dd-container">
+          <p className="visitorsquery">Number of Visitors</p>
             <div className='select-container'>
                 <div className='select-dd-container'>
-                  <select className='select-dropdown guests' value={this.state.num_guests}
+                  <select className='guests' value={this.state.num_guests}
                       onChange={this.handleSelectChange('num_guests')}>{this.guestsNumber()}
                   </select>
                     <span className="dropdown-arrow"></span>
