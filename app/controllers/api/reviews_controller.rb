@@ -18,3 +18,5 @@ class Api::ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :body, :home_id)
   end
 end
+
+# /
