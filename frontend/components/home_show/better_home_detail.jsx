@@ -1,5 +1,7 @@
 import React from 'react';
 import Reviews from '../review/review';
+import ReviewForm from '../review/review_form';
+
 Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
@@ -146,7 +148,9 @@ class BetterHomeDetail extends React.Component {
         <br />
         <h2>Reviews</h2>
         <br />
-        <Reviews listing={this.props.listing} />
+        <Reviews reviews={this.props.reviews} requestReviews={this.props.requestReviews} listing={this.props.listing} />
+        <div className='darkblu' onClick={() => this.props.updateModal(<ReviewForm createReview={this.props.createReview} currentUser={this.props.currentUser} updateModal={this.props.updateModal} homeid={this.props.listing.id}/>, true)}>Write a Review</div>
+        <br /><br />
       </div>
     );
   }

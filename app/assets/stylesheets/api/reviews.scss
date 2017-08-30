@@ -35,6 +35,15 @@
   margin-top: 24px;
 }
 
+.say-hello {
+  background: white;
+  margin: 13px 0px 0px;
+  width: 235px;
+  font-size: 0px;
+  height: 135px;
+  color: black;
+}
+
 .profile-pic {
   height: 52px;
   width: 52px;
@@ -50,12 +59,38 @@
   object-fit: cover;
 }
 
+.say-hello-container {
+  color: white;
+  padding: 10px 0 0 0;
+}
+
+.form-horizontal{
+  color: white;
+  font-size: 19px;
+}
+
+.select-container {
+  color: white;
+  font-size: 16px !important;
+  margin-left: 3px;
+  margin-top: 14px;
+  display: block;
+}
+
+.say-yo{
+  background: white;
+  color: black;
+  font-size: 16px;
+  height: 60px;
+}
+
 .review-form {
-  margin: 0 !important;
-  padding: 0 !important;
+  padding: 0 0 0 34px;
+  /* display: flex; */
+  text-align: center;
   width: 90% !important;
 }
 
-.post-review {
-  width: 40% !important;
+.select-dropdown {
+  margin-left: 124px;
 }

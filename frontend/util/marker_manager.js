@@ -22,6 +22,14 @@ export default class MarkerManager {
     //We do this so we don't have to create all the markers on load and then
     //when we get a bunch of markers, we don't make new ones of we already have them
 
+    //If this.markers does not already have the home, then we take these homes from the homes passed in to create new markers from
+    //these homes. This way we don't have to make markers we already have.
+    //!this.markers[home.id] is an O(1) operation
+
+
+    //We are saving all of the markers in homesObj, then we have this.markers. we get all of the markers that aren't in this.markers and
+    //make new markers out of them. Then, we go to homesObj and find all the markers in this.markers that are not in homesObj and then we
+    //we remove all of these markers.
     homes
       .filter(home => !this.markers[home.id])
       .forEach(newHome => { this.createMarkerFromHome(newHome, this.handleClick);
@@ -66,7 +74,7 @@ export default class MarkerManager {
       },
       anchor: new google.maps.Point(500, 0),
       icon: {url: image, origin: new google.maps.Point(0,-3)},
-      animation: google.maps.Animation.DROP,
+      // animation: google.maps.Animation.DROP,
       map: this.map,
       homeid: home.id
     });

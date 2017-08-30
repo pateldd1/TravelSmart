@@ -140,14 +140,13 @@
 
 .entrance-button {
   margin-top: 4px;
-  margin-left: 6px;
   text-align: center;
   cursor: pointer;
   transition: background 0.3s, border-color 0.3s;
   position: relative;
   border: 2px solid transparent;
   border-radius: 4px;
-  width: 96%;
+  width: 100%;
   font-size: 19px;
   line-height: 22px;
   padding-top: 12px;
@@ -157,34 +156,26 @@
   padding-right: 24px;
   padding-left: 24px;
   min-width: 77.66563145999496px;
-  background: #335BCA;
+  background: #FF5A5F;
   align-items: flex-start;
 }
 
 .guest-login {
-  display: flex;
-  justify-content: center;
   margin: 0 0 30px 0;
 }
 
-// .guest-text:hover {
-//   background-color: #007b80;
-//   text-decoration: none;
-// }
-
 .guest-text {
-  background-color: #FF5A5F;
-  color: white;
+  background-color: navajowhite;
+  color: black;
   padding: 11px;
   font-size: 18px;
   font-weight: 700;
   font-family: sans-serif;
   cursor: pointer;
   margin-right: 10px;
-  margin-left: 8px;
   margin-top: 19px;
   border-radius: 4px;
-  width: 68%;
+  width: 100%;
   padding: 16px 0 19px 0;
   text-align: center;
 }
@@ -196,7 +187,7 @@
 
 .redirect-to-signup {
   margin: 10px;
-  color: lawngreen;
+  color: blue;
   font-weight: 500;
 }
 
@@ -207,7 +198,7 @@
 
 .redirect-to-login{
   margin-left: 10px;
-  color: lawngreen;
+  color: blue;
   font-weight: 500;
 }
 
@@ -229,5 +220,5 @@
 }
 
 .error {
-  color: red;
+  color: black;
 }

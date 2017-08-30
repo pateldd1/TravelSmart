@@ -28,18 +28,17 @@ class ReviewForm extends React.Component{
     }
     let that = this;
     if (Object.keys(this.props.currentUser).length !== 0) {
-      APIUtil.createReview(review).then(that.props.updateModal(null,false));
+      this.props.createReview(review).then(that.props.updateModal(null,false));
     }
   }
 
   reviewForm() {
     return (
       <section className="book-trip-page">
-        <form className="book-trip-form review-form">Write a review
+        <form className="form-horizontal">Write a review
           {this.selectRating()}
           <div className="say-hello-container">Tell everyone about your stay:
-            <textarea className="say-hello" placeholder="Write your review here"
-            value={this.state.body} onChange={this.handleSelectChange('body')}
+            <textarea className="say-yo" value={this.state.body} onChange={this.handleSelectChange('body')}
             />
           </div>
           <button className="tosubmitdarkblue bk-tp-btn post-review" onClick={(e) => this.handleSubmit(e)}>
@@ -53,14 +52,17 @@ class ReviewForm extends React.Component{
   }
 
   selectRating() {
-    const options = [];
-    for (let i = 1; i <= 10; i++) {
-      options.push(
+    const opts = [];
+    let i = 1;
+    while (i <= 10)
+    {
+      opts.push(
         <option value={i}
         key={i}
         >{i}</option>
       )
-    };
+      i++;
+    }
     return (
       <div className="book-column">
         <div className='select-container book-txt'>
@@ -68,7 +70,7 @@ class ReviewForm extends React.Component{
           <div className='select-dd-container book-dd'>
             <select className='select-dropdown select-bk-dd' value={this.state.rating}
               onChange={this.handleSelectChange('rating')}
-            >{options}</select>
+            >{opts}</select>
             <span className="dropdown-arrow"></span>
           </div>
         </div>

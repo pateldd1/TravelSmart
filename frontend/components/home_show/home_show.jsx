@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
-import HomeShowContainer from './home_show_container';
 import BetterHomeDetail from './better_home_detail';
 import BookItNowContainer from '../trip/book_it_now_container';
 // import Footer from '../footer';
@@ -26,7 +25,8 @@ class HomeShow extends React.Component {
   }
 
   render() {
-    const { listing, homeid, requestHome } = this.props;
+    console.log(this.props.reviews);
+    const { listing, homeid, requestHome, updateModal } = this.props;
     if (listing === undefined || !listing.host) {
       return (
         <div></div>
@@ -41,7 +41,7 @@ class HomeShow extends React.Component {
                 <div className="navigation-detail">
                   <div className="navigation-selection">Overview</div>
                 </div>
-                  <BetterHomeDetail listing={listing}/>
+                  <BetterHomeDetail createReview={this.props.createReview} reviews={this.props.reviews} requestReviews={this.props.requestReviews} currentUser={this.props.currentUser} updateModal={updateModal} listing={listing}/>
               </div>
               <div className="to-book-it-divider">
                 <BookItNowContainer listing={listing}/>

@@ -8,21 +8,14 @@ class Reviews extends React.Component{
   constructor(props){
     super(props);
     this.displayReviews = this.displayReviews.bind(this);
-    this.state = {
-      homereviews: []
-    }
   }
 
-//Since reviews are constantly changing based on the home, Just make a db request each time you get them and dont put it in the store.
-//Only time to use the store is if you have data you want to persist across urls such as 'mytrips'.
-
   componentDidMount(){
-    let that = this;
-    APIUtil.requestReviews(this.props.listing.id).then((reviews) => that.setState({homereviews: reviews }));
+    this.props.requestReviews(this.props.listing.id);
   }
 
   displayReviews() {
-    return this.state.homereviews.map((review, idx) => {
+    return this.props.reviews.map((review, idx) => {
       const year = review.created_at.slice(0,4);
       const month = months[parseInt(review.created_at.slice(5,7)) - 1];
       return (

@@ -6,6 +6,7 @@ import FilterReducer from './filter_reducer';
 import TripReducer from './trip_reducer';
 import UserInputReducer from './input_reducer';
 import ModalReducer from './modal_reducer';
+import ReviewReducer from './review_reducer';
 
 const rootReducer = combineReducers({
   currentUser: SessionReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   filters: FilterReducer,
   trips: TripReducer,
   inputs: UserInputReducer,
-  modality: ModalReducer
+  modality: ModalReducer,
+  reviews: ReviewReducer
 });
 
 export default rootReducer;

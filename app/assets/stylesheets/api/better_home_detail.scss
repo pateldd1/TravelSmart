@@ -6,6 +6,28 @@
   margin: 29px 0 0 0;
 }
 
+.darkblu {
+  margin-top: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: white;
+  font-weight: 700;
+  padding-right: 24px;
+  padding-left: 24px;
+  min-width: 77.66563145999496px;
+  background: #335B7B;
+  align-items: flex-start;
+}
+
 .theiconstoshow {
   display: flex;
   justify-content: space-between;

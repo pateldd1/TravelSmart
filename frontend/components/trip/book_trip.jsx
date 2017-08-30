@@ -22,17 +22,6 @@ class BookTrip extends React.Component {
     this.handledropdownselection = this.handledropdownselection.bind(this);
     this.handleSubmission = this.handleSubmission.bind(this);
   }
-  // componentWillMount(){
-  //
-  // }
-  // componentDidMount() {
-  //   if (this.props.loggedIn && this.props.inputs) {
-  //
-  //     this.props.requestHome(this.props.homeid);
-  //   } else {
-  //     return (<div className="loading">Please Log in First</div>)
-  //   }
-  // };
 
   componentDidUpdate() {
     if (!this.props.loggedIn) {
@@ -71,7 +60,11 @@ class BookTrip extends React.Component {
 
   howmanyGuests() {
     return (
-      <div className="bookthecolumn">
+        <form className="tripthebookform">About Your Trip
+          <br /><br />
+          <div className="tosayhello">What is the purpose of you visit?
+            <textarea rows="10" cols="10" className="hellosay" placeholder="to explore the city with some friends..."/>
+          </div>
         <div className='containtheselection book-txt'>
           <label className="labelthebook"/>Who's coming?
           <div className='dropdownselections book-dd'>
@@ -80,7 +73,12 @@ class BookTrip extends React.Component {
             <span className="arrowthedropdown"></span>
           </div>
         </div>
-      </div>
+        <button className="submitter tobooktripbutton" onClick={(e) => this.handleSubmission(e)}>
+          <span className="btn-text">
+            Book
+          </span>
+        </button>
+      </form>
     );
   }
 
@@ -88,47 +86,47 @@ class BookTrip extends React.Component {
     const {inputs, listing} = this.props;
     //Test this out. I think that when you get host back from jbuilder, it is automatically an array
     return (
-      <section className="left-book">
-        <div className="bookpicsinhere">
-          <img className="picturebook" src={listing.image_url}/>
+      <section>
+        <div className="image-and-form">
+          <img width="70" height="70" className="left-image" src={listing.image_url}/>
+          {this.howmanyGuests()}
         </div>
-        <div className="bodyofthepanel">
-          <div className="bookname">{listing.title}</div>
-          <div className="descriptofbook">{listing.roomtype}</div>
-          <div className="descriptofbook">{listing.address}</div>
-        </div>
-        <div className="bookdivision"/>
-        <div className="bodyofthepanel columncheck poscalen">
-          <div className="cal-col">
-            <div className="columncheck">Check-in</div>
-            <div className="bookcheckin">{this.tripbegin}</div>
-          </div>
-          <div className="cal-col">
-            <div className="columncheck">Checkout</div>
-            <div className="bookcheckin">{this.tripend}</div>
-          </div>
-        </div>
-        <div className="bookdivision"/>
-        <div className="bodyofthepanel">
-          <div className="rowbookprice">
-            <div className="calculateprice">${this.nightPrice} x {this.days} nights</div>
-            <div className="pricetotal">${this.cost}</div>
-          </div>
-          <div className="rowbookprice">
-            <div className="calculateprice">Cleaning fee</div>
-            <div className="pricetotal">${this.cleaning}</div>
-          </div>
-          <div className="rowbookprice">
-            <div className="calculateprice">Service fee</div>
-            <div className="pricetotal">${this.service}</div>
-          </div>
-
-        </div>
-        <div className="bookdivision"/>
-        <div className="bodyofthepanel">
-          <div className="totaloftext">Total</div>
-          <div className="totaloftext">${this.totalcost}</div>
-        </div>
+        <table className="table table-bordered table-inverse">
+          <thead>
+            <tr>
+              <th className="col-md-3"></th>
+              <th className="col-md-3"></th>
+              <th className="col-md-3"></th>
+              <th className="col-md-3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="col-md-1">{listing.title}</td>
+              <td className="col-md-1">Check-in: {this.tripbegin}</td>
+              <td className="col-md-1">${this.nightPrice} x {this.days} nights</td>
+              <td className="col-md-3">${this.cost}</td>
+            </tr>
+            <tr>
+              <td className="col-md-1">{listing.roomtype}</td>
+              <td className="col-md-1">Checkout:  {this.tripend}</td>
+              <td className="col-md-1">Cleaning fee</td>
+              <td className="col-md-1">${this.cleaning}</td>
+            </tr>
+            <tr>
+              <td>{listing.address}</td>
+              <td></td>
+              <td>Service fee</td>
+              <td>${this.service}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Total</td>
+              <td>${this.totalcost}</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     )
   }
@@ -148,22 +146,9 @@ class BookTrip extends React.Component {
 
       return (
         <div>
-          <section className="tripthebookpage">
+          <section>
             {this.leftsideviewoftrip()}
           </section>
-            <form className="tripthebookform">About Your Trip
-
-            {this.howmanyGuests()}
-
-              <div className="tosayhello">What is the purpose of you visit?
-                <textarea className="hellosay" placeholder="to explore the city with some friends..."/>
-              </div>
-              <button className="tosubmitdarkblue tobooktripbutton" onClick={(e) => this.handleSubmission(e)}>
-                <span className="btn-text">
-                  Book
-                </span>
-              </button>
-            </form>
         </div>
       )
     }

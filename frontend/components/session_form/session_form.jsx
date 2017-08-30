@@ -88,20 +88,6 @@ class SessionForm extends React.Component {
     )
   }
 
-  // background(){
-  //   if ( this.props.location.pathname === "/" )
-  //   {
-  //     return (
-  //       <SearchContainer />
-  //     )
-  //   }
-  //   else {
-  //     return (
-  //       <HomeShowContainer />
-  //     )
-  //   }
-  // }
-
   submitButton(){
     if ( this.props.formType === 'login' )
     {
@@ -131,8 +117,8 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <div className="siteintro">
         <span className="sitename">TravelSmart</span>
-        <span className="blurb">Book unique homes</span>
-        <span className="blurb">And experience a city like a local</span>
+        <span className="blurb">Discover and book unique homes</span>
+        <span className="blurb">To experience a city like a local</span>
         </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br/>
