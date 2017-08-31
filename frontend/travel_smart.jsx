@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
   //These are for testing. Remember to remove these after producing
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.signup = signup;
-  window.login = login;
-  window.logout = logout;
-  window.updateFilter = updateFilter;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.signup = signup;
+  // window.login = login;
+  // window.logout = logout;
+  // window.updateFilter = updateFilter;
 
   //This grabs the id of root and then sends the Root component in there
   ReactDOM.render(<Root store={store}/>, root);

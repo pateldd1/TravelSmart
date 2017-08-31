@@ -29,6 +29,14 @@ const App = () => (
       <Route exact path="/user/:userid/trips" component={TripIndexContainer}/>
       <Route path="/" component={SearchContainer} />
     </Switch>
+    <footer>
+      <nav className="footer-nav">
+        <h4 className="footer-dev">Devansh Patel</h4>
+        <a href="https://github.com/pateldd1"><li className="fa fa-github"></li></a>
+        <a href="https://www.linkedin.com/in/dev-patel-451a55132/"><li className="fa fa-linkedin"></li></a>
+      </nav>
+      <br /><br />
+    </footer>
   </div>
 );
 

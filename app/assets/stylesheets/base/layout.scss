@@ -21,6 +21,30 @@ a:hover {
 	display: none;
 }
 
+.fa-github:before {
+	font-size: 30px;
+	margin-left: 19px;
+}
+
+.fa-github:hover {
+	text-decoration: none;
+}
+.fa-linkedin:hover {
+	text-decoration: none;
+}
+.fa-linkedin:before {
+	font-size: 30px;
+	margin-left: 17px;
+}
+
+.footer-nav {
+	display: flex;
+	align-items: center;
+}
+
+.footer-dev {
+	margin-left: 122px;
+}
 #map-container {
 	z-index: 3;
 	display: block;
