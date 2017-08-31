@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.single-listing-photocontainer {
+.listingphotocontain {
   position: relative;
   margin-top: 17px;
 }
@@ -37,22 +37,38 @@
   width: 30px;
 }
 
-.room-type-icon {
+.subtitles {
+  color: green;
+}
+
+.declarationoftravel {
+  margin-left: 149px;
+}
+
+.traveldeclare {
+  margin-left: 149px;
+}
+
+.amenitit {
+  margin-right: 92px;
+}
+
+.icontyperoom {
   background-image: asset-url('house.png');
   background-repeat: no-repeat;
 }
 
-.guests-type-icon{
+.icontypeguests{
   background-image: asset-url('guests.png');
   background-repeat: no-repeat;
 }
 
-.bedrooms-type-icon{
+.icontypebedrooms{
   background-image: asset-url('bedrooms.png');
   background-repeat: no-repeat;
 }
 
-.beds-icon{
+.the-bed-icon{
   background-image: asset-url('bed.png');
   background-repeat: no-repeat;
 }
@@ -76,7 +92,7 @@
   cursor: pointer;
 }
 
-.main-detail{
+.detailmain{
   color: #484848;
   font-family: sans-serif;
   font-size: 17px;
@@ -108,7 +124,7 @@
   width: 66.666666%
 }
 
-.navigation-detail {
+.detailednavigation {
   // margin-bottom: -15px;
   // padding-bottom: 15px;
   overflow-x: auto;
@@ -117,7 +133,7 @@
   border-bottom: 1px solid #DBDBDB;
 }
 
-.navigation-selection {
+.selectnavigation {
   font-size: 19px;
   line-height: 24px;
   letter-spacing: undefined;
@@ -137,7 +153,7 @@
   font-weight: 400;
 }
 
-.navigation-selection:focus {
+.selectnavigation:focus {
   font-size: 19px;
   line-height: 24px;
   padding-top: 12px;

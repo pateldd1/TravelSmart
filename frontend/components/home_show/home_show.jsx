@@ -32,17 +32,17 @@ class HomeShow extends React.Component {
       );
     } else {
       return (
-        <section className="listing-show-page">
-          <div className="single-listing-photocontainer"><img className="show-photo" src={this.props.listing.image_url}/></div>
-          <div className="main-detail">
+        <section className="pagelisting">
+          <div className="listingphotocontain"><img className="show-photo" src={this.props.listing.image_url}/></div>
+          <div className="detailmain">
             <div className="container-detail">
               <div className="sub-container-detail">
-                <div className="navigation-detail">
-                  <div className="navigation-selection">Overview</div>
+                <div className="detailednavigation">
+                  <div className="selectnavigation">Overview</div>
                 </div>
                   <BetterHomeDetail createReview={this.props.createReview} reviews={this.props.reviews} requestReviews={this.props.requestReviews} currentUser={this.props.currentUser} updateModal={updateModal} listing={listing}/>
               </div>
-              <div className="to-book-it-divider">
+              <div className="bookdividerer">
                 <BookItNowContainer listing={listing}/>
               </div>
             </div>
