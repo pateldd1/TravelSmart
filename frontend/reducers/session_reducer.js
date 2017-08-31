@@ -4,11 +4,6 @@ import {
   // RECEIVE_ERRORS
 } from '../actions/session_actions';
 
-// const nullUser = Object.freeze({
-//   currentUser: null,
-//   errors: []
-// });
-
 const SessionReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type)

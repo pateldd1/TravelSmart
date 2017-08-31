@@ -14,17 +14,6 @@ export const receivedHome = home => ({
   home
 });
 
-// export const receiveReview = review => ({
-//   type: RECEIVED_REVIEW,
-//   review
-// });
-
-// export const createReview = review => dispatch => (
-//   APIUtil.createReview(review).then(review => (
-//     dispatch(receiveReview(review))
-//   ))
-// );
-
 //THERE SHOULD BE FILTERS PASSED IN BECAUSE WE WILL USE FILTER TO SELECT CERTAIN THINGS
 //Left some empty space here in case you want to throw a debugger in
 

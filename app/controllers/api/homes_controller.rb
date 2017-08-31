@@ -51,29 +51,6 @@ class Api::HomesController < ApplicationController
 
   end
 
-  # def update
-  #   @home = current_user.homes.find(params[:id])
-  #
-  #   if @home.update(home_params)
-  #     render :show
-  #   else
-  #     render json: @home.errors.full_messages, status: 401
-  #   end
-  #
-  # end
-
-  # def destroy
-  #   @home = Home.find(params[:id])
-  #
-  #   if @home.destroy
-  #     @home = current_user.homes
-  #     render :index
-  #   else
-  #     render json: @home.errors.full_messages, status: 404
-  #   end
-  #
-  # end
-
   private
 
   #All of this will come in from the AJAX request and the data it sends through
@@ -86,20 +63,8 @@ class Api::HomesController < ApplicationController
     )
   end
 
-  # def housing_range
-  #   (params[:minHousing]..params[:maxHousing])
-  # end
-
   def price_range
     (params[:minPrice]..params[:maxPrice])
   end
-
-  # def start_date
-  #   params["start_date"]
-  # end
-  #
-  # def end_date
-  #   params["end_date"]
-  # end
 
 end

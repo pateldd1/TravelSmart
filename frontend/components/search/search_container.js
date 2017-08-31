@@ -20,7 +20,6 @@ const mapStateToProps = ({ homes, filters }) => {
 //I AM USING REQUEST ALL HOMES HERE FOR TESTING
 const mapDispatchToProps = dispatch => {
   return {
-  // requestHomes: (filters) => dispatch(requestHomes(filters)) ---- Instead of doing this here like you did
   //in home-index-container, dispatch this action in filter_actions after the filters have changed.
 
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
