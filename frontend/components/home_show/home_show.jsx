@@ -54,11 +54,3 @@ class HomeShow extends React.Component {
 }
 
 export default withRouter(HomeShow);
-
-
-//Add this when you get reviews
-
-//Add this at the end
-// <div className='footer-container'>
-//   <Footer/>
-// </div>

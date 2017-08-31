@@ -34,7 +34,6 @@ class Search extends React.Component {
   //This will cause a change in BOTH THE HOME MAP AND THE HOME index.
 
   //Implement this later
-  // <TravelSmartMap homes={this.props.homes} updateFilter={this.props.updateFilter}  />
 
   render() {
     return (
@@ -50,12 +49,3 @@ class Search extends React.Component {
 };
 
 export default Search;
-
-
-// Maybe Use this Later
-
-// <HousingForm
-//   minHousing={this.props.minHousing}
-//   maxHousing={this.props.maxHousing}
-//   updateFilter={this.props.updateFilter}
-//   />

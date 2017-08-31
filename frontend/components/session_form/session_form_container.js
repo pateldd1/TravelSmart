@@ -18,14 +18,10 @@ const mapStateToProps = ({ currentUser, errors }) => {
 //The withRouter is deconstructed after dispatch in the followin. You can get location, match, etc.
 const mapDispatchToProps = (dispatch, { location }) => {
   //Take this from the Url since we got SessionForm withRouter -- returns either 'login' or 'signup'
-  // const formType = location.pathname.slice(1);
-  // const processForm = (props.formType === 'login') ? login : signup;
   return {
-    // processForm: user => dispatch(processForm(user)),
     signup: user => dispatch(signup(user)),
     login: user => dispatch(login(user)),
     updateModal: (content, open) => dispatch(updateModal(content, open))
-    // formType
   };
 };
 

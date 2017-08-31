@@ -7,12 +7,7 @@ class HomeIndex extends React.Component {
     this.bounce = this.bounce.bind(this);
     this.nobounce = this.nobounce.bind(this);
   }
-
-  //This is added just for testing
-  // componentDidMount(){
-  //   this.props.requestHomes(null);
-  // }
-
+  
   bounce(homeid){
     this.props.bounceFilter(homeid, true);
   }
@@ -45,8 +40,6 @@ class HomeIndex extends React.Component {
       </div>
     )
   }
-  // <div className="card-review-stars">* * * * *</div>
-  // <div className="reviews">DO THIS LATER reviews</div>
 
   render() {
     const { homes } = this.props;

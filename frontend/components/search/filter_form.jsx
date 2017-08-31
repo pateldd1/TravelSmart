@@ -6,27 +6,6 @@ import ReactSlider from 'react-slider'
 //are then updated and the long process ensues that results in new homes being rendered.
 //I Can change this to be an actually good filter bar instead of this using React-bar
 
-// const handleChange = (filter, updateFilter) => e => (
-//   updateFilter(filter, e.currentTarget.value)
-// );
-//
-// export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
-//   <div className="filter-col">
-//     <label>Min. Price ($):</label>
-//     <input className="filter-container
-//       type="number"
-//       value={minPrice ? minPrice : 0}
-//       onChange={handleChange('minPrice', updateFilter)}
-//     />
-//     <label>Max. Price ($):</label>
-//     <input className="filter-container"
-//       type="number"
-//       value={maxPrice ? maxPrice : 0}
-//       onChange={handleChange('maxPrice', updateFilter)}
-//     />
-//   </div>
-// );
-
 class FilterForm extends React.Component {
   constructor(props){
     super(props);
@@ -148,23 +127,5 @@ class FilterForm extends React.Component {
 
 //You also need to add the filter that you are filtering by and render this filter so that someone will know
 //WORK ON THIS LATER AND GET THE FILTERS TO FILTER BY BEDS/ETC.
-// <a className="filter-button">More Filters</a>
 
 export default FilterForm;
-
-// export const HousingForm = ({ minHousing, maxHousing, updateFilter }) => (
-//   <div className="filter-col">
-//     <label>Min. Guests:</label>
-//     <input className="filter-container"
-//       type="number"
-//       value={minHousing ? minHousing : 1}
-//       onChange={handleChange('minHousing', updateFilter)}
-//     />
-//     <label>Max. Guests:</label>
-//     <input className="filter-container"
-//       type="number"
-//       value={maxHousing ? maxHousing : 12}
-//       onChange={handleChange('maxHousing', updateFilter)}
-//     />
-//   </div>
-// );

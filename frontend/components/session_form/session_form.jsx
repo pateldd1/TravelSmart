@@ -156,10 +156,6 @@ class SessionForm extends React.Component {
       </div>
     );
   }
-
-  // render() {
-  //   return <OpenModal content={this.modalContent()} />
-  // }
 }
 
 export default withRouter(SessionForm);
