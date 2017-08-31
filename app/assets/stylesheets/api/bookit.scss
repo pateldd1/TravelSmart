@@ -12,9 +12,6 @@
   color: white;
 }
 
-// .visitorsquery{
-//   text-align: right;
-// }
 
 .to-book-it-divider {
   width: 33.33333333333333%;
@@ -123,6 +120,9 @@
   display: table;
   margin: 0 auto;
   width: 97.5%;
+}
+.book-btn:hover {
+  background: green;
 }
 
 .book-disc {

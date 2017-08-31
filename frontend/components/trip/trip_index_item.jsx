@@ -27,13 +27,14 @@ class TripIndexItem extends React.Component {
       <div className={this.props.act ? "item active" : "item"}>
         <img src={trip.image_url} />
         <div className="carousel-caption">
-          <Link to={`/homes/${trip.home.id}`} >
-            <h3 className="caro">{trip.home.title}</h3>
-          </Link>
+          <h3 className="caro">{trip.home.title}</h3>
           <p className="caro">From {trip.start_date} to {trip.end_date}</p>
           <p className="caro">{trip.home.address}</p>
           <p className="caro">${trip.totalcost} was paid</p>
-          <p className="caroline" onClick={this.handleClick}>Click to Delete Trip</p>
+          <Link to={`/homes/${trip.home.id}`} >
+            <h4 className="linktohome">Click to go to home</h4>
+          </Link>
+          <h4 className="caroline" onClick={this.handleClick}>Click to Delete Trip</h4>
         </div>
      </div>
     )
@@ -43,42 +44,3 @@ class TripIndexItem extends React.Component {
 }
 
 export default TripIndexItem;
-
-
-
-
-// return (
-//   <div className='trip-card'>
-//     <div className='layer-for-trip'>
-//       <div className='tripicturer'>
-//         <Link to={`/homes/${trip.home.id}`} >
-//           <img className='image-of-trip' src={trip.image_url}/>
-//         </Link>
-//       </div>
-//       <div className='textfortrip'>
-//
-//         <div className='timefortrip'>
-//           <div className='boxsched'>
-//             <div className='the-box-address'>{trip.home.title}</div>
-//
-//             <div className="the-top-space">{trip.start_date} to {trip.end_date}</div>
-//             <div className="the-top-space">{trip.home.address}</div>
-//           </div>
-//         </div>
-//
-//         <div className="divider-for-trip"/>
-//         <div className="trip-make-action">
-//
-//         </div>
-//         <div className='trip-make-action'>
-//           <div className='occurrences-for-trip'>${trip.totalcost} was Paid</div>
-//         </div>
-//
-//         <div className="divider-for-trip"/>
-//         <div className="trip-make-action">
-//           <div className='occurrences-for-trip cancel-trip' onClick={this.handleClick}>Remove / Cancel</div>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// )

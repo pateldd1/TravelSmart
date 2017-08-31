@@ -18,171 +18,18 @@
   width: 99%;
 }
 
-
-.yourtravels {
-  color: #2d2d2d;
-  font-size: 32px;
-  font-weight: normal;
-  margin-bottom: 15px;
-  line-height: 1.1;
-  text-rendering: optimizelegibility;
-  margin-top: 0;
-}
-
-.tripbox {
-  width: 32.0%;
-  float: left;
-  position: relative;
-  min-height: 1px;
-  padding-right: 12px;
-}
-
-.tripicturer {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.image-of-trip {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-position: 50% 50%;
-  object-fit: cover;
-}
-
-.trip-cards {
-  width: 100%;
-  float: left;
-  position: relative;
-  // display: flex;
-  min-height: 1px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-bottom: 37px;
-  padding: 0px;
-  padding-top: 20px;
-  overflow: visible;
-  white-space: normal;
-  margin-top: 0px;
-}
-
-.textfortrip {
-  margin: 16px 0 16px 0;
-}
-
-.trip-card {
-  border: 0;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  border-radius: 1px;
-  font-size: 16px;
-  margin-top: 20px;
-
-}
-
-
-.trip-card:hover {
-  text-decoration: none;
-}
-
-.layer-for-trip {
-  width: 100%;
-  height: 490px;
-  position: relative;
-  border: 1px #dce0e0 solid !important;
-  margin-top: 24px;
-  padding-bottom: 20px;
-}
-
-.textfortrip {
-  text-align: center;
-  padding: 0;
-  margin-top: 0;
-  position: relative;
-  font-size: 16px;
-  color: #2d2d2d;
-}
-
-.timefortrip {
-  width: 100%;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  text-align: center;
-}
-
-.trip-make-action {
-  padding: 0 20px;
-  height: auto;
-  text-align: center;
-  margin-bottom: 10px;
-  font-weight: 400;
-  color: #2d2d2d;
-}
-
-.boxsched {
-  padding: 0 20px;
-  color: #484848;
-}
-
-.the-box-address {
-  margin-bottom: 18px;
-  margin-top: 18px;
-  font-size: 26px;
-  color: #2d2d2d;
-}
-
-.the-top-space {
-  margin-top: 6px;
-}
-
-.occurrences-for-trip {
-  color: #2d2d2d;
-  border: 0;
-  height: auto;
-  padding: 10px 0 0 0;
-  font-family: Helvetica !important;
-}
-
-.trip-action-row {
-  border-top: 1px solid #bbb;
-  width: 100%;
-  padding: 15px 5px;
-  float: left;
-}
-
-.trip-card-txt {
-  font-size: 26px;
-}
-
 .image-and-form {
   display: flex;
 }
 
-.trip-button {
+.trip-button{
   color: white;
-  width: 35% !important;
 }
 
 .trip-button:hover {
+  color: white;
+  background: green;
   text-decoration: none;
-}
-
-.divider-for-trip {
-  content: "";
-  top: -1px;
-  width: 80%;
-  margin: 0 auto;
-  border-top: 1px solid #bbb;
-}
-
-.trip-hov:hover {
-  text-decoration: underline;
-  color: #008489;
-  cursor: pointer;
 }
 
 .caroline:hover {
@@ -191,8 +38,13 @@
   color: red;
 }
 
+.linktohome{
+  fontsize: 15px;
+}
+
 .caroline {
   color: red;
+  fontsize: 15px;
 }
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img
