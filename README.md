@@ -1,7 +1,7 @@
 # TravelSmart
 See Live Version Here: [https://travelsmart1.herokuapp.com](https://travelsmart1.herokuapp.com)
 
-![travelsmart-search](/app/assets/images/searching.gif)
+![travelsmart-search](/app/assets/images/search.gif)
 
 TravelSmart draws inspiration from AirBnB and helps users find homes for temporary stay based on multiple filters. It also lets them book and review locations.
 
@@ -31,8 +31,7 @@ This project was developed in 10 days using Ruby on Rails, React.js with Redux, 
   * Visitors may only post reviews on homes that they visit
 
 ## User Authentication
-On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed using BCrypt and compared to the encrypted password in order to verify the log-in. A session token is used to achieve this, making sure the user is logged in when navigating the website. SecureRandom gem was used for this. Bootstrapping the current
-user is used to keep the user logged in on refresh of the page.
+On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed using BCrypt and compared to the encrypted password in order to verify the log-in. A session token is used to achieve this, making sure the user is logged in when navigating the website. SecureRandom gem was used for this. Bootstrapping the current user is used to keep the user logged in on refresh of the page.
 
 ## Home Show Page
 All homes are stored in the database, which contains columns for:
@@ -47,13 +46,6 @@ All homes are stored in the database, which contains columns for:
   * the number of `bedrooms`
   * the number of `beds`
   * the `roomtype` that the host is servicing (Shared Room, Entire House, Private Room)
-
-  ----The Following is not stored in the database but is randomly generated on home show----
-  * a boolean that determines if the host provides the `internet` amenity
-  * a boolean that determines if the host provides the `family`-friendly amenity
-  * a boolean that determines if the host provides the free-`parking` amenity
-  * a boolean that determines if the host provides a `kitchen`
-  -----------------------------------------------------------------------------
 
 Below is an example of a state shape for the home index page:
 
@@ -105,7 +97,7 @@ Home Show Page State Shape:
 }
 ```
 
-![TravelSmart-show](/app/assets/images/book_home.gif)
+![TravelSmart-show](/app/assets/images/booking.gif)
 
 ## Map Filters
 TravelSmart offers real-time filtering based on roomtype and price (per month). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map. Markers pertaining to a certain house bounce when the house is hovered over in the homes index, and there
@@ -141,8 +133,8 @@ On the backend, the home model will take in a query based on a latitude and long
   end
   ```
 
-On the frontend, a filter object will be a slice of state that will be passed in when making an ajax request for an index of homes, and the subsequent response will update the map api with the filtered index. Sort Filter action and Bounce Filter actions were added to help
-with the bouncing of markers based on mouse hovering and the sorting of the houses based on price.
+On the frontend, a filter object will be a slice of state that will be passed in when making an ajax request for an index of homes, and the subsequent response will update the map api with the filtered index. Sort Filter action and Shade Filter actions were added to help
+with the shading blue of markers based on mouse hovering and the sorting of the houses based on price.
 
 ``` JavaScript
 export const updateFilter = (filter, value) => (dispatch, getState) => {
@@ -155,8 +147,8 @@ export const sortFilter = (boolean) => ({
   boolean
 });
 
-export const bounceFilter = (homeid, boolean) => ({
-  type: BOUNCE_FILTER,
+export const shadeFilter = (homeid, boolean) => ({
+  type: SHADE_FILTER,
   homeid,
   boolean
 })
@@ -171,12 +163,12 @@ Here is an example of a filter state slice:
     }
     minPrice: 300,
     maxPrice: 3400,
-    bouncingmarker: {homeid: 3, bouncing: true},
+    shadingmarker: {homeid: 3, shading: true},
     sorted: true
   }
 ```
 
-![map-drag](/app/assets/images/map_dragging.gif)
+![map-drag](/app/assets/images/map drag.gif)
 
 ## Home Details
 The home show page contains a more in-depth explanation of the home's features. The page is shown when a user clicks on either a home from
@@ -188,20 +180,22 @@ All trips (bookings) are stored in one table in the database, which contains col
 ### Viewing Trips
 Only the user can view their own trips. The user can view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user to redirect back to the home index page. Since the user has many trips and since each trip belongs to a home through a home id, these assocations were used to get the current user's trips and home info of those trips such as the home title, etc. A join table with home was made with a 'includes' statement in the controller to prevent N+1 SQL queries.
 
-This is the page where the user can post a review of their trips.
+On the frontend, bootstrap was used to create a carousel that would flip through the trips a user had been on.
+
+![trips-view](/app/assets/images/mytrips.gif)
 
 ## Reviews
 
-Only visitors can make a review of the homes they visit. A review requires a body and rating. The rating has to be between 1-10. Upon creating a review, the reviews info is stored in the database along with its user_id and home_id. Since review info, author info, and home info are needed, the reviews controller queries the reviews table for reviews that have the same id as the params[:homeid] that is passed in from front end. The .includes method was used again to prevent N+1 queries. In addition, since the reviews and review info would constantly change based on the home show page the user is looking at, the reviews were not stored in the store. A AJAX/database request was made directly in the review jsx component to improve space complexity. This would help a lot of a home had a lot of reviews.
+Users can create reviews on a home's show page and can view reviews there as well. A review requires a body and rating. The rating has to be between 1-10. Upon creating a review, the reviews info is stored in the database along with its user_id and home_id. Since review info, author info, and home info are needed, the reviews controller queries the reviews table for reviews that have the same id as the params[:homeid] that is passed in from front end. The .includes method was used again to prevent N+1 queries. In addition, since the reviews and review info would constantly change based on the home show page the user is looking at, the reviews were not stored in the store. A AJAX/database request was made directly in the review jsx component to improve space complexity. This would help a lot of a home had a lot of reviews.
 
 ## Coming Soon
 During the 10 days I spent developing this clone, I realized that I could add numerous things that AirBNB has to improve a user's experience.
 
 #### User Profile Pages
-Adding a user profile page would improve the social aspect of the app.
+Adding a user profile page would improve the sociality of the app.
 
-#### Port to React Native
-Integration with mobile using React Native.
+#### Hosting
+Allowing users to host homes, view their hosted homes, and delete from them if need be.
 
 #### More Filters
 Filtering by number of beds and bedrooms as well as by reviews will help to improve usability. The beds, bedrooms, etc. would be implemented similarly to how it is implemented on the AirBNB website, with a + and - sign to add or decrease the number of desired elements.
