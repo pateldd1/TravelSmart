@@ -33,6 +33,8 @@ This project was developed in 10 days using Ruby on Rails, React.js with Redux, 
 ## User Authentication
 On the back-end, an encrypted, hashed password is stored in the database (passwords are never saved to the database). On log-in, the provided password is rehashed using BCrypt and compared to the encrypted password in order to verify the log-in. A session token is used to achieve this, making sure the user is logged in when navigating the website. SecureRandom gem was used for this. Bootstrapping the current user is used to keep the user logged in on refresh of the page.
 
+![TravelSmart-show](/app/assets/images/booking.gif)
+
 ## Home Show Page
 All homes are stored in the database, which contains columns for:
   * the home `id`
@@ -97,7 +99,7 @@ Home Show Page State Shape:
 }
 ```
 
-![TravelSmart-show](/app/assets/images/booking.gif)
+![map-drag](/app/assets/images/map drag.gif)
 
 ## Map Filters
 TravelSmart offers real-time filtering based on roomtype and price (per month). The Redux state is updated with a list of all the homes matching both the filter query and location bounds. Map markers are then populated on the map as an overlay for every location stored in the state. With every filter or idle state of the map, old map markers are replaced with new map markers; the bounds also resize automatically when zooming in or out of the map. Markers pertaining to a certain house bounce when the house is hovered over in the homes index, and there
@@ -168,7 +170,6 @@ Here is an example of a filter state slice:
   }
 ```
 
-![map-drag](/app/assets/images/map drag.gif)
 
 ## Home Details
 The home show page contains a more in-depth explanation of the home's features. The page is shown when a user clicks on either a home from
@@ -177,12 +178,13 @@ the home index page or when they click on a home's marker from the map.
 ## Booking a Trip
 All trips (bookings) are stored in one table in the database, which contains columns for `id`, the `visitor_id` that references a visitor (user), the `home_id` that references the booked home, and the `start_date` and `end_date` of the trip.
 
+![trips-view](/app/assets/images/mytrips.gif)
+
 ### Viewing Trips
 Only the user can view their own trips. The user can view details about their trip, the amount they paid, and if they have to, cancel their trips. If the user has no trips, a link will allow the user to redirect back to the home index page. Since the user has many trips and since each trip belongs to a home through a home id, these assocations were used to get the current user's trips and home info of those trips such as the home title, etc. A join table with home was made with a 'includes' statement in the controller to prevent N+1 SQL queries.
 
 On the frontend, bootstrap was used to create a carousel that would flip through the trips a user had been on.
 
-![trips-view](/app/assets/images/mytrips.gif)
 
 ## Reviews
 
