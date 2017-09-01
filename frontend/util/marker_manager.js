@@ -55,7 +55,6 @@ export default class MarkerManager {
     const lat = home.lat;
     const lng = home.long;
     // var image = {
-    //       url: 'https://s3.amazonaws.com/safehavns-dev/mark.png',
     //       // This marker is 20 pixels wide by 32 pixels high.
     //       // size: new google.maps.Size(80, 42),
     //       // The origin for this image is (0, 0).
