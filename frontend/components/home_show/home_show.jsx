@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import BetterHomeDetail from './better_home_detail';
 import BookItNowContainer from '../trip/book_it_now_container';
+
 // import Footer from '../footer';
 
 //Take care of the bug where you resize the window and it ends up changing the filters and gets rid of the house you got currently.
@@ -40,7 +41,7 @@ class HomeShow extends React.Component {
                 <div className="detailednavigation">
                   <div className="selectnavigation">Overview</div>
                 </div>
-                  <BetterHomeDetail createReview={this.props.createReview} reviews={this.props.reviews} requestReviews={this.props.requestReviews} currentUser={this.props.currentUser} updateModal={updateModal} listing={listing}/>
+                  <BetterHomeDetail clearErrors={this.props.clearErrors} createReview={this.props.createReview} reviews={this.props.reviews} requestReviews={this.props.requestReviews} currentUser={this.props.currentUser} updateModal={updateModal} listing={listing}/>
               </div>
               <div className="bookdividerer">
                 <BookItNowContainer listing={listing}/>

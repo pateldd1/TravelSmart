@@ -1,6 +1,7 @@
 import React from 'react';
 import Reviews from '../review/review';
 import ReviewForm from '../review/review_form';
+import SessionFormContainer from '../session_form/session_form_container';
 
 Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
@@ -18,7 +19,24 @@ class BetterHomeDetail extends React.Component {
     this.ac = [true, false].randomElement();
     this.kitchen = [true, false].randomElement();
     this.num_guests = [1,2,3,4,5,6,7,8].randomElement();
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearErrorsAndOpenSeshForm = this.clearErrorsAndOpenSeshForm.bind(this);
   }
+
+  clearErrorsAndOpenSeshForm(){
+    this.props.clearErrors();
+    this.props.updateModal(<SessionFormContainer formType="signup" />, true);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if (Object.keys(this.props.currentUser).length !== 0 ) {
+      this.props.updateModal(<ReviewForm createReview={this.props.createReview} currentUser={this.props.currentUser} updateModal={this.props.updateModal} homeid={this.props.listing.id}/>, true)
+    } else {
+      this.clearErrorsAndOpenSeshForm();
+    }
+  };
+
 
   render(){
     return (
@@ -152,7 +170,7 @@ class BetterHomeDetail extends React.Component {
         <h2 className="subtitles">Reviews</h2>
         <br />
         <Reviews reviews={this.props.reviews} requestReviews={this.props.requestReviews} listing={this.props.listing} />
-        <div className='darkblu' onClick={() => this.props.updateModal(<ReviewForm createReview={this.props.createReview} currentUser={this.props.currentUser} updateModal={this.props.updateModal} homeid={this.props.listing.id}/>, true)}>Write a Review</div>
+        <div className='darkblu' onClick={this.handleSubmit}>Write a Review</div>
         <br /><br />
       </div>
     );

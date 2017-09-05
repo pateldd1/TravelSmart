@@ -9,6 +9,7 @@ import {requestReviews} from '../../actions/review_actions';
 // import { openModal } from '../../actions/modal_actions';
 // import { clearErrors } from '../../actions/session_actions'
 import { createReview } from '../../actions/review_actions';
+import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = ({ homes, currentUser, reviews }, {match}) => { //remember the entities is nexted in home which is nested in state
   const homeid = match.params.homeid;
@@ -27,7 +28,8 @@ const mapDispatchToProps = (dispatch) => {
     requestHome: id => dispatch(requestHome(id)),
     updateModal: (content, open) => dispatch(updateModal(content, open)),
     requestReviews: (id) => dispatch(requestReviews(id)),
-    createReview: (review) => dispatch(createReview(review))
+    createReview: (review) => dispatch(createReview(review)),
+    clearErrors: () => dispatch(clearErrors())
   }
 }
 
