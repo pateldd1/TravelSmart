@@ -18,7 +18,7 @@ const App = () => (
         <Link to="/" className="header-link">
           <img className="travel-icon" src="https://image.flaticon.com/icons/svg/201/201623.svg"></img>
         </Link>
-        <input id="pac-input" className="controls" type="text" placeholder="San Francisco, California, United States" />
+        <input id="pac-input" className="controls" type="text" placeholder="Search in San Francisco, California, United States" />
         <GreetingContainer />
       </nav>
     </header>
