@@ -6,27 +6,6 @@ import ReactSlider from 'react-slider'
 //are then updated and the long process ensues that results in new homes being rendered.
 //I Can change this to be an actually good filter bar instead of this using React-bar
 
-// const handleChange = (filter, updateFilter) => e => (
-//   updateFilter(filter, e.currentTarget.value)
-// );
-//
-// export const PricingForm = ({ minPrice, maxPrice, updateFilter }) => (
-//   <div className="filter-col">
-//     <label>Min. Price ($):</label>
-//     <input className="filter-container
-//       type="number"
-//       value={minPrice ? minPrice : 0}
-//       onChange={handleChange('minPrice', updateFilter)}
-//     />
-//     <label>Max. Price ($):</label>
-//     <input className="filter-container"
-//       type="number"
-//       value={maxPrice ? maxPrice : 0}
-//       onChange={handleChange('maxPrice', updateFilter)}
-//     />
-//   </div>
-// );
-
 class FilterForm extends React.Component {
   constructor(props){
     super(props);
@@ -35,6 +14,7 @@ class FilterForm extends React.Component {
     this.slide = this.slide.bind(this);
     this.dropDownRooms = this.dropDownRooms.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.detoggleMenu = this.detoggleMenu.bind(this);
     this.remainOpen = this.remainOpen.bind(this);
     this.close = this.close.bind(this)
     this.togglePriceSort = this.togglePriceSort.bind(this);
@@ -46,14 +26,12 @@ class FilterForm extends React.Component {
     }
   }
 
+  detoggleMenu(){
+    this.setState({dropDownRoomsShown: "roomhide show"});
+  }
+
   toggleMenu(){
-    if ( this.state.dropDownRoomsShown === "roomhide")
-    {
-      this.setState({dropDownRoomsShown: "roomhide show"});
-    }
-    else {
-      this.setState({dropDownRoomsShown: "roomhide"});
-    }
+    this.setState({dropDownRoomsShown: "roomhide"})
   }
 
   togglePriceSort(){
@@ -85,7 +63,7 @@ class FilterForm extends React.Component {
 
   dropDownRooms(){
     return(
-      <div className="dropdown" onClick={this.toggleMenu}>
+      <div className="dropdown" onMouseOver={this.detoggleMenu} onMouseLeave={this.toggleMenu}>
         <a className="roomtype-button" >Room-Type</a>
         <div className={this.state.dropDownRoomsShown}>
           <a className="drop-li" onClick={()=>this.props.updateFilter("roomtype", "alltypes")}>All Types</a>
@@ -140,29 +118,14 @@ class FilterForm extends React.Component {
       </div>
         <div className="more-filters">
           {this.dropDownRooms()}
-          <a className="filter-button">More Filters</a>
-          <a className="filter-button" onClick={this.togglePriceSort}>Toggle Price Sort</a>
+          <a className="filter-button" onClick={this.togglePriceSort}>Price Sorter</a>
         </div>
       </div>
     )
   }
 }
 
-export default FilterForm;
+//You also need to add the filter that you are filtering by and render this filter so that someone will know
+//WORK ON THIS LATER AND GET THE FILTERS TO FILTER BY BEDS/ETC.
 
-// export const HousingForm = ({ minHousing, maxHousing, updateFilter }) => (
-//   <div className="filter-col">
-//     <label>Min. Guests:</label>
-//     <input className="filter-container"
-//       type="number"
-//       value={minHousing ? minHousing : 1}
-//       onChange={handleChange('minHousing', updateFilter)}
-//     />
-//     <label>Max. Guests:</label>
-//     <input className="filter-container"
-//       type="number"
-//       value={maxHousing ? maxHousing : 12}
-//       onChange={handleChange('maxHousing', updateFilter)}
-//     />
-//   </div>
-// );
+export default FilterForm;

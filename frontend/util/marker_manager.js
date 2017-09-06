@@ -22,6 +22,14 @@ export default class MarkerManager {
     //We do this so we don't have to create all the markers on load and then
     //when we get a bunch of markers, we don't make new ones of we already have them
 
+    //If this.markers does not already have the home, then we take these homes from the homes passed in to create new markers from
+    //these homes. This way we don't have to make markers we already have.
+    //!this.markers[home.id] is an O(1) operation
+
+
+    //We are saving all of the markers in homesObj, then we have this.markers. we get all of the markers that aren't in this.markers and
+    //make new markers out of them. Then, we go to homesObj and find all the markers in this.markers that are not in homesObj and then we
+    //we remove all of these markers.
     homes
       .filter(home => !this.markers[home.id])
       .forEach(newHome => { this.createMarkerFromHome(newHome, this.handleClick);
@@ -43,11 +51,10 @@ export default class MarkerManager {
 
   //Instead of deleting the markers alltogether you can just set the visibility property to change visibility
   createMarkerFromHome(home) {
-    const image = "https://s3.amazonaws.com/safehavns-dev/mark.png";
+    const image = "http://res.cloudinary.com/dxplu7mua/image/upload/v1502019658/gmap_icon_dn7jht.png";
     const lat = home.lat;
     const lng = home.long;
     // var image = {
-    //       url: 'https://s3.amazonaws.com/safehavns-dev/mark.png',
     //       // This marker is 20 pixels wide by 32 pixels high.
     //       // size: new google.maps.Size(80, 42),
     //       // The origin for this image is (0, 0).
@@ -58,14 +65,15 @@ export default class MarkerManager {
     let marker = new google.maps.Marker({
       position: {lat, lng},
       label: {
-        color: "#ffffff",
+        color: "black",
         fontFamily: "Helvetica",
         text: "$"+String(home.price),
         fontSize: "14.5px",
-        fontWeight: "700"
+        fontWeight: "500"
       },
-      icon: image,
-      animation: google.maps.Animation.DROP,
+      anchor: new google.maps.Point(500, 0),
+      icon: {url: image, origin: new google.maps.Point(0,-3)},
+      // animation: google.maps.Animation.DROP,
       map: this.map,
       homeid: home.id
     });
@@ -86,15 +94,25 @@ export default class MarkerManager {
     delete this.markers[marker.homeid];
   }
 
-  //This is a waste of time.
   //Make yours more like AirBNB, where they hover and it lights up on the house
   //Also when you hover over the house from the home index, it will light up the house on the map
-  // toggleBounce() {
-  //   if (this.getAnimation() !== null) {
-  //     this.setAnimation(null);
-  //   } else {
-  //     this.setAnimation(google.maps.Animation.BOUNCE);
-  //   }
-  // }
+  makeBounce() {
+    if ( this )
+    {
+      var label = this.getLabel();
+      label.color="white";
+      this.setLabel(label);
+      this.setIcon("http://res.cloudinary.com/dxplu7mua/image/upload/v1502019672/gmap_icon_hover_rwcjmn.png")
+    }
+  }
+
+  dontmakeBounce() {
+    if(this){
+      var label = this.getLabel();
+      label.color="black";
+      this.setLabel(label);
+      this.setIcon("http://res.cloudinary.com/dxplu7mua/image/upload/v1502019658/gmap_icon_dn7jht.png")
+    }
+  }
 
 }

@@ -1,0 +1,207 @@
+.tripthebookpage {
+  display: flex;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1080px;
+}
+
+.tripthebookform {
+  float: left;
+  width: 85%;
+  margin: 0 0 0 56px;
+  padding: 32px;
+  font-size: 24px;
+  font-weight: normal;
+  float: left;
+  line-height: 1.1;
+  text-rendering: optimizelegibility;
+}
+
+.book-txt {
+  font-size: 16px !important;
+  margin-left: 109px;
+  display: block;
+}
+
+.book-dd {
+  width: 50% !important;
+  margin-top: 8px;
+}
+
+.selectbookthedropdown {
+  font-size: 16px !important;
+}
+
+.pet-info {
+  margin: 0 16px 0 16px;
+  font-size: 16px !important;
+  font-weight: 400;
+}
+
+.tobooktripbutton {
+  padding: 9px !important;
+  font-size: 16px !important;
+  width: 16.666666666% !important;
+  float: left
+}
+
+.tosayhello {
+  display: block;
+  padding-bottom: 0px;
+  font-size: 16px;
+  margin-bottom: 32px;
+  line-height: 1.43;
+}
+
+.submitter {
+  margin-left: 75px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  /* width: 100%; */
+  s: 4px;
+  /* width: 100%; */
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #484848;
+  font-weight: 700;
+  padding-right: 24px;
+  padding-left: 24px;
+  min-width: 161.665631px;
+  background: #335B7B;
+  margin-top: 23px;
+  align-items: flex-start;
+}
+
+.submitter:hover {
+  background: green;
+}
+
+.hellosay {
+  width: 64%;
+  height: 110px;
+  font-size: 16px !important;
+  margin-top: 12px;
+  display: block;
+  padding: 12px;
+  resize: vertical;
+  line-height: inherit;
+  border-radius: 2px;
+  white-space: pre-line;
+  word-wrap: break-word;
+  position: relative;
+  overflow: auto;
+  vertical-align: top;
+  border: 1px solid #aaa;
+}
+
+.left-book {
+  margin-bottom: 12px;
+  left: 58.33333%;
+  display: flex;
+  justify-content: space-around;
+  float: left;
+  margin: 12px;
+  border: 3px solid #335B7B;
+}
+
+.bookname {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.bookpicsinhere{
+  width: 35%;
+}
+
+.descriptofbook {
+  font-size: 14px;
+  color: #767676;
+  font-weight: 500;
+}
+
+.bodyofthepanel:first-child {
+  padding-top: 30px;
+}
+
+.bodyofthepanel {
+  padding: 25px 20px;
+}
+
+.the-total-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.bodyofthepanel {
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.bookhost {
+  color: #767676;
+  font-weight: 500;
+}
+
+.bookcheckin {
+  font-size: 14px;
+  color: black;
+  font-weight: 500;
+}
+
+.bookdivision {
+  content: "";
+  top: -1px;
+  height: 1px;
+  margin: 0 auto;
+  border-top: 1px solid #dce0e0;
+}
+
+.poscalen {
+  display: flex;
+  // justify-content: space-between;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.rowbookprice {
+  display: flex !important;
+  justify-content: space-between;
+  font-weight: 400;
+  color: #484848;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: inline;
+  margin-bottom: 16px;
+}
+
+.cal-col {
+  float: left;
+  padding: 10px;
+}
+
+.bookcheckin, .columncheck {
+  font-size: 14px;
+  color: #767676;
+  margin-top: 8px;
+  padding: 0 7px 2px 7px;
+}
+
+.DateInput__input  {
+  cursor: pointer;
+}

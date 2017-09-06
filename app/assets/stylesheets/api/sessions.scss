@@ -3,45 +3,113 @@
 // You can use Sass (SCSS) here: http://sass-lang.com.
 
 .loginbutton, .signupbutton {
-  margin: 12px;
+  margin: 10px;
+  font-size: 15px;
+  font-weight: normal;
 }
 
-li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
+.siteintro {
+  display: flex;
+  flex-direction: column;
+}
+
+.sitename {
+  font-family: kohinoor bangla;
+  font-size: 30px;
+  color: white;
+  margin: 0 0 17px 15px;
+}
+
+.blurb {
+  font-weight: 500;
+  text-align: right;
+  font-size: 16px;
+  color: white;
+}
+
+.loginbutton {
+  margin-right: 48px;
+}
+.loginbutton:hover, .signupbutton:hover, .SignOutButton:hover, .AllTripsButton:hover {
   cursor: pointer;
   list-style: none;
-  border-bottom: 2px solid #484848;
   text-decoration: none;
+  border-bottom: 2px solid #484848;
 }
 
 .login-signup, .SignOutButton {
-  padding: 8px 0;
+  // padding: 8px 0;
   vertical-align: middle;
   // line-height: 1;
   // border-bottom: 2px solid transparent;
   float: right;
   list-style: none;
-  margin-left: 16px;
+  margin-left: 564px;
   margin-right: 16px;
+  margin-top: 0px;
   display: flex;
   background-repeat: no-repeat;
   border: none;
 }
 
+.tosubmitdarkblue:hover, .x-close:hover {
+  cursor: pointer;
+}
+
+.signandlog {
+  display: flex;
+  align-items: center;
+}
+
+.tosubmitdarkblue {
+  margin-top: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #484848;
+  font-weight: 700;
+  padding-right: 24px;
+  padding-left: 24px;
+  min-width: 77.66563145999496px;
+  background: #335B7B;
+  align-items: flex-start;
+}
 
 .redirect:hover{
   text-decoration: underline;
 }
 
-.SignOutButton {
-  font-size: inherit;
+.Signed-In-User-Header {
+  display: flex;
+  // align-items: center;
+  margin-left: 291px;
+}
+
+.SignOutButton,  {
+  font-size: 15px;
   margin: 0 16px 0 0;
+}
+
+.AllTripsButton {
+  font-size: 15px;
+  margin-right: 48px;
+  padding-bottom: 1px;
+  list-style: none;
 }
 
 .login-form-box {
   position: relative;
   color: #484848;
   border-color: #484848;
-  margin-top: 16px;
+  // margin-top: 16px;
   margin-bottom: 16px;
 }
 
@@ -49,9 +117,8 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
   font-family: sans-serif;
   font-size: 19px;
   line-height: 24px;
-  color: #484848;
-  font-weight: 300;
-  background-color: transparent;
+  font-weight: 600;
+  background-color: white;
   border: 0px;
   padding: 11px;
   width: 100%;
@@ -77,7 +144,7 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
 }
 
 .entrance-button {
-  margin-top: 16px;
+  margin-top: 4px;
   text-align: center;
   cursor: pointer;
   transition: background 0.3s, border-color 0.3s;
@@ -99,28 +166,22 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
 }
 
 .guest-login {
-  display: flex;
-  justify-content: center;
   margin: 0 0 30px 0;
 }
 
-.guest-text:hover {
-  background-color: #007b80;
-  text-decoration: none;
-}
-
 .guest-text {
-  background-color: #008489;
-  color: white;
+  background-color: navajowhite;
+  color: black;
   padding: 11px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   font-family: sans-serif;
   cursor: pointer;
   margin-right: 10px;
-  margin-left: 5px;
-  border-radius: 2px;
-  width: 22%;
+  margin-top: 19px;
+  border-radius: 4px;
+  width: 100%;
+  padding: 16px 0 19px 0;
   text-align: center;
 }
 
@@ -129,20 +190,34 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
   color: white;
 }
 
-.redirect-to-signup,{
-  margin: 0 0 0 10px;
+.redirect-to-signup {
+  margin: 10px;
   color: blue;
+  font-weight: 500;
+}
+
+.redirect-to-signup:hover, .redirect-to-login:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .redirect-to-login{
   margin-left: 10px;
   color: blue;
+  font-weight: 500;
+}
+
+.tsaccount {
+  font-size: 17px;
+  color: white;
+  font-weight: 500;
 }
 
 .redirection{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -21px;
 }
 
 .signup-login-errors{
@@ -150,5 +225,5 @@ li > .loginbutton:hover, .signupbutton:hover, .SignOutButton:hover {
 }
 
 .error {
-  color: red;
+  color: white;
 }

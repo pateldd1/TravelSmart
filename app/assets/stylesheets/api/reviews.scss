@@ -1,3 +1,96 @@
 // Place all the styles related to the Api/reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.review-entry-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-divider {
+  float: left;
+  width: 100%;
+}
+
+.review-entry-head {
+  display: flex;
+}
+
+.r-author-name {
+  font-weight: normal;
+  color: #484848;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  display: inline;
+}
+
+.reviewbody {
+  position: relative;
+  min-height: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 24px;
+}
+
+.say-hello {
+  background: white;
+  margin: 13px 0px 0px;
+  width: 235px;
+  font-size: 0px;
+  height: 135px;
+  color: black;
+}
+
+.propics {
+  height: 52px;
+  width: 52px;
+  backface-visibility: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+  background-color: #bbb;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: 22px;
+  object-fit: cover;
+}
+
+.say-hello-container {
+  color: white;
+  padding: 10px 0 0 0;
+}
+
+.form-horizontal{
+  color: white;
+  font-size: 19px;
+}
+
+.select-container {
+  color: white;
+  font-size: 16px !important;
+  margin-left: 3px;
+  margin-top: 14px;
+  display: block;
+}
+
+.say-yo{
+  background: white;
+  color: black;
+  font-size: 16px;
+  height: 60px;
+}
+
+.review-form {
+  padding: 0 0 0 34px;
+  /* display: flex; */
+  text-align: center;
+  width: 90% !important;
+}
+
+.select-dropdown {
+  margin-left: 124px;
+}

@@ -9,7 +9,7 @@ const getCoordsObj = latLng => ({
 });
 // set the map to show SF
 const mapOptions = {
-  center: { lat: 37.773972, lng: -122.431297 }, // SF coordinates
+  center: { lat: 37.73972, lng: -122.436297 }, // SF coordinates
   zoom: 13,
   // scrollwheel: false, // turn off scroll wheel
   styles: [
@@ -18,9 +18,11 @@ const mapOptions = {
   mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 
+
 class TravelSmartMap extends React.Component {
   constructor(props){
     super(props);
+    this.initAutocomplete = this.initAutocomplete.bind(this);
   }
   //refs will grab the DOM Node that we specified where this map is located. Once
   //this renders the map into the DOM Node location we initiated with refs
@@ -31,8 +33,11 @@ class TravelSmartMap extends React.Component {
   componentDidMount() {
     const map = this.refs.map;
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    if ( this.props.location.state )
+    {
+      this.map.fitBounds(this.props.location.state);
+    }
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-
     //NOT SURE ABOUT THE SINGLEHOME THING MAKES NO SENSE
     if (this.props.singleHome) {
       this.props.requestHome(this.props.homeid);
@@ -42,18 +47,23 @@ class TravelSmartMap extends React.Component {
     }
   }
 
+  componentWillUnmount(){
+    delete this.map;
+  }
+
   //When the map is idle, we will get the bounds and change the filters to
   //cause a re-rendering
   //event is the event that occurs within the google maps
   //We register the idle event and the click event on the map that will change the url
   //that will add the lat and lng to the url allowing a user to copy and paste the url easier(that's all that its useful for)
   registerListeners() {
+    this.initAutocomplete();
     google.maps.event.addListener(this.map, 'idle', () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west } };
-      this.props.updateFilter('bounds', bounds);
+        this.props.updateFilter('bounds', bounds);
     });
     google.maps.event.addListener(this.map, 'click', (event) => {
       const coords = getCoordsObj(event.latLng);
@@ -63,12 +73,24 @@ class TravelSmartMap extends React.Component {
 
   //Click a marker on the map and it leads us to that home's show page
   handleMarkerClick(home) {
-    this.props.history.push(`/${home.id}`);
+    this.props.history.push(`/homes/${home.id}`);
   }
 
   //Once the window has been seen with new bounds, component has updated, so we
   //will update the markers
   componentDidUpdate() {
+
+    let bouncer = this.MarkerManager.markers[this.props.bouncingMarker.homeid];
+    if (this.props.bouncingMarker.bouncing) {
+      this.MarkerManager.makeBounce.apply(bouncer);
+    }
+    else
+    {
+      if ( bouncer )
+      {
+        this.MarkerManager.dontmakeBounce.apply(bouncer);
+      }
+    }
     if (this.props.singleHome) {
       const targetHomeKey = Object.keys(this.props.homes)[0];
       const targetHome = this.props.homes[targetHomeKey];
@@ -94,6 +116,52 @@ class TravelSmartMap extends React.Component {
     );
   }
 
-}
+  //This is the search by location feature.
+    initAutocomplete() {
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+
+        var searchBox = new google.maps.places.SearchBox(input);
+        // // Listen for the event fired when the user selects a prediction and retrieve
+        // // more details for that place.
+        searchBox.addListener('places_changed', () => {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach((place) => {
+            if (!place.geometry) {
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            if (place.geometry.viewport) {
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          if ( this.props.history.location.pathname.match(/\/.+/))
+          {
+            this.props.history.push({
+              pathname: '/',
+              state: bounds
+            });
+          }
+          else
+          {
+            this.map.fitBounds(bounds);
+          }
+        });
+      }
+  }
 
 export default withRouter(TravelSmartMap);

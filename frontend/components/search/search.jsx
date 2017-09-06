@@ -1,6 +1,7 @@
 import React from 'react';
 import TravelSmartMap from '../travel_smart_map/TravelSmartMap';
 import HomeIndex from '../home_index/home_index';
+import {withRouter} from 'react-router-dom';
 // import { HousingForm, PricingForm } from './filter_form';
 import FilterForm from './filter_form';
 
@@ -33,15 +34,14 @@ class Search extends React.Component {
   //This will cause a change in BOTH THE HOME MAP AND THE HOME index.
 
   //Implement this later
-  // <TravelSmartMap homes={this.props.homes} updateFilter={this.props.updateFilter}  />
 
   render() {
     return (
       <div className="filters-and-homes">
-        <TravelSmartMap homes={this.props.homes} updateFilter={this.props.updateFilter}  />
+        <TravelSmartMap bouncingMarker={this.props.bouncingMarker} homes={this.props.homes} updateFilter={this.props.updateFilter}  />
         {this.filterBar()}
         <section className='index-container'>
-        <HomeIndex sorted={this.props.sorted} homes={this.props.homes} />
+        <HomeIndex bounceFilter={this.props.bounceFilter} sorted={this.props.sorted} homes={this.props.homes} />
         </section>
       </div>
     );
@@ -49,12 +49,3 @@ class Search extends React.Component {
 };
 
 export default Search;
-
-
-// Maybe Use this Later
-
-// <HousingForm
-//   minHousing={this.props.minHousing}
-//   maxHousing={this.props.maxHousing}
-//   updateFilter={this.props.updateFilter}
-//   />

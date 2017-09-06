@@ -19,17 +19,13 @@ export const receivedDeletedTrip = trip => ({
   trip
 });
 
-export const requestTrips = (visitorid) => dispatch => (
-  APIUtil.requestTrips(visitorid).then(trips => (
+export const requestTrips = () => dispatch => (
+  APIUtil.requestTrips().then(trips => (
     dispatch(receivedTrips(trips)))
   )
 );
 
-export const requestTrip = id => dispatch => (
-  APIUtil.requestTrip(id).then(trip => (
-    dispatch(receivedTrip(trip)))
-  )
-);
+//The reveived trip part of this is done so that we can get the trip into our store and then render from trip index container.
 
 export const createTrip = trip => dispatch => (
   APIUtil.createTrip(trip).then(trip => (
@@ -37,8 +33,8 @@ export const createTrip = trip => dispatch => (
   )
 );
 
-export const deleteTrip = trip => dispatch => (
-  APIUtil.deleteTrip(trip).then(trips => (
+export const deleteTrip = tripId => dispatch => (
+  APIUtil.deleteTrip(tripId).then(trips => (
     dispatch(receivedTrips(trips)))
   )
 )

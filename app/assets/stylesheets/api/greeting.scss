@@ -2,17 +2,17 @@
 //   background: yellow;
 // }
 .header-name{
+  margin: -4px 0 0 106px;
   text-align: right;
   font-style: serif;
-  color: dodgerblue;
-  font-size: 17px;
-  margin: 0 18px 0 0;
-  cursor: pointer;
+  color: #FF5A5F;
+  font-size: 21px;
+  text-align: center;
 }
 
-.header-name:hover {
-  text-decoration: underline
-}
+// .header-name:hover {
+//   text-decoration: underline
+// }
 
 .header-link {
   margin-left: 20px;
@@ -20,5 +20,14 @@
 }
 
 .header-nav {
+  display: flex;
   margin-top: 10px;
+  border: 1px solid lightgrey;
+  padding: 5px;
+}
+
+.header-group{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

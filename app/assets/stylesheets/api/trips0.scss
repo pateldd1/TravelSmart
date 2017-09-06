@@ -1,0 +1,56 @@
+// Place all the styles related to the api/trips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tripOverView {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  width: 1080px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Helvetica !important;
+}
+
+.left-image {
+  width: 99%;
+}
+
+.image-and-form {
+  display: flex;
+}
+
+.trip-button{
+  color: white;
+}
+
+.trip-button:hover {
+  color: white;
+  background: green;
+  text-decoration: none;
+}
+
+.caroline:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: red;
+}
+
+.linktohome{
+  fontsize: 15px;
+}
+
+.caroline {
+  color: red;
+  fontsize: 15px;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img
+{
+  height: 700px !important;
+}
+
+.caro{
+  color: white;
+}
