@@ -19,23 +19,7 @@
   display: flex;
 }
 
-.home-card-slider {
-  width: 65%;
-  z-index: 1;
-  padding-top: 15px;
-  position: relative;
-
-  overflow-y: hidden;
-
-  margin-bottom: 0px;
-  padding: 0px;
-  overflow: visible;
-  white-space: normal;
-  margin-top: 200px;
-  margin-left: -5px;
-}
-
-.home-card-container {
+.homeportraits {
   width: 33.333333%;
   display: inline-block;
   vertical-align: top;
@@ -46,19 +30,19 @@
   color: #484848;
 }
 
-.home-card {
+.home-portrait {
   position: relative;
   height: 100%;
   padding: 8px;
 }
 
-.show-card-container {
+.portraitcontainer {
   width: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.show-card { //picture
+.portrait { //picture
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -67,13 +51,13 @@
   object-fit: cover;
 }
 
-.card-top-row {
+.portraitfirstrow {
   padding-top: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.card-norm {
+.normalportrait {
   font-size: 15px;
   font-weight: 300;
   color: #484848;
@@ -85,7 +69,7 @@
   margin-top: 2px;
 }
 
-.card-bold {
+.portait-strong {
   font-weight: 700;
   color: #484848;
   margin: 0px;
@@ -98,16 +82,9 @@
   display: inline;
 }
 
-.card-review {
+.portrait-review {
   margin-top: 4px;
   display: inline-block;
-}
-
-.card-review-stars {
-  vertical-align: middle;
-  font-family: initial;
-  display: inline;
-  margin-right: 4px;
 }
 
 .reviews {
@@ -174,7 +151,7 @@
   width: 9px;
 }
 
-.cards {
+.theportraits {
   margin: 86px 0 0px -9px;
   width: 63%;
 }

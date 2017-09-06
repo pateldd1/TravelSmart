@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.review-top {
+.review-entry-top {
   display: flex;
   justify-content: space-between;
 }
@@ -12,11 +12,11 @@
   width: 100%;
 }
 
-.review-header {
+.review-entry-head {
   display: flex;
 }
 
-.review-author {
+.r-author-name {
   font-weight: normal;
   color: #484848;
   margin: 0px;
@@ -27,7 +27,7 @@
   display: inline;
 }
 
-.review-body {
+.reviewbody {
   position: relative;
   min-height: 1px;
   padding-left: 12px;
@@ -44,7 +44,7 @@
   color: black;
 }
 
-.profile-pic {
+.propics {
   height: 52px;
   width: 52px;
   backface-visibility: hidden;

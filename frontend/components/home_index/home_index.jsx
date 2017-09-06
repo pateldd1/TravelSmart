@@ -7,7 +7,7 @@ class HomeIndex extends React.Component {
     this.bounce = this.bounce.bind(this);
     this.nobounce = this.nobounce.bind(this);
   }
-  
+
   bounce(homeid){
     this.props.bounceFilter(homeid, true);
   }
@@ -18,22 +18,22 @@ class HomeIndex extends React.Component {
 
   travelSmart(home) {
     return (
-      <div className="home-card">
+      <div className="home-portrait">
         <Link to={`/homes/${home.id}`} className="link-to">
 
-          <div className="show-card-container">
-            <img onMouseOver={() => this.bounce(home.id)} onMouseLeave={() => this.nobounce(home.id)} className="show-card" src={home.image_url}/>
+          <div className="portraitcontainer">
+            <img onMouseOver={() => this.bounce(home.id)} onMouseLeave={() => this.nobounce(home.id)} className="portrait" src={home.image_url}/>
           </div>
 
-          <div className="card-top-row">
-            <div className="card-bold">${home.price} {home.title}</div>
+          <div className="portraitfirstrow">
+            <div className="portait-strong">${home.price} {home.title}</div>
           </div>
 
-          <div className="card-bot-row">
-            <div className="card-norm">{home.roomtype} · {home.space.beds} beds</div>
+          <div className="portraitlastrow">
+            <div className="normalportrait">{home.roomtype} · {home.space.beds} beds</div>
           </div>
 
-          <div className="card-review">
+          <div className="portrait-review">
           </div>
 
         </Link>
@@ -53,14 +53,14 @@ class HomeIndex extends React.Component {
     }
     const selectedHomes = arrangedHomes.map((home, idx) => {
       return (
-        <div className="home-card-container" key={idx}>
+        <div className="homeportraits" key={idx}>
           {this.travelSmart(home)}
         </div>
       )
     })
 
     return (
-      <div className="cards">
+      <div className="theportraits">
         {selectedHomes}
       </div>
     )
