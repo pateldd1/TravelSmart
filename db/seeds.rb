@@ -697,7 +697,7 @@ end
 
 Review.destroy_all
 
-600.times do |i|
+200.times do |i|
   Review.create!({
     author_id: User.all.sample.id,
     home_id: Home.all.sample.id,
