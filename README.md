@@ -16,7 +16,7 @@ TravelSmart draws inspiration from AirBnB and helps users find homes for tempora
 * [Reviews](#reviews)
 
 ## Project Information
-This project was developed in 10 days using Ruby on Rails, React.js with Redux, Google Maps, Cloudinary, and Amazon S3.
+This project was developed using Ruby on Rails, React.js with Redux, Google Maps, Cloudinary, and Amazon S3.
 
 ## Features
   * Account creation and authentication
@@ -192,7 +192,7 @@ On the frontend, bootstrap was used to create a carousel that would flip through
 Users can create reviews on a home's show page and can view reviews there as well. A review requires a body and rating. The rating has to be between 1-10. Upon creating a review, the reviews info is stored in the database along with its user_id and home_id. Since review info, author info, and home info are needed, the reviews controller queries the reviews table for reviews that have the same id as the params[:homeid] that is passed in from front end. The .includes method was used again to prevent N+1 queries. In addition, since the reviews and review info would constantly change based on the home show page the user is looking at, the reviews were not stored in the store. A AJAX/database request was made directly in the review jsx component to improve space complexity. This would help a lot of a home had a lot of reviews.
 
 ## Coming Soon
-During the 10 days I spent developing this clone, I realized that I could add numerous things that AirBNB has to improve a user's experience.
+I realized that I could add numerous things that AirBNB has to improve a user's experience.
 
 #### User Profile Pages
 Adding a user profile page would improve the sociality of the app.
