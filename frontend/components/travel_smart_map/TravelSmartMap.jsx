@@ -38,7 +38,6 @@ class TravelSmartMap extends React.Component {
       this.map.fitBounds(this.props.location.state);
     }
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    //NOT SURE ABOUT THE SINGLEHOME THING MAKES NO SENSE
     if (this.props.singleHome) {
       this.props.requestHome(this.props.homeid);
     } else {
@@ -79,7 +78,6 @@ class TravelSmartMap extends React.Component {
   //Once the window has been seen with new bounds, component has updated, so we
   //will update the markers
   componentDidUpdate() {
-
     let bouncer = this.MarkerManager.markers[this.props.bouncingMarker.homeid];
     if (this.props.bouncingMarker.bouncing) {
       this.MarkerManager.makeBounce.apply(bouncer);

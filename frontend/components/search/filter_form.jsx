@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactSlider from 'react-slider'
+import ReactSlider from 'react-slider';
+import NumericInput from 'react-numeric-input';
 //This is very important, there is a change hangler that is placed on
 //the PricingForm. When there is a change in the input, the currentTarget
 //is the thing that the event handler was placed on, the input field. The filters
@@ -13,10 +14,9 @@ class FilterForm extends React.Component {
     this.registerCurrentRange = this.registerCurrentRange.bind(this);
     this.slide = this.slide.bind(this);
     this.dropDownRooms = this.dropDownRooms.bind(this);
+    this.dropDownMoreFilters = this.dropDownMoreFilters.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.detoggleMenu = this.detoggleMenu.bind(this);
-    this.remainOpen = this.remainOpen.bind(this);
-    this.close = this.close.bind(this)
     this.togglePriceSort = this.togglePriceSort.bind(this);
     this.state = {
       minslide: this.props.minPrice,
@@ -75,12 +75,29 @@ class FilterForm extends React.Component {
     )
   }
 
-  remainOpen(){
-    this.setState({dropDownRoomsShown: "roomhide show"});
+  updateMoreFilters(filter, amt){
+    let amtString = amt.toString();
+    console.log(amtString);
+    if ( amtString === "0" )
+    {
+      this.props.updateFilter(filter, undefined);
+    }
+    else {
+      this.props.updateFilter(filter, amtString);
+    }
   }
 
-  close(){
-    this.setState({dropDownRoomsShown: "roomhide"});
+  dropDownMoreFilters(){
+    return(
+      <div className="dropdown" onMouseOver={this.detoggleMenu} onMouseLeave={this.toggleMenu}>
+        <a className="roomtype-button" >More Filters</a>
+        <div className={this.state.dropDownRoomsShown}>
+          <a>Beds <NumericInput min={0} onChange={(amt)=> this.updateMoreFilters("beds", amt)} /></a>
+          <a>Bedrooms <NumericInput min={0} onChange={(amt)=>this.updateMoreFilters("bedrooms", amt)} /></a>
+          <a>Bathrooms <NumericInput min={0} onChange={(amt)=>this.updateMoreFilters("bathrooms", amt)} /></a>
+        </div>
+      </div>
+    )
   }
 
   slide(e){
@@ -118,6 +135,7 @@ class FilterForm extends React.Component {
       </div>
         <div className="more-filters">
           {this.dropDownRooms()}
+          {this.dropDownMoreFilters()}
           <a className="filter-button" onClick={this.togglePriceSort}>Price Sorter</a>
         </div>
       </div>

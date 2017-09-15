@@ -10,6 +10,9 @@ const defaultFilters = Object.freeze({
   minPrice: 10,
   maxPrice: 4010,
   sorted: false,
+  beds: undefined,
+  bedrooms: undefined,
+  bathrooms: undefined,
   bouncingMarker: {homeid: 0, bouncing: false}
 });
 //Min price and maxprice is only gonna change one at a time because of a slider
@@ -19,6 +22,7 @@ const defaultFilters = Object.freeze({
 const FilterReducer = (state = defaultFilters, action) => {
   Object.freeze(state);
   if (action.type === UPDATE_FILTER) {
+    console.log(action.filter, action.value);
     const newFilter = {
       [action.filter]: action.value
     };
