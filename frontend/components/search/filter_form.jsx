@@ -17,11 +17,14 @@ class FilterForm extends React.Component {
     this.dropDownMoreFilters = this.dropDownMoreFilters.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.detoggleMenu = this.detoggleMenu.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.detoggle = this.detoggle.bind(this);
     this.togglePriceSort = this.togglePriceSort.bind(this);
     this.state = {
       minslide: this.props.minPrice,
       maxslide: this.props.maxPrice,
       dropDownRoomsShown: "roomhide",
+      dropDownMoreFilters: "roomhide",
       priceBool: false
     }
   }
@@ -32,6 +35,14 @@ class FilterForm extends React.Component {
 
   toggleMenu(){
     this.setState({dropDownRoomsShown: "roomhide"})
+  }
+
+  detoggle(){
+    this.setState({dropDownMoreFilters: "roomhide show"});
+  }
+
+  toggle(){
+    this.setState({dropDownMoreFilters: "roomhide"})
   }
 
   togglePriceSort(){
@@ -77,7 +88,6 @@ class FilterForm extends React.Component {
 
   updateMoreFilters(filter, amt){
     let amtString = amt.toString();
-    console.log(amtString);
     if ( amtString === "0" )
     {
       this.props.updateFilter(filter, undefined);
@@ -89,12 +99,15 @@ class FilterForm extends React.Component {
 
   dropDownMoreFilters(){
     return(
-      <div className="dropdown" onMouseOver={this.detoggleMenu} onMouseLeave={this.toggleMenu}>
+      <div className="dropdown" onMouseOver={this.detoggle} onMouseLeave={this.toggle}>
         <a className="roomtype-button" >More Filters</a>
-        <div className={this.state.dropDownRoomsShown}>
-          <a>Beds <NumericInput min={0} onChange={(amt)=> this.updateMoreFilters("beds", amt)} /></a>
-          <a>Bedrooms <NumericInput min={0} onChange={(amt)=>this.updateMoreFilters("bedrooms", amt)} /></a>
-          <a>Bathrooms <NumericInput min={0} onChange={(amt)=>this.updateMoreFilters("bathrooms", amt)} /></a>
+        <div className={this.state.dropDownMoreFilters}>
+          <a>Beds</a>
+          <NumericInput className="form-control" min={0} onChange={(amt)=> this.updateMoreFilters("beds", amt)} />
+          <a>Bedrooms</a>
+          <NumericInput className="form-control" min={0} onChange={(amt)=>this.updateMoreFilters("bedrooms", amt)} />
+          <a>Bathrooms</a>
+          <NumericInput className="form-control" min={0} onChange={(amt)=>this.updateMoreFilters("bathrooms", amt)} />
         </div>
       </div>
     )

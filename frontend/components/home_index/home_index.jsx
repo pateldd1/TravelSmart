@@ -30,7 +30,7 @@ class HomeIndex extends React.Component {
           </div>
 
           <div className="portraitlastrow">
-            <div className="normalportrait">{home.roomtype} · {home.space.beds} beds</div>
+            <div className="normalportrait">{home.roomtype} · {home.space.beds} beds · {home.space.bedrooms} bedrooms</div>
           </div>
 
           <div className="portrait-review">

@@ -26,7 +26,7 @@ const FilterReducer = (state = defaultFilters, action) => {
     const newFilter = {
       [action.filter]: action.value
     };
-    return merge({}, state, newFilter);
+    return Object.assign({}, state, newFilter);
   }
   else if(action.type === SORT_FILTER){
     return merge({}, state, {sorted: action.boolean})
