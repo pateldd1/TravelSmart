@@ -200,8 +200,5 @@ Adding a user profile page would improve the sociality of the app.
 #### Hosting
 Allowing users to host homes, view their hosted homes, and delete from them if need be.
 
-#### More Filters
-Filtering by number of beds and bedrooms as well as by reviews will help to improve usability. The beds, bedrooms, etc. would be implemented similarly to how it is implemented on the AirBNB website, with a + and - sign to add or decrease the number of desired elements.
-
 #### Additional UX features
 Infinite Scroll on index pages

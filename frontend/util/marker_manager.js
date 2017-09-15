@@ -30,7 +30,6 @@ export default class MarkerManager {
     //We are saving all of the markers in homesObj, then we have this.markers. we get all of the markers that aren't in this.markers and
     //make new markers out of them. Then, we go to homesObj and find all the markers in this.markers that are not in homesObj and then we
     //we remove all of these markers.
-
     //This.markers is a O(1) operation hash that helps to find the markers that we already have
     //And prevents creating markers that we already have and creates markers that we need now.
     homes
