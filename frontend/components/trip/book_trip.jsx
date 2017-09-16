@@ -62,7 +62,7 @@ class BookTrip extends React.Component {
     return (
         <form className="tripthebookform">About Your Trip
           <br /><br />
-          <div className="tosayhello">What is the purpose of you visit?
+          <div className="tosayhello">What is the purpose of your visit?
             <textarea rows="10" cols="10" className="hellosay" placeholder="to explore the city with some friends..."/>
           </div>
         <div className='containtheselection book-txt'>

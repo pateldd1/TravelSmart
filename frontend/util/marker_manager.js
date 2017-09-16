@@ -70,10 +70,10 @@ export default class MarkerManager {
         color: "black",
         fontFamily: "Helvetica",
         text: "$"+String(home.price),
-        fontSize: "14.5px",
-        fontWeight: "500"
+        fontSize: "15px",
+        fontWeight: "600"
       },
-      anchor: new google.maps.Point(500, 0),
+      anchor: new google.maps.Point(500, 10),
       icon: {url: image, origin: new google.maps.Point(0,-3)},
       // animation: google.maps.Animation.DROP,
       map: this.map,
@@ -104,7 +104,8 @@ export default class MarkerManager {
       var label = this.getLabel();
       label.color="white";
       this.setLabel(label);
-      this.setIcon("http://res.cloudinary.com/dxplu7mua/image/upload/v1502019672/gmap_icon_hover_rwcjmn.png")
+      let ico = {url: "http://res.cloudinary.com/dxplu7mua/image/upload/v1502019672/gmap_icon_hover_rwcjmn.png", origin: new google.maps.Point(0,-3)};
+      this.setIcon(ico);
     }
   }
 
@@ -113,7 +114,8 @@ export default class MarkerManager {
       var label = this.getLabel();
       label.color="black";
       this.setLabel(label);
-      this.setIcon("http://res.cloudinary.com/dxplu7mua/image/upload/v1502019658/gmap_icon_dn7jht.png")
+      let icone = {url: "http://res.cloudinary.com/dxplu7mua/image/upload/v1502019658/gmap_icon_dn7jht.png", origin: new google.maps.Point(0,-3)}
+      this.setIcon(icone);
     }
   }
 
