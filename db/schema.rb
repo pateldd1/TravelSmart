@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170728211547) do
     t.string   "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id", "home_id"], name: "reviews_index", using: :btree
+    t.index ["home_id"], name: "index_reviews_on_home_id", using: :btree
   end
 
   create_table "trips", force: :cascade do |t|
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20170728211547) do
     t.float    "totalcost",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["visitor_id", "home_id"], name: "trips_index", using: :btree
+    t.index ["visitor_id"], name: "index_trips_on_visitor_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,6 +8,6 @@ class CreateTrips < ActiveRecord::Migration[5.0]
       t.float :totalcost, null: false
       t.timestamps null: false
     end
-    add_index :trips, [:visitor_id, :home_id], name: :trips_index
+    add_index :trips, :visitor_id
   end
 end
