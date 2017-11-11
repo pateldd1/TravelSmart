@@ -16,14 +16,16 @@ class CreateHomes < ActiveRecord::Migration[5.0]
       t.integer :beds
       t.timestamps
     end
-    add_index :homes, [:price]
-    add_index :homes, [:bedrooms]
-    add_index :homes, [:bathrooms]
-    add_index :homes, [:beds]
-    add_index :homes, [:start_date]
-    add_index :homes, [:end_date]
-    add_index :homes, [:roomtype]
-    add_index :homes, [:lat]
-    add_index :homes, [:long]
+    add_index :homes, [
+      :lat,
+      :long,
+      :price,
+      :roomtype,
+      :beds,
+      :bedrooms,
+      :bathrooms,
+      :start_date,
+      :end_date,
+    ], name: :homes_index
   end
 end

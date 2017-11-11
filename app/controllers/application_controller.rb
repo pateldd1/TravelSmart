@@ -22,8 +22,6 @@ class ApplicationController < ActionController::Base
     render json: {base: ["invalid credentials"]}, status: 401 if !current_user
   end
 
-  #We make the current_user nil so that if we try to sign out when
-  #we are logged in, this does not work
   def logout_user!
     current_user.reset_session_token!
     session[:session_token] = nil

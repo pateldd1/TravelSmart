@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import SearchContainer from '../search/search_container';
 import HomeShowContainer from '../home_show/home_show_container';
 
 class SessionForm extends React.Component {

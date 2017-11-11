@@ -35,15 +35,7 @@ ActiveRecord::Schema.define(version: 20170728211547) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.index ["bathrooms"], name: "index_homes_on_bathrooms", using: :btree
-    t.index ["bedrooms"], name: "index_homes_on_bedrooms", using: :btree
-    t.index ["beds"], name: "index_homes_on_beds", using: :btree
-    t.index ["end_date"], name: "index_homes_on_end_date", using: :btree
-    t.index ["lat"], name: "index_homes_on_lat", using: :btree
-    t.index ["long"], name: "index_homes_on_long", using: :btree
-    t.index ["price"], name: "index_homes_on_price", using: :btree
-    t.index ["roomtype"], name: "index_homes_on_roomtype", using: :btree
-    t.index ["start_date"], name: "index_homes_on_start_date", using: :btree
+    t.index ["lat", "long", "price", "roomtype", "beds", "bedrooms", "bathrooms", "start_date", "end_date"], name: "homes_index", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -53,8 +45,7 @@ ActiveRecord::Schema.define(version: 20170728211547) do
     t.string   "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_reviews_on_author_id", using: :btree
-    t.index ["home_id"], name: "index_reviews_on_home_id", using: :btree
+    t.index ["author_id", "home_id"], name: "reviews_index", using: :btree
   end
 
   create_table "trips", force: :cascade do |t|
@@ -65,8 +56,7 @@ ActiveRecord::Schema.define(version: 20170728211547) do
     t.float    "totalcost",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_trips_on_home_id", using: :btree
-    t.index ["visitor_id"], name: "index_trips_on_visitor_id", using: :btree
+    t.index ["visitor_id", "home_id"], name: "trips_index", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

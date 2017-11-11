@@ -8,7 +8,6 @@ class CreateReviews < ActiveRecord::Migration[5.0]
 
       t.timestamps null: false
     end
-      add_index :reviews, :author_id
-      add_index :reviews, :home_id
+      add_index :reviews, [:author_id, :home_id], name: :reviews_index
   end
 end
