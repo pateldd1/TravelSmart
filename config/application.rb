@@ -15,7 +15,7 @@ module TravelSmart
     config.paperclip_defaults = {
       :s3_host_name => "s3-#{ENV["AWS_REGION"]}.amazonaws.com",
       :storage => :s3,
-      :s3_region => "us-west-1",
+      :s3_region => "us-east-1",
       :bucket => ENV["s3_bucket"],
       :s3_credentials => {
         :bucket => ENV["s3_bucket"],
