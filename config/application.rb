@@ -11,7 +11,6 @@ module TravelSmart
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
     config.paperclip_defaults = {
       :s3_host_name => "s3-#{ENV["AWS_REGION"]}.amazonaws.com",
       :storage => :s3,
